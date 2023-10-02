@@ -1,0 +1,152 @@
+@font-face {
+    font-family: CyberpunkWaifus;
+    src: url(Fonts/CyberpunkWaifus.ttf);
+}
+
+:root {
+    --bg-img: url(Images/blackbg.png);
+    --text-color: white;
+    --main-font: CyberpunkWaifus;
+    --hover-color: #4D0A31FF;
+}
+
+.bright-text {
+    color: var(--text-color);
+}
+
+.center, .center img, .center form {
+    display: block;
+    margin: auto;
+    width: 50%;
+}
+
+.center ul, .center li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    list-style-type: none;
+}
+
+.container {
+    position: relative;
+}
+  
+.error-message {
+    color:#882222;
+}
+
+.header {
+    /* overflow: hidden; */
+    position: sticky;
+    top: 0%;
+    left: 50%;
+    background-image: var(--bg-img);
+    /* border-bottom: 1px solid rgba(85, 85, 85, 0.438); */
+    padding: 20px 10px;
+    width: 69%;
+}
+
+.pfp-preview {
+    width: 50px;
+    border: 3px solid rgb(255, 255, 255);
+}
+
+.pixel-text {
+    font-family: var(--main-font);
+}
+
+.submit-button {
+    width: 100%;
+}
+
+.top-right {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+}
+
+.top-left {
+    position: fixed;
+    top: 88px;
+    left: 16px;
+    font-size: 18px;
+}
+
+a.top-left {
+    position: fixed;
+    top: 105px;
+    left: 90px;
+}
+
+body {
+    background-color: #000000;
+    background-image: var(--bg-img);
+    background-attachment: fixed;
+    color: #000000;
+}
+    
+form {
+    background-color:#F0D3CEFF;
+    height: 100%;
+    padding: 21px;	
+    width: 50px;
+}
+
+input, select {
+    background-color: var(--hover-color);
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 1px;
+    color: var(--text-color);
+    font-family: var(--main-font);
+    width: 69%;
+}
+
+input:focus {
+    background-color: lightblue;
+    color: #000000;
+    border: 3px solid #555;
+}
+
+/* Removes number/slider from input of number type */
+
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    
+    /* Firefox */
+    input[type=number] {
+        appearance: none;
+        -moz-appearance: textfield;
+    }
+
+/*                                                */
+
+label { 
+    float: left; 
+    width: 31%;
+} 
+
+legend {
+    text-transform: uppercase; 
+}
+
+li a {
+    color: white;
+    padding: 21px 69px;
+    text-decoration: none;
+}
+  
+li a:hover {
+    background-color: #ad2222;
+}
+
+#newsletter {
+    width: 80%;
+}
+
+#newsletter_checkbox {
+    width: 10%;
+}
+
