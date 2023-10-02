@@ -58,7 +58,7 @@
 
                     <!-- Sets newuser_ReceiveNewsletter to No by default -->
                     <?php
-                        $_POST["newuser_ReceiveNewsletter"] = "No";
+                        // $_POST["newuser_ReceiveNewsletter"] = "No";
                     ?>
 
                     <label for="newsletter" id="newsletter">Receive newsletters via e-mail? </label>
@@ -67,7 +67,7 @@
 
                     <br/><br/>
 
-                    <input class="center submit-button" type="submit" value="Register"></input>
+                    <input class="submit-button" type="submit" value="Register"></input>
 
                 </fieldset>
                     
@@ -152,7 +152,7 @@
                                     $username = 'ODBC';
                                     $password = "";
                                     $dbname = 'TheAugmentedEye';
-                                    $insert_logging = true;
+                                    $show_insert_info = true;
 
                                     try{
                                         
@@ -175,7 +175,7 @@
 
                                         $dbh = new PDO("mysql:host=$hostname;dbname=$dbname",$username,$password);
 
-                                        if ($insert_logging) {echo 'Connected successfully<br/>';}
+                                        if ($show_insert_info) {echo 'Connected successfully<br/>';}
 
                                         $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);                 
 
@@ -191,10 +191,10 @@
                                             'newuser_Birthday' => $_POST["newuser_Birthday"],
                                             'newuser_Email' => $_POST["newuser_Email"],
                                             'newuser_Contact' => $_POST["newuser_Contact"],
-                                            'newuser_ReceiveNewsletter' => $_POST["newuser_ReceiveNewsletter"],
+                                            'newuser_ReceiveNewsletter' => $_POST["newuser_ReceiveNewsletter"] ?? "No",
                                         ];
                                         
-                                        if ($insert_logging) {
+                                            if ($show_insert_info) {
                                             echo "Trying to insert values: <br>";
                                             foreach ($data as $key => $value) {
                                                 echo "$key: $value<br>";
@@ -203,7 +203,7 @@
                                     
                                         $stmt->execute($data);
 
-                                        if ($insert_logging) {echo 'New records created successfully';}
+                                        if ($show_insert_info) {echo 'New records created successfully';}
 
                                     }catch(PDOException $e){
 
