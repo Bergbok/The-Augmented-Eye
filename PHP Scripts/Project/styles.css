@@ -40,7 +40,7 @@
     position: sticky;
     top: 0%;
     left: 50%;
-    background-image: var(--bg-img);
+    /* background-image: var(--bg-img); */
     /* border-bottom: 1px solid rgba(85, 85, 85, 0.438); */
     padding: 20px 10px;
     width: 69%;
