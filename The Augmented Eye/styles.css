@@ -7,6 +7,8 @@
     --bg-img: url(Images/blackbg.png);
     --text-color: white;
     --main-font: CyberpunkWaifus;
+    --input-color: #4D0A31FF;
+    --input-focused-color: lightblue;
     --hover-color: #4D0A31FF;
 }
 
@@ -94,7 +96,7 @@ form {
 }
 
 input, select {
-    background-color: var(--hover-color);
+    background-color: var(--input-color);
     border: 1px solid rgb(0, 0, 0);
     border-radius: 1px;
     color: var(--text-color);
@@ -103,7 +105,7 @@ input, select {
 }
 
 input:focus {
-    background-color: lightblue;
+    background-color: var(--input-focused-color);
     color: #000000;
     border: 3px solid #555;
 }
@@ -140,7 +142,7 @@ li a {
 }
   
 li a:hover {
-    background-color: #ad2222;
+    background-color: var(--hover-color);
 }
 
 #newsletter {
