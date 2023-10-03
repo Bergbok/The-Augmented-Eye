@@ -38,13 +38,24 @@
                         include("PHP Scripts/Login-Handler.php");
                         if (logIn()) {
                             echo "<p> Successfully logged in! </p> <br>";
-                            print_r($_SESSION);
+                            header("Location: Home.php");
                         }
                     }
                 ?>
 
+                <br></br>
+                <form>
+                    <fieldset>
+
+                        <legend align="center">
+                            <strong>Don't have an account?</strong>
+                        </legend>
+
+                        <button class="submit-button" onclick="location.href='/The Augmented Eye/Registration.php'" type="button">Register</button>
+
+                    </fieldset>
+                </form>
             </form>
         </div>
     </body>
-
 </html>

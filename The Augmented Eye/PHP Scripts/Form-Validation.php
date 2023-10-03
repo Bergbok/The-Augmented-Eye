@@ -18,7 +18,7 @@
 
     function validateLogin() {
         $show_login_errors = true;
-        $show_provided_login_info = false;
+        $show_provided_login_info = true;
 
         $user_Email_isvalid = $user_Password_isvalid = false;
 
@@ -29,7 +29,7 @@
                     if (isset($_POST["user_Email"])) {
                         $user_Email_isvalid = true;
                         if ($show_provided_login_info == true){
-                            echo '<p class="error-message"> Provided name is: '.$_POST["newuser_Name"].'</p>';
+                            echo '<p class="error-message"> Provided name is: '.$_POST["user_Email"].'</p>';
                         }
                     } elseif ($show_login_errors == true) {
                         echo '<p class="error-message"> Please enter your email </p>';   
@@ -38,7 +38,7 @@
                     if (isset($_POST["user_Password"])) {
                         $user_Password_isvalid = true;
                         if ($show_provided_login_info == true){
-                            echo '<p class="error-message"> Provided surname is: '.$_POST["newuser_Surname"].'</p>';
+                            echo '<p class="error-message"> Provided password is: '.$_POST["user_Password"].'</p>';
                         }
                     } elseif ($show_login_errors == true) {
                         echo '<p class="error-message"> Please enter your password </p>';

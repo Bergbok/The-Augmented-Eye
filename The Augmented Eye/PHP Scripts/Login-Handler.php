@@ -14,7 +14,6 @@
         if ($userExists) {
             //print_r($userInfo);
 
-            session_start();
             $_SESSION["loggedIn"] = true;
             $_SESSION["loggedInSince"] = date('d-m-y h:i:s');
             $_SESSION["userName"] = $userInfo["userName"];
@@ -29,5 +28,10 @@
         } else {
             return false;
         }
+    }
+
+    function logOut() {
+        session_destroy();
+        header("Location: Home.php");
     }
 ?>

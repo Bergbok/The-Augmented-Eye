@@ -12,6 +12,13 @@
     --hover-color: #4D0A31FF;
 }
 
+.bottom-center {
+    position: absolute;
+    scale: 200%;
+    bottom: 5%;
+    left: 2%;
+}
+
 .bright-text {
     color: var(--text-color);
 }
@@ -29,12 +36,29 @@
     list-style-type: none;
 }
 
-.container {
-    position: relative;
+p.center {
+    text-align: center;
 }
   
 .error-message {
     color:#882222;
+}
+
+.dropdown-items {
+    display: none;
+}
+
+.dropdown {
+    z-index: 1;
+    list-style-type: none;
+}
+  
+.dropdown:hover .dropdown-items{
+    display: block;
+    position: absolute;
+    width: 250px;
+    top: 21px;
+    left: -21px;
 }
 
 .header {
@@ -47,6 +71,16 @@
     /* border-bottom: 1px solid rgba(85, 85, 85, 0.438); */
     padding: 20px 0px;
     width: 69%;
+}
+
+.header li a {
+    color: white;
+    padding: 21px 69px;
+    text-decoration: none;
+}
+  
+.header li a:hover {
+    background-color: var(--hover-color);
 }
 
 .pfp-preview {
@@ -75,10 +109,16 @@
     font-size: 18px;
 }
 
-a.top-left {
+a.top-left, p.top-left {
     position: fixed;
     top: 105px;
     left: 90px;
+}
+
+li.top-left {
+    position: fixed;
+    top: 90px;
+    left: 105px;
 }
 
 body {
@@ -95,7 +135,7 @@ form {
     width: 50px;
 }
 
-input, select {
+input, select, button {
     background-color: var(--input-color);
     border: 1px solid rgb(0, 0, 0);
     border-radius: 1px;
@@ -135,16 +175,6 @@ legend {
     text-transform: uppercase; 
 }
 
-li a {
-    color: white;
-    padding: 21px 69px;
-    text-decoration: none;
-}
-  
-li a:hover {
-    background-color: var(--hover-color);
-}
-
 #newsletter {
     width: 80%;
 }
@@ -153,3 +183,11 @@ li a:hover {
     width: 10%;
 }
 
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    color: initial;
+}

@@ -10,6 +10,9 @@
                 $protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
                 $url = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?? NULL;
                 return urldecode($url) . "<br>"; 
+            case "page": //Outputs current page identifier
+                $uri = $_SERVER['REQUEST_URI'] ?? NULL;
+                return urldecode(rtrim(substr($uri, strrpos($uri, '/') + 1),"<br>"));
             case "query-string": // Outputs: Query String
                 $query = $_SERVER['QUERY_STRING'] ?? NULL;
                 return urldecode($query) . "<br>"; 
