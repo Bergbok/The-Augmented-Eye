@@ -5,11 +5,18 @@
 
 :root {
     --bg-img: url(Images/blackbg.png);
-    --text-color: white;
+    --light-text-color: white;
+    --dark-text-color: black;
+    --strong-text-color: #242424;
     --main-font: CyberpunkWaifus;
     --input-color: #4D0A31FF;
     --input-focused-color: lightblue;
     --hover-color: #4D0A31FF;
+}
+
+.article p {
+    color: var(--dark-text-color);
+    text-align: justify;
 }
 
 .bottom-center {
@@ -20,7 +27,7 @@
 }
 
 .bright-text {
-    color: var(--text-color);
+    color: var(--light-text-color);
 }
 
 .center, .center img, .center form {
@@ -36,7 +43,7 @@
     list-style-type: none;
 }
 
-p.center {
+*.center > * {
     text-align: center;
 }
   
@@ -82,6 +89,18 @@ p.center {
 .header li a:hover {
     background-color: var(--hover-color);
 }
+
+/* .header-tabs { */
+    /* display: flex; */
+    /* flex-direction: row;     make main axis horizontal (default setting) */
+    /* justify-content: center; center items horizontally, in this case */
+    /* align-items: center;     center items vertically, in this case */
+    /* height: 300px;
+}
+
+.header-tabs > li {
+    flex: 1;
+} */
 
 .pfp-preview {
     width: 50px;
@@ -130,7 +149,8 @@ body {
     
 form {
     background-color:#F0D3CEFF;
-    height: 100%;
+    /* After 7 digits the browser sets the height equal to it's containing content, somehow works perfectly so I'm not changing it xd */
+    height: 9999999%;
     padding: 21px;	
     width: 50px;
 }
@@ -139,7 +159,7 @@ input, select, button {
     background-color: var(--input-color);
     border: 1px solid rgb(0, 0, 0);
     border-radius: 1px;
-    color: var(--text-color);
+    color: var(--light-text-color);
     font-family: var(--main-font);
     width: 69%;
 }
@@ -175,6 +195,10 @@ legend {
     text-transform: uppercase; 
 }
 
+strong {
+    color: var(--strong-text-color)
+}
+
 #newsletter {
     width: 80%;
 }
@@ -183,11 +207,11 @@ legend {
     width: 10%;
 }
 
-a.button {
+/* a.button {
     -webkit-appearance: button;
     -moz-appearance: button;
     appearance: button;
 
     text-decoration: none;
     color: initial;
-}
+} */

@@ -14,9 +14,8 @@
 
     <body>
         <div class="header center pixel-text">
-            <img src="Images/logo.png" alt="The Augemented Eye Logo">
-            <br></br>
-            <ul>
+            <img src="Images/logo.png" alt="The Augemented Eye Logo"></img>
+            <ul class="header-tabs">
                 <li><a href="Home.php">Home</a></li>
                 <li><a href="News.php">News</a></li>
                 <li><a href="Contact.php">Contact</a></li>
