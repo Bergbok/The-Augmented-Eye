@@ -1,3 +1,5 @@
+<?php include('Header.php'); ?>
+
 <html>
 
     <head>
@@ -6,8 +8,6 @@
         <link rel="stylesheet" href="styles.css">
 
     </head>
-    
-    <?php include('Header.php'); ?>
 
     <body>
         <div class="center pixel-text">

@@ -1,13 +1,12 @@
-<!DOCTYPE html>
+<?php include('Header.php'); ?>
+
 <html> 
     <head>
 
-        <title> Page not Found! </title>
+        <title> 404 | Page not Found! </title>
         <link rel="stylesheet" href="styles.css">
 
     </head>
-
-    <?php include('Header.php'); ?>
 
     <body>
         <img class="center" src="Images/404.png" alt="sorry bro" style="right:50px;">

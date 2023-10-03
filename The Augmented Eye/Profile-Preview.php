@@ -8,7 +8,6 @@
         <div class="pixel-text bright-text">
             <img class="pfp-preview top-left" src="Images/pfp-placeholder.png"></img>
             <?php
-                session_start();
                 if (isset($_SESSION["userName"])) {
                     echo "<li class='dropdown bright-text top-left'>
                             <p>Welcome back, ".$_SESSION["userName"]."</p>
