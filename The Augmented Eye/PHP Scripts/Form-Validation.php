@@ -137,7 +137,7 @@
 
     function validateArticle() {
         $show_article_errors = true;
-        $show_provided_article_info = true;
+        $show_provided_article_info = false;
 
         $article_Title_isvalid = $article_Content_isvalid = false;
 
@@ -155,9 +155,13 @@
                     }
 
                     if (isset($_POST["article_Content"])) {
-                        $article_Content_isvalid = true;
-                        if ($show_provided_article_info == true){
-                            echo '<p class="error-message"> Provided article text is: '.$_POST["article_Content"].'</p>';
+                        if (strlen($_POST["article_Content"]) < 50) {
+                            echo '<p class="error-message"> Provided article text is only '.strlen($_POST["article_Content"]).' characters long, please ensure that you enter at least 50 characters</p>';
+                        } else {
+                            $article_Content_isvalid = true;
+                            if ($show_provided_article_info == true){
+                                echo '<p class="error-message"> Provided article text is: '.$_POST["article_Content"].'</p>';
+                            }
                         }
                     } elseif ($show_article_errors == true) {
                         echo '<p class="error-message"> Please enter article text </p>';

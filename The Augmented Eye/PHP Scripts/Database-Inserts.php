@@ -44,7 +44,7 @@
     }
 
     function insertArticle() {
-        $show_insert_info = true;
+        $show_insert_info = false;
 
         try{
             $dbh = connectToDB();
@@ -56,8 +56,8 @@
             $data = [
                 'articleID' => generatePassword(30),
                 'articleAuthor' => $_SESSION["userName"],
-                'articleTitle' => $_POST["articleTitle"],
-                'articleContent' => $_POST["articleContent"],
+                'articleTitle' => $_POST["article_Title"],
+                'articleContent' => $_POST["article_Content"],
                 'articlePublishDate' => date("Y-m-d H:i:s")
             ];
             
