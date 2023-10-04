@@ -150,7 +150,7 @@ body {
 form {
     background-color:#F0D3CEFF;
     /* After 7 digits the browser sets the height equal to it's containing content, somehow works perfectly so I'm not changing it xd */
-    height: 9999999%;
+    height: 999999999999999999999999%;
     padding: 21px;	
     width: 50px;
 }
