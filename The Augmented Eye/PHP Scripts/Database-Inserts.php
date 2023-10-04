@@ -50,12 +50,12 @@
             $dbh = connectToDB();
 
             //prepare the sql statement
-            $stmt = $dbh->prepare("INSERT INTO Articles (articleID, articleAuthor, articleTitle, articleContent, articlePublishDate)
-            VALUES (:articleID, :articleAuthor, :articleTitle, :articleContent, :articlePublishDate)");
+            $stmt = $dbh->prepare("INSERT INTO Articles (articleID, articleAuthorID, articleTitle, articleContent, articlePublishDate)
+            VALUES (:articleID, :articleAuthorID, :articleTitle, :articleContent, :articlePublishDate)");
             
             $data = [
                 'articleID' => generatePassword(30),
-                'articleAuthor' => $_SESSION["userName"],
+                'articleAuthorID' => $_SESSION["userID"],
                 'articleTitle' => $_POST["article_Title"],
                 'articleContent' => $_POST["article_Content"],
                 'articlePublishDate' => date("Y-m-d H:i:s")

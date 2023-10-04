@@ -16,6 +16,7 @@
 
             $_SESSION["loggedIn"] = true;
             $_SESSION["loggedInSince"] = date('d-m-y h:i:s');
+            $_SESSION["userID"] = $userInfo["userID"];
             $_SESSION["userName"] = $userInfo["userName"];
             $_SESSION["userSurname"] = $userInfo["userSurname"];
             $_SESSION["userGender"] = $userInfo["userGender"];
