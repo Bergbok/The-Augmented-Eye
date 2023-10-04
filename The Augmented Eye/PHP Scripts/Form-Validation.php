@@ -134,4 +134,42 @@
             return false;
         }
     }
+
+    function validateArticle() {
+        $show_article_errors = true;
+        $show_provided_article_info = true;
+
+        $article_Title_isvalid = $article_Content_isvalid = false;
+
+        if (isset($_SERVER["REQUEST_METHOD"])){
+            if ($_SERVER["REQUEST_METHOD"] == "POST"){                
+                if ($show_provided_article_info || $show_article_errors == true) {
+
+                    if (isset($_POST["article_Title"])) {
+                        $article_Title_isvalid = true;
+                        if ($show_provided_article_info == true){
+                            echo '<p class="error-message"> Provided title is: '.$_POST["article_Title"].'</p>';
+                        }
+                    } elseif ($show_article_errors == true) {
+                        echo '<p class="error-message"> Please enter a title </p>';   
+                    }
+
+                    if (isset($_POST["article_Content"])) {
+                        $article_Content_isvalid = true;
+                        if ($show_provided_article_info == true){
+                            echo '<p class="error-message"> Provided article text is: '.$_POST["article_Content"].'</p>';
+                        }
+                    } elseif ($show_article_errors == true) {
+                        echo '<p class="error-message"> Please enter article text </p>';
+                    }
+                }
+            }
+        }
+
+        if ($article_Title_isvalid == true && $article_Content_isvalid == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 ?>

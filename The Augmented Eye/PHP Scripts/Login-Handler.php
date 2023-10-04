@@ -32,6 +32,13 @@
 
     function logOut() {
         session_destroy();
-        header("Location: Home.php");
+    }
+
+    function isLoggedIn() {
+        if (isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true) {
+            return true;
+        } else {
+            return false;
+        }
     }
 ?>

@@ -76,7 +76,12 @@
                     //Inserting user into database
                     if (validateRegistration() == true) {
                         include("PHP Scripts/Database-Inserts.php");
-                        insertUser();
+                        if (insertUser()) {
+                            echo "<p> Successfully created account, check your email for your password. </p>";
+                            echo "<a class='dark-text' href='Login.php'> LOGIN </a>";
+                        } else {
+                            echo "<p> Couldn't create account </p>";
+                        }
                     }
                 ?>
             </form>      

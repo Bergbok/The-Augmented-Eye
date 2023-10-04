@@ -51,6 +51,11 @@
     color:#882222;
 }
 
+.dark-text {
+    color: var(--dark-text-color);
+}
+
+
 .dropdown-items {
     display: none;
 }
@@ -152,7 +157,7 @@ form {
     /* After 7 digits the browser sets the height equal to it's containing content, somehow works perfectly so I'm not changing it xd */
     height: 999999999999999999999999%;
     padding: 21px;	
-    width: 50px;
+    width: 1000px;
 }
 
 input, select, button {
@@ -164,7 +169,7 @@ input, select, button {
     width: 69%;
 }
 
-input:focus {
+input:focus, textarea:focus {
     background-color: var(--input-focused-color);
     color: #000000;
     border: 3px solid #555;
@@ -197,6 +202,12 @@ legend {
 
 strong {
     color: var(--strong-text-color)
+}
+
+textarea {
+    color: var(--light-text-color);
+    background-color: var(--input-color);
+    width: 100%;
 }
 
 #newsletter {

@@ -1,23 +1,18 @@
 <?php
-    include("Database-Authentication-Info.php");
+    date_default_timezone_set('UTC');
+    include("Database-Connection.php");
     function insertUser() {
-        $show_insert_info = true;
-
-        global $db_hostname, $db_username, $db_password, $db_name;
+        $show_insert_info = false;
 
         try{
             
             include("generatePassword.php");
 
-            $dbh = new PDO("mysql:host=$db_hostname;dbname=$db_name",$db_username,$db_password);
-
-            if ($show_insert_info) {echo 'Connected successfully<br/>';}
-
-            $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);                 
+            $dbh = connectToDB();
 
             //prepare the sql statement
-            $stmt = $dbh->prepare("INSERT INTO Users (userPassword, userName, userSurname, userGender, userBirthday, userEmail, userContactNo, userSubscribedToNewsletter)
-            VALUES (:userPassword, :newuser_Name, :newuser_Surname, :newuser_Gender, :newuser_Birthday, :newuser_Email, :newuser_Contact, :newuser_ReceiveNewsletter)");
+            $stmt = $dbh->prepare("INSERT INTO Users (userPassword, userName, userSurname, userGender, userBirthday, userEmail, userContactNo, userSubscribedToNewsletter, userRegistrationDate)
+            VALUES (:userPassword, :newuser_Name, :newuser_Surname, :newuser_Gender, :newuser_Birthday, :newuser_Email, :newuser_Contact, :newuser_ReceiveNewsletter, :newuser_RegistrationDate)");
             
             $data = [
                 'userPassword' => generatePassword(30),
@@ -28,9 +23,10 @@
                 'newuser_Email' => $_POST["newuser_Email"],
                 'newuser_Contact' => $_POST["newuser_Contact"],
                 'newuser_ReceiveNewsletter' => $_POST["newuser_ReceiveNewsletter"] ?? "No",
+                'newuser_RegistrationDate' => date("Y-m-d H:i:s")
             ];
             
-                if ($show_insert_info) {
+            if ($show_insert_info) {
                 echo "Trying to insert values: <br>";
                 foreach ($data as $key => $value) {
                     echo "$key: $value<br>";
@@ -40,11 +36,53 @@
             $stmt->execute($data);
 
             if ($show_insert_info) {echo 'New records created successfully';}
+            return true;
+
+        }catch(PDOException $e){
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
+    function insertArticle() {
+        $show_insert_info = true;
+
+        try{
+            
+            include("generatePassword.php");
+
+            $dbh = connectToDB();
+
+            //prepare the sql statement
+            $stmt = $dbh->prepare("INSERT INTO Articles (articleID, articleAuthor, articleTitle, articleContent, articlePublishDate)
+            VALUES (:articleID, :articleAuthor, :articleTitle, :articleContent, :articlePublishDate)");
+            
+            $data = [
+                'articleID' => generatePassword(30),
+                'articleAuthor' => $_SESSION["userName"],
+                'articleTitle' => $_POST["articleTitle"],
+                'articleContent' => $_POST["articleContent"],
+                'articlePublishDate' => date("Y-m-d H:i:s")
+            ];
+            
+            if ($show_insert_info) {
+                echo "Trying to insert values: <br>";
+                foreach ($data as $key => $value) {
+                    echo "$key: $value<br>";
+                }
+            }
+        
+            $stmt->execute($data);
+
+            if ($show_insert_info) {echo 'New records created successfully';}
+            return true;
 
         }catch(PDOException $e){
 
             echo $e->getMessage();
+            return false;
 
         }
+
     }
 ?>

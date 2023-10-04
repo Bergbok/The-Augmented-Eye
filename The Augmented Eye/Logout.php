@@ -1,7 +1,8 @@
 <?php 
     header( "refresh:3;url=Home.php" );
     include('Header.php'); 
-    session_destroy();
+    include('PHP Scripts/Login-Handler.php');
+    logOut();
     // include('PHP Scripts/Alert-Handler.php') ;
 ?>
 
