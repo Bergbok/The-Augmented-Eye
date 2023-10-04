@@ -1,13 +1,12 @@
 <?php
     date_default_timezone_set('UTC');
-    include("Database-Connection.php");
+    include_once("Database-Connection.php");
+    include_once("generatePassword.php");
+
     function insertUser() {
         $show_insert_info = false;
 
         try{
-            
-            include("generatePassword.php");
-
             $dbh = connectToDB();
 
             //prepare the sql statement
@@ -48,9 +47,6 @@
         $show_insert_info = true;
 
         try{
-            
-            include("generatePassword.php");
-
             $dbh = connectToDB();
 
             //prepare the sql statement

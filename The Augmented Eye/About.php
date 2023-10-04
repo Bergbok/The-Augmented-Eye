@@ -1,4 +1,4 @@
-<?php include('Header.php') ?>
+<?php include_once('Header.php') ?>
 
 <html>
 
@@ -14,7 +14,7 @@
         <form class="center">
             <h1><strong> About </strong></h1>
             <div class="article">
-                <?php include('Lorem Ipsum.html') ?>
+                <?php include_once('Lorem Ipsum.html') ?>
             </div>
         </form>
     </div>

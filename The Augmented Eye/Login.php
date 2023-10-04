@@ -1,5 +1,5 @@
 <?php
-    include('Header.php'); 
+    include_once('Header.php'); 
 ?>
 
 <html>
@@ -35,9 +35,9 @@
                 </fieldset>
 
                 <?php 
-                    include("PHP Scripts/Form-Validation.php"); 
+                    include_once("PHP Scripts/Form-Validation.php"); 
                     if (validateLogin()) {
-                        include("PHP Scripts/Login-Handler.php");
+                        include_once("PHP Scripts/Login-Handler.php");
                         if (logIn()) {
                             echo "<p> Successfully logged in! </p> <br>";
                             header("Location: Home.php");

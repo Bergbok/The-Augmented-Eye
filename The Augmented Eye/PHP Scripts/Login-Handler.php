@@ -1,5 +1,5 @@
 <?php
-    include("Database-Selects.php");
+    include_once("Database-Selects.php");
     function logIn() {
         $where_clause = "userEmail = :email AND userPassword = :password";
         $where_values = [

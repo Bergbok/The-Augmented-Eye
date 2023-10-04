@@ -10,7 +10,7 @@
 
     </head>
 
-    <?php include('Profile-Preview.php'); ?>
+    <?php include_once('Profile-Preview.php'); ?>
 
     <body>
         <div class="header center pixel-text">

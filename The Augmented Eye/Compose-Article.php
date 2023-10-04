@@ -1,5 +1,5 @@
 <?php
-    include('Header.php'); 
+    include_once('Header.php'); 
 ?>
 
 <html>
@@ -26,15 +26,15 @@
                 <input class="submit-button" type="submit" value="Submit"></input>
 
                 <?php         
-                    include('PHP Scripts/Login-Handler.php');
+                    include_once('PHP Scripts/Login-Handler.php');
                     if (!isLoggedIn()){
                         echo "<p> Login to be able to post. </p>";
                         echo "<a class='dark-text' href='Login.php'> LOGIN </a>";
                     } else {
-                        include("PHP Scripts/Form-Validation.php");
+                        include_once("PHP Scripts/Form-Validation.php");
                         //Inserting user into database
                         if (validateArticle() == true) {
-                            include("PHP Scripts/Database-Inserts.php");
+                            include_once("PHP Scripts/Database-Inserts.php");
                             if (insertArticle()) {
                                 echo "<p> Successfully submitted article. </p>";
                             } else {

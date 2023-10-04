@@ -1,5 +1,5 @@
 <?php
-    include("Database-Connection.php");
+    include_once("Database-Connection.php");
     function selectUser($where_clause, $where_values) {
         $show_select_info = false;
 

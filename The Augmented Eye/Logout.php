@@ -1,9 +1,9 @@
 <?php 
     header( "refresh:3;url=Home.php" );
-    include('Header.php'); 
-    include('PHP Scripts/Login-Handler.php');
+    include_once('Header.php'); 
+    include_once('PHP Scripts/Login-Handler.php');
     logOut();
-    // include('PHP Scripts/Alert-Handler.php') ;
+    // include_once('PHP Scripts/Alert-Handler.php') ;
 ?>
 
 <html>

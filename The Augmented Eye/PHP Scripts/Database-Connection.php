@@ -1,6 +1,6 @@
 <?php
 
-    include("Database-Authentication-Info.php");
+    include_once("Database-Authentication-Info.php");
 
     function connectToDB() {
         $show_connection_info = false;

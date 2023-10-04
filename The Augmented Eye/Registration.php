@@ -1,4 +1,4 @@
-<?php include('Header.php'); ?>
+<?php include_once('Header.php'); ?>
 
 <html>
 
@@ -72,10 +72,10 @@
                 </fieldset>
                     
                 <?php         
-                    include("PHP Scripts/Form-Validation.php");
+                    include_once("PHP Scripts/Form-Validation.php");
                     //Inserting user into database
                     if (validateRegistration() == true) {
-                        include("PHP Scripts/Database-Inserts.php");
+                        include_once("PHP Scripts/Database-Inserts.php");
                         if (insertUser()) {
                             echo "<p> Successfully created account, check your email for your password. </p>";
                             echo "<a class='dark-text' href='Login.php'> LOGIN </a>";

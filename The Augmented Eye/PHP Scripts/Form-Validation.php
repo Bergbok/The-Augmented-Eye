@@ -1,5 +1,5 @@
 <?php
-    // include("getCurrentPageInfo.php"); 
+    // include_once("getCurrentPageInfo.php"); 
     
     // $uri = getCurrentPageInfo("uri");
 

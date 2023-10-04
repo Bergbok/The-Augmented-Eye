@@ -1,5 +1,5 @@
 <?php
-    include('Header.php'); 
+    include_once('Header.php'); 
 ?>
 
 <html>
