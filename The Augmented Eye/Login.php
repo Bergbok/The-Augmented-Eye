@@ -41,6 +41,8 @@
                         if (logIn()) {
                             echo "<p> Successfully logged in! </p> <br>";
                             header("Location: Home.php");
+                        } else {
+                            echo "<p class='error-message'> No accounts found for given email/password combination. </p> <br>";
                         }
                     }
                 ?>
