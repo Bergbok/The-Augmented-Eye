@@ -6,7 +6,6 @@
 
     <head>
 
-        <title> TITLE-GOES-HERE </title>
         <link rel="stylesheet" href="styles.css">
 
     </head>
@@ -27,6 +26,7 @@
                 if ($articleExists) {
                     $article_author_name = getUserNameFromArticleID($articleInfo["articleID"]);
                     $article_author_surname = getUserSurnameFromArticleID($articleInfo["articleID"]);
+                    echo "<title> ".$articleInfo["articleTitle"]." </title>";
                     echo "<div class='center pixel-text'>";
                     echo "  <form>";
                     echo "      <div class='article-header'>";

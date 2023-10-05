@@ -74,7 +74,7 @@
                 <?php         
                     include_once("PHP Scripts/Form-Validation.php");
                     //Inserting user into database
-                    if (validateRegistration() == true) {
+                    if (validateRegistration()) {
                         include_once("PHP Scripts/Database-Inserts.php");
                         if (insertUser()) {
                             echo "<p> Successfully created account, check your email for your password. </p>";

@@ -16,7 +16,10 @@
     </head> 
 
     <body>
-        <p class="center pixel-text bright-text"> You've been logged out, cya</p>
+        <div class="center">
+            <p class="pixel-text bright-text"> You've been logged out, cya</p>
+        </div>
+        
         <div class="bottom-center">
             <img src="Images/Wave.gif" alt="Bye :)"></img>
         </div>

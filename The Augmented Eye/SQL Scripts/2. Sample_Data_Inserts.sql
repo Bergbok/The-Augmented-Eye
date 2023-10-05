@@ -1,11 +1,11 @@
 USE TheAugmentedEye;
 
 INSERT INTO Users(userPassword, userName, userSurname, userGender, userBirthday, userEmail, userContactNo, userSubscribedToNewsletter, userRegistrationDate)
-VALUES('awe','Kimberly','La Vallette','Female','2040-01-12','kimberly.lavallette@theaugmentedeye.com','0728941354','Yes',CURDATE()),
-	  ('awe','Lana','Smithee','Female','2040-01-12','lana.smithee@theaugmentedeye.com','0826845812','Yes',CURDATE()),
-      ('awe','Donovan','D','Male','2020-01-12','donovan.d.dawson@theaugemnetedeye.com','0728884568','Yes',CURDATE()),
-	  ('awe','Albertus','Cilliers','Male','2003-06-09','albertus.cilliers@gmail.com','0844023335','No',CURDATE()),
-      ('awe','foo','bar','Male','1969-06-09','awe','0001112222','No',CURDATE());
+VALUES('awe','Kimberly','La Vallette','Female','2040-01-12','kimberly.lavallette@theaugmentedeye.com','0728941354',true,CURDATE()),
+	  ('awe','Lana','Smithee','Female','2040-01-12','lana.smithee@theaugmentedeye.com','0826845812',true,CURDATE()),
+      ('awe','Donovan','D','Male','2020-01-12','donovan.d.dawson@theaugemnetedeye.com','0728884568',true,CURDATE()),
+	  ('awe','Albertus','Cilliers','Male','2003-06-09','albertus.cilliers@gmail.com','0844023335',false,CURDATE()),
+      ('awe','foo','bar','Male','1969-06-09','awe','0001112222',false,CURDATE());
       
 
 -- The following articles were obtained from the VA-11 HALL-A wiki at: https://va11halla.fandom.com/wiki/The_Augmented_Eye

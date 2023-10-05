@@ -17,7 +17,7 @@ CREATE TABLE Users
 	userSurname VARCHAR(30) NOT NULL,
 	userGender VARCHAR(30) NOT NULL,
     userBirthday DATE NOT NULL,
-    userEmail VARCHAR(30) NOT NULL,
+    userEmail VARCHAR(100) NOT NULL,
     userContactNo VARCHAR(10) NOT NULL,
     userSubscribedToNewsletter BOOL NOT NULL,
     userRegistrationDate DATETIME NOT NULL,    
