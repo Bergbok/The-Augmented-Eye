@@ -12,6 +12,7 @@ USE TheAugmentedEye;
 CREATE TABLE Users
 (
 	userID INT NOT NULL AUTO_INCREMENT,
+    userPassword VARCHAR(30) NOT NULL,
 	userName VARCHAR(30) NOT NULL,
 	userSurname VARCHAR(30) NOT NULL,
 	userGender VARCHAR(30) NOT NULL,
@@ -19,8 +20,29 @@ CREATE TABLE Users
     userEmail VARCHAR(30) NOT NULL,
     userContactNo VARCHAR(10) NOT NULL,
     userSubscribedToNewsletter BOOL NOT NULL,
+    userRegistrationDate DATETIME NOT NULL,    
 	PRIMARY KEY (userID)
 );
+
+CREATE TABLE Articles
+(
+	articleID INT NOT NULL AUTO_INCREMENT,
+    articleAuthorID INT NOT NULL,
+	articleTitle VARCHAR(150) NOT NULL,
+    articleContent TEXT NOT NULL,
+    articlePublishDate DATETIME NOT NULL,
+    FOREIGN KEY (articleAuthorID) REFERENCES Users(userID),
+	PRIMARY KEY (articleID)
+);
+
+-- CREATE TABLE Manufacturers
+-- (
+-- 	manufacturerID INT NOT NULL AUTO_INCREMENT,
+-- 	manufacturerName VARCHAR(30) NOT NULL,
+-- 	manufacturerContactNo VARCHAR(10) NOT NULL,
+-- 	manufacturerEmail VARCHAR(30) NOT NULL,
+-- 	PRIMARY KEY (manufacturerID)
+-- );
 
 -- CREATE TABLE Manufacturers
 -- (
