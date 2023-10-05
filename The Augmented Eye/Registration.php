@@ -10,7 +10,7 @@
     </head>
 
     <body>
-        <div class="center pixel-text">
+        <div class="centered-column pixel-text">
 
             <!-- <h3> Registration </h3> -->
 
@@ -18,7 +18,7 @@
 
                 <fieldset>
 
-                    <legend align="center">
+                    <legend class="center">
                         <strong>Registration</strong>
                     </legend>
 

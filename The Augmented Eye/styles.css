@@ -12,25 +12,59 @@
     --input-color: #4D0A31FF;
     --input-focused-color: lightblue;
     --hover-color: #4D0A31FF;
+    --column-color: #F0D3CEFF;
 }
 
+/* Text Classes */
 .article-link {
-    color: #5D0E35FF;
-    font-size: 1.8vw;
     /* white-space: nowrap; */
     /* text-overflow: ellipsis;  */
+    color: #5D0E35FF;
+    font-size: 1.8vw;
     word-wrap: break-word;
     word-break: break-word;
 }
 
-p.article {
+.article-text {
+    /* white-space: pre-wrap; */
     color: var(--dark-text-color);
     text-align: left;
     word-wrap: break-word;
     word-break: break-word;
-    /* white-space: pre-wrap; */
+    padding: 10px;
 }
 
+.bright-text {
+    color: var(--light-text-color);
+}
+
+.dark-text {
+    color: var(--dark-text-color);
+}
+
+.error-message {
+    color:#882222;
+}
+
+.no-decor-link {
+    text-decoration: none;
+}
+
+.pixel-text {
+    font-family: var(--main-font);
+}
+    /* Text Positioning Classes  */
+    .centered-text {
+        text-align: center;
+    }
+
+    .justified-text {
+        text-align: center;
+    }
+    /* ------------------------- */
+/* ------------ */
+
+/* Positioning Classes */
 .bottom-center {
     position: absolute;
     scale: 200%;
@@ -38,14 +72,10 @@ p.article {
     left: 2%;
 }
 
-.bright-text {
-    color: var(--light-text-color);
-}
-
 .center, .center img, .center form {
     display: block;
     margin: auto;
-    width: 50%;
+    /* width: 50%; */
 }
 
 .center ul, .center li {
@@ -53,88 +83,6 @@ p.article {
     flex-direction: row;
     justify-content: space-evenly;
     list-style-type: none;
-}
-
-*.center > * {
-    text-align: center;
-}
-  
-.error-message {
-    color:#882222;
-}
-
-.dark-text {
-    color: var(--dark-text-color);
-}
-
-
-.dropdown-items {
-    display: none;
-}
-
-.dropdown {
-    z-index: 1;
-    list-style-type: none;
-}
-  
-.dropdown:hover .dropdown-items{
-    display: block;
-    position: absolute;
-    width: 250px;
-    top: 21px;
-    left: -21px;
-}
-
-.header {
-    /* overflow: hidden; */
-    position: sticky;
-    top: 0%;
-    left: 50%;
-    background-color: #000000;
-    /* background-image: var(--bg-img); */
-    /* border-bottom: 1px solid rgba(85, 85, 85, 0.438); */
-    padding: 20px 0px;
-    width: 69%;
-}
-
-.header li a {
-    color: white;
-    padding: 21px 69px;
-    text-decoration: none;
-}
-  
-.header li a:hover {
-    background-color: var(--hover-color);
-}
-
-/* .header-tabs { */
-    /* display: flex; */
-    /* flex-direction: row;     make main axis horizontal (default setting) */
-    /* justify-content: center; center items horizontally, in this case */
-    /* align-items: center;     center items vertically, in this case */
-    /* height: 300px;
-}
-
-.header-tabs > li {
-    flex: 1;
-} */
-
-.no-decor-link {
-    text-decoration: none;
-}
-
-.pfp-preview {
-    width: 50px;
-    border: 3px solid rgb(255, 255, 255);
-}
-
-.pixel-text {
-    font-family: var(--main-font);
-}
-
-.submit-button {
-    text-transform: uppercase; 
-    width: 100%;
 }
 
 .top-right {
@@ -161,20 +109,77 @@ li.top-left {
     top: 90px;
     left: 105px;
 }
+/* ------------------- */
+
+.centered-column {
+    margin: auto;
+    width: 30%;
+    height: 999999999999999999999999%;
+    background-color: var(--column-color);
+    padding: 20px;
+}
+
+.dropdown {
+    z-index: 1;
+    list-style-type: none;
+}
+
+.dropdown-items {
+    display: none;
+}
+  
+.dropdown:hover .dropdown-items{
+    display: block;
+    position: absolute;
+    width: 250px;
+    top: 21px;
+    left: -21px;
+}
+
+.header {
+    /* overflow: hidden; */
+    /* background-image: var(--bg-img); */
+    /* border-bottom: 1px solid rgba(85, 85, 85, 0.438); */
+    position: sticky;
+    top: 0%;
+    background-color: #000000;
+    padding: 20px 0px;
+    width: 69%;
+}
+
+.header li a {
+    color: white;
+    padding: 21px 69px;
+    text-decoration: none;
+}
+  
+.header li a:hover {
+    background-color: var(--hover-color);
+}
+
+.pfp-preview {
+    width: 50px;
+    border: 3px solid rgb(255, 255, 255);
+}
+
+.submit-button {
+    text-transform: uppercase; 
+    width: 100%;
+}
 
 body {
-    background-color: #000000;
     /* background-image: var(--bg-img); */
+    background-color: #000000;
     background-attachment: fixed;
     color: #000000;
 }
     
 form {
-    background-color:#F0D3CEFF;
+    /* background-color:var(--column-color); */
     /* After 7 digits the browser sets the height equal to it's containing content, somehow works perfectly idk xd */
-    height: 999999999999999999999999%;
-    padding: 21px;	
-    width: 1000px;
+    /* height: 999999999999999999999999%; */	
+    /* width: 1000px; */
+    padding: 21px;
 }
 
 hr {
@@ -196,22 +201,6 @@ input:focus, textarea:focus {
     border: 3px solid #555;
 }
 
-/* Removes number/slider from input of number type */
-
-    /* Chrome, Safari, Edge, Opera */
-    input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
-    
-    /* Firefox */
-    input[type=number] {
-        appearance: none;
-        -moz-appearance: textfield;
-    }
-
-/*                                                */
-
 label { 
     float: left; 
     width: 31%;
@@ -231,6 +220,7 @@ textarea {
     width: 100%;
 }
 
+/* ID-Specific */
 #compose_article_link {
     text-decoration: none;
     font-size: 1.8vw;
@@ -245,6 +235,23 @@ textarea {
 #newsletter_checkbox {
     width: 10%;
 }
+/* ----------- */
+
+/* Removes number/slider from input of number type */
+
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    
+    /* Firefox */
+    input[type=number] {
+        appearance: none;
+        -moz-appearance: textfield;
+    }
+
+/* ----------------------------------------------------- */
 
 /* a.button {
     -webkit-appearance: button;
@@ -254,4 +261,5 @@ textarea {
     text-decoration: none;
     color: initial;
 } */
+
 

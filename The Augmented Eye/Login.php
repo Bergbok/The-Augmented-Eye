@@ -12,11 +12,11 @@
     </head>
 
     <body>
-        <div class="center pixel-text">
+        <div class="centered-column pixel-text">
             <form method="POST">
                 <fieldset>
 
-                    <legend align="center">
+                    <legend class="center">
                         <strong>Login</strong>
                     </legend>
 
@@ -51,7 +51,7 @@
                 <form>
                     <fieldset>
 
-                        <legend align="center">
+                        <legend class="center">
                             <strong>Don't have an account?</strong>
                         </legend>
 

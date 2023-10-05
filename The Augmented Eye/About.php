@@ -10,13 +10,11 @@
     </head>
 
     <body>
-    <div class="center pixel-text">
-        <form class="center">
-            <h1><strong> About </strong></h1>
-            <div class="article">
+        <div class="centered-column pixel-text">
+            <h1 class="centered-text"><strong> About </strong></h1>
+            <div class="article-text">
                 <?php include_once('Lorem Ipsum.html') ?>
             </div>
-        </form>
-    </div>
+        </div>
     </body>
 </html>

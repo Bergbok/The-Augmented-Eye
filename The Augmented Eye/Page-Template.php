@@ -10,7 +10,7 @@
     </head>
 
     <body>
-        <div class="center pixel-text">
+        <div class="centered-column pixel-text">
 
         </div>
     </body>

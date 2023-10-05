@@ -16,7 +16,7 @@
                                 <li><a class='bright-text' href='Change-Password.php'>Change Password</a></li>
                                 <li><a class='bright-text' href='Logout.php'>Logout</a></li>
                             </ul>
-                           </li>";
+                            </li>";
                 } else {
                     echo "<a class='top-left bright-text' href='Login.php'><u>Login</u></a>";
                 }

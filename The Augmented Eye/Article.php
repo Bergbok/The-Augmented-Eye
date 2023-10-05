@@ -24,26 +24,29 @@
                 !empty($articleInfo) ? $articleExists = true : $articleExists = false;
 
                 if ($articleExists) {
-                    $article_author_name = getUserNameFromArticleID($articleInfo["articleID"]);
-                    $article_author_surname = getUserSurnameFromArticleID($articleInfo["articleID"]);
-                    echo "<title> ".$articleInfo["articleTitle"]." </title>";
-                    echo "<div class='center pixel-text'>";
-                    echo "  <form>";
-                    echo "      <div class='article-header'>";
-                    echo "          <h1 align=left><strong>".$articleInfo["articleTitle"]."</strong></h1>";
-                    echo "          <h2 align=left><strong> By: <a href='Profile.php?profileID=".$articleInfo["articleAuthorID"]."'>".$article_author_name." ".$article_author_surname."</a></strong></h2>";
-                    echo "          <h3 align=left><strong> Published @ ".$articleInfo["articlePublishDate"]." (UTC) </a></strong></h2>";
-                    echo "      </div>";
-                    echo "      <p class='article'>".$articleInfo["articleContent"]."</p>";
-                    echo "  </form>";
-                    echo "</div>";
-                }else {
-                    echo "<div class='center pixel-text'>";
-                    echo "  <form>";
-                    echo "      <h1><strong> Article not found :( </strong></h1>";
-                    echo "  </form>";
-                    echo "</div>";
+                    echoArticleInfo($articleInfo);
+                } else {
+                    echoArticleNotFound();
                 } 
+            } else {
+                echoArticleNotFound();
+            }
+
+            function echoArticleInfo($articleInfo) {
+                $article_author_name = getUserNameFromArticleID($articleInfo["articleID"]);
+                $article_author_surname = getUserSurnameFromArticleID($articleInfo["articleID"]);
+                echo "<title> ".$articleInfo["articleTitle"]." </title>";
+                echo "<div class='centered-column pixel-text'>";
+                echo "  <div class='article-header'>";
+                echo "      <h1 align=left><strong>".$articleInfo["articleTitle"]."</strong></h1>";
+                echo "      <h2 align=left><strong> By: <a href='Profile.php?profileID=".$articleInfo["articleAuthorID"]."'>".$article_author_name." ".$article_author_surname."</a></strong></h2>";
+                echo "      <h3 align=left><strong> Published @ ".$articleInfo["articlePublishDate"]." (UTC) </a></strong></h2>";
+                echo "  </div>";
+                echo "  <p class='article-text'>".$articleInfo["articleContent"]."</p>";
+                echo "</div>";
+            }
+            function echoArticleNotFound() {
+                echo "<h1 class='centered-text bright-text pixel-text'> Article not found :( </h1>";
             }
         ?>
         

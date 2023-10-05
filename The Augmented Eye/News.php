@@ -12,10 +12,10 @@
     </head>
 
     <body>
-        <div class="center pixel-text">
+        <div id="" class="centered-column pixel-text">
             <form method="GET">
-                <h1><a id= "compose_article_link" href="Compose-Article.php"> Compose Article 📝 </a></h1>
-
+                <h1 class="centered-text"><a id= "compose_article_link" href="Compose-Article.php"> Compose Article 📝 </a></h1>
+                <br>
                 <div class='toolbar'>
                     <div class='limiter'>
                         <label for="limit-articles-combobox"> Show: </label>
@@ -92,62 +92,64 @@
                 <!-- <hr> -->
                 <br>
 
-                <?php
-                    $show_article_info = false;
-                    include_once('PHP Scripts/Database-Selects.php'); 
+                <div id="article-list" class="centered-text">
+                    <?php
+                        $show_article_info = false;
+                        include_once('PHP Scripts/Database-Selects.php'); 
 
-                    isset($_GET["sort-by"]) ? $sort_by = $_GET["sort-by"] : $sort_by = 'articlePublishDate';
-                    isset($_GET["sort-by-direction"]) ? $sort_by_direction = $_GET["sort-by-direction"] : $sort_by_direction = 'DESC';
-                    isset($_GET["limit"]) ? $limit = $_GET["limit"] : $limit = 50;
+                        isset($_GET["sort-by"]) ? $sort_by = $_GET["sort-by"] : $sort_by = 'articlePublishDate';
+                        isset($_GET["sort-by-direction"]) ? $sort_by_direction = $_GET["sort-by-direction"] : $sort_by_direction = 'DESC';
+                        isset($_GET["limit"]) ? $limit = $_GET["limit"] : $limit = 50;
 
-                    foreach (selectAllArticles($sort_by, $sort_by_direction, $limit) as $rows) {
-                        if ($show_article_info) {
-                            echo "Row Info: <br>";
-                            print_r($rows);
-                            echo "<br><br>";
-                        }
-
-                        unset($article_ID, $article_title, $article_author);
-
-                        foreach ($rows as $column => $value) {
+                        foreach (selectAllArticles($sort_by, $sort_by_direction, $limit) as $rows) {
                             if ($show_article_info) {
-                                echo 'Column: '.$column.' <br> Value:'.$value.'<br><br>';
-                            } 
-                            
-                            switch ($column) {
-                                case 'articleID':
-                                    $article_ID = $value;
-                                    break;
-                                case 'articleTitle':
-                                    $article_title = $value;
-                                    break;
-                                case 'articleAuthorID':
-                                    $article_author_ID = $value;
-                                    break;
-                                default:
-                                    # code...
-                                    break;
+                                echo "Row Info: <br>";
+                                print_r($rows);
+                                echo "<br><br>";
                             }
-                        }
 
-                        if (isset($article_ID, $article_title, $article_author_ID)){
-                            echo "<a class='article-link' href='Article.php?viewArticle=".$article_ID."'>".$article_title."</a>";
-                            // $article_author_name = getUserNameFromID($article_author_ID);
-                            // $article_author_surname = getUserSurnameFromID($article_author_ID);
-                            // echo "<a class='no-decor-link' style='font-size: 1.25vw'> by </a>";
-                            // echo "<a class='article-link' href='Profile.php?profileID=".$article_author_ID."'> ".$article_author_name." ".$article_author_surname."</a>";
-                            echo "<br>";
-                            echo "<br>";
-                            // echo "<hr>";
-                            echo "<br>";
-                        }
+                            unset($article_ID, $article_title, $article_author);
 
-                        // hmmmmm
-                        if (isset($_GET["viewArticle"])) {
-                            echo $_GET["viewArticle"];
-                        } 
-                    }
-                ?>
+                            foreach ($rows as $column => $value) {
+                                if ($show_article_info) {
+                                    echo 'Column: '.$column.' <br> Value:'.$value.'<br><br>';
+                                } 
+                                
+                                switch ($column) {
+                                    case 'articleID':
+                                        $article_ID = $value;
+                                        break;
+                                    case 'articleTitle':
+                                        $article_title = $value;
+                                        break;
+                                    case 'articleAuthorID':
+                                        $article_author_ID = $value;
+                                        break;
+                                    default:
+                                        # code...
+                                        break;
+                                }
+                            }
+
+                            if (isset($article_ID, $article_title, $article_author_ID)){
+                                echo "<a class='article-link' href='Article.php?viewArticle=".$article_ID."'>".$article_title."</a>";
+                                // $article_author_name = getUserNameFromID($article_author_ID);
+                                // $article_author_surname = getUserSurnameFromID($article_author_ID);
+                                // echo "<a class='no-decor-link' style='font-size: 1.25vw'> by </a>";
+                                // echo "<a class='article-link' href='Profile.php?profileID=".$article_author_ID."'> ".$article_author_name." ".$article_author_surname."</a>";
+                                echo "<br>";
+                                echo "<br>";
+                                // echo "<hr>";
+                                echo "<br>";
+                            }
+
+                            // hmmmmm
+                            if (isset($_GET["viewArticle"])) {
+                                echo $_GET["viewArticle"];
+                            } 
+                        }
+                    ?>
+                </div>
             </form>
         </div>
     </body>

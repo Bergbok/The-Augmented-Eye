@@ -12,7 +12,7 @@
     </head>
 
     <body>
-        <div class='center pixel-text'>
+        <div class='centered-column centered-text pixel-text'>
             <form method='POST'>
                 <?php         
                     include_once('PHP Scripts/Login-Handler.php');
