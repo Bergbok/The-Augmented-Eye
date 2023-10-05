@@ -57,7 +57,7 @@
                 'articleID' => generatePassword(30),
                 'articleAuthorID' => $_SESSION["userID"],
                 'articleTitle' => $_POST["article_Title"],
-                'articleContent' => $_POST["article_Content"],
+                'articleContent' => nl2br($_POST["article_Content"]),
                 'articlePublishDate' => date("Y-m-d H:i:s")
             ];
             

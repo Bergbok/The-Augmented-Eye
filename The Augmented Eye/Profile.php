@@ -35,7 +35,6 @@
                     echo "      <br>";
                     echo "      <p> Contact Number: ".$userInfo["userContactNo"]." </p>";
                     echo "      <p> Email: ".$userInfo["userEmail"]." </p>";
-                    echo "      <p> Password: ".$userInfo["userPassword"]." </p>";
                     echo "      <br>";
 
                     if ($userInfo["userSubscribedToNewsletter"]) {

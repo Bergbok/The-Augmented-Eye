@@ -95,7 +95,7 @@
                 <?php
                     $show_article_info = false;
                     include_once('PHP Scripts/Database-Selects.php'); 
-                    // print_r(selectArticles('articlePublishDate', 'ASC', '50'));
+
                     isset($_GET["sort-by"]) ? $sort_by = $_GET["sort-by"] : $sort_by = 'articlePublishDate';
                     isset($_GET["sort-by-direction"]) ? $sort_by_direction = $_GET["sort-by-direction"] : $sort_by_direction = 'DESC';
                     isset($_GET["limit"]) ? $limit = $_GET["limit"] : $limit = 50;
