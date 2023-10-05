@@ -18,7 +18,7 @@
             <ul class="header-tabs">
                 <li><a href="Home.php">Home</a></li>
                 <li><a href="News.php">News</a></li>
-                <li><a href="Contact.php">Contact</a></li>
+                <li><a href="Contact-Us.php">Contact</a></li>
                 <li><a href="About.php">About</a></li>
             </ul> 
         </div>  

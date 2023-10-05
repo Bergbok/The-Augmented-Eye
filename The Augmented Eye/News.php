@@ -89,7 +89,7 @@
                 </div>
 
                 <br>
-                <hr>
+                <!-- <hr> -->
                 <br>
 
                 <?php
@@ -138,7 +138,7 @@
                             // echo "<a class='article-link' href='Profile.php?profileID=".$article_author_ID."'> ".$article_author_name." ".$article_author_surname."</a>";
                             echo "<br>";
                             echo "<br>";
-                            echo "<hr>";
+                            // echo "<hr>";
                             echo "<br>";
                         }
 
