@@ -100,7 +100,7 @@
                     isset($_GET["sort-by-direction"]) ? $sort_by_direction = $_GET["sort-by-direction"] : $sort_by_direction = 'DESC';
                     isset($_GET["limit"]) ? $limit = $_GET["limit"] : $limit = 50;
 
-                    foreach (selectArticles($sort_by, $sort_by_direction, $limit) as $rows) {
+                    foreach (selectAllArticles($sort_by, $sort_by_direction, $limit) as $rows) {
                         if ($show_article_info) {
                             echo "Row Info: <br>";
                             print_r($rows);
@@ -131,10 +131,11 @@
                         }
 
                         if (isset($article_ID, $article_title, $article_author_ID)){
-                            $article_author_name = getUserNameFromID($article_author_ID);
-                            echo "<a class='article-link' href='News.php?viewArticle=".$article_ID."'>".$article_title."</a>";
-                            echo "<a class='no-decor-link' style='font-size: 1.25vw'> by </a>";
-                            echo "<a class='article-link' href='Profile.php?".$article_author_ID."'> ".$article_author_name."</a>";
+                            echo "<a class='article-link' href='Article.php?viewArticle=".$article_ID."'>".$article_title."</a>";
+                            // $article_author_name = getUserNameFromID($article_author_ID);
+                            // $article_author_surname = getUserSurnameFromID($article_author_ID);
+                            // echo "<a class='no-decor-link' style='font-size: 1.25vw'> by </a>";
+                            // echo "<a class='article-link' href='Profile.php?profileID=".$article_author_ID."'> ".$article_author_name." ".$article_author_surname."</a>";
                             echo "<br>";
                             echo "<br>";
                             echo "<hr>";
