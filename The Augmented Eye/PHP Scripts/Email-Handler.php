@@ -1,5 +1,62 @@
 <?php
     $from = "albertus.cilliers@gmail.com"; //your gmail address here
+    function sendPassword() {
+        $show_email_info = false;
+        $show_email_errors = true;
+        $show_successfull_emails = false;
+
+        include_once('Database-Selects.php');
+        $where_clause = "userName = :name AND userSurname = :surname AND userGender = :gender AND userBirthday = :birthday AND userEmail = :email AND userContactNo = :contactNo and userSubscribedToNewsletter = :subscribedToNewsletter";
+        $where_values = [
+            'name' => $_POST["newuser_Name"],
+            'surname' => $_POST["newuser_Surname"],
+            'gender' => $_POST["newuser_Gender"],
+            'birthday' => $_POST["newuser_Birthday"],
+            'email' => $_POST["newuser_Email"],
+            'contactNo' => $_POST["newuser_Contact"],
+            'subscribedToNewsletter' => $_POST["newuser_ReceiveNewsletter"] ?? 0,
+        ];
+
+        $userInfo = selectUser($where_clause, $where_values);
+
+        !empty($userInfo) ? $userExists = true : $userExists = false;
+
+        if (!$userExists) {
+            if ($show_email_errors) { echo "<p class='error-message'> Error sending email, couldn't find user </p><br>"; }
+            return false;
+        } else {
+            global $from; 
+
+            $headers ='from:' . $from;
+    
+            $to = $_POST["newuser_Email"];
+    
+            $subject = 'The Augemented Eye Password';
+
+            $message = 'Your password is: '.$userInfo["userPassword"];
+
+            $message =  str_replace("\n.", "\n..", $message);
+
+            if ($show_email_info) {
+                echo "<hr>";
+                echo "<p> Headers: ".$headers."</p>";
+                echo "<p> To: ".$to."</p>";
+                echo "<p> Subject: ".$subject."</p>";
+                echo "<p> Body: ".$message."</p>";
+            }
+
+            $sent = mail($to, $subject, $message, $headers);
+
+            if (!$sent){
+                if ($show_email_errors) { echo "<p class='error-message'> Error sending email </p><br>"; }
+                return false;
+            } else {
+                if ($show_successfull_emails) { echo "<p> Password sent to: ".$_POST["newuser_Email"]."</p>"; }
+                return true;
+            }
+        }
+    }
+
     function sendNewsletter() {
         $show_email_info = false;
         $show_email_errors = true;
@@ -28,22 +85,15 @@
                 }
 
                 $sent = mail($to, $subject, $message, $headers);
-                // $sent = false;
 
                 if (!$sent){
-                    if ($show_email_errors) {
-                        echo "<p class='error-message'> Error sending email </p><br>";
-                        print_r(error_get_last());
-                    }
-                }else{
-                    if ($show_successfull_emails) {
-                        echo "<p> Newsletter sent to: ".$recipient_email."</p>";
-                    }
+                    if ($show_email_errors) { echo "<p class='error-message'> Error sending email </p><br>"; }
+                } else {
+                    if ($show_successfull_emails) { echo "<p> Newsletter sent to: ".$recipient_email."</p>"; }
                 }   
             }
             
         }
-
     }
 
     function getToEmails() {
