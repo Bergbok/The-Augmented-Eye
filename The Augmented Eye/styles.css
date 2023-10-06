@@ -65,7 +65,7 @@
 /* ------------ */
 
 /* Positioning Classes */
-.bottom-center {
+.bottom-left {
     position: absolute;
     scale: 200%;
     bottom: 5%;
@@ -114,7 +114,7 @@ li.top-left {
 .centered-column {
     margin: auto;
     width: 30%;
-    height: 999999999999999999999999%;
+    /* height: 9999999%; */
     background-color: var(--column-color);
     padding: 20px;
 }
@@ -145,6 +145,7 @@ li.top-left {
     background-color: #000000;
     padding: 20px 0px;
     width: 69%;
+    z-index: 9001;
 }
 
 .header li a {
@@ -167,6 +168,15 @@ li.top-left {
     width: 100%;
 }
 
+.staff-border {
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 20px;
+}
+
+.staff-image {
+    width: 150px;
+}
+
 body {
     /* background-image: var(--bg-img); */
     background-color: #000000;
@@ -184,6 +194,7 @@ form {
 
 hr {
     opacity: 33%;
+    z-index: -1;
 }
 
 input, select, button {
