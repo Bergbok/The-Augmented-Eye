@@ -1,1 +1,6 @@
-ErrorDocument 404 /The%20Augmented%20Eye/404.php
+<Files ~ "^\.(htaccess|htpasswd)$">
+deny from all
+</Files>
+Options Indexes
+ErrorDocument 404 /The%20Augmented%20Eye/Error%20Pages/404.php
+order deny,allow

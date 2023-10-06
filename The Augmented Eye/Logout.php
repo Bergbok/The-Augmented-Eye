@@ -7,19 +7,15 @@
 ?>
 
 <html>
-
     <head>
-
         <title> Logged Out! </title>
-        <link rel="stylesheet" href="styles.css">
-
     </head> 
 
     <body>
         <h1 class="centered-text pixel-text bright-text"> You've been logged out, cya</h1>
         
         <div class="bottom-left">
-            <img src="Images/Wave.gif" alt="Bye :)"></img>
+            <img src="/The Augmented Eye/Images/Wave.gif" alt="Bye :)"></img>
         </div>
     </body>
 

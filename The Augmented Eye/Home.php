@@ -1,12 +1,8 @@
 <?php include_once('Header.php'); ?>
 
 <html>
-
     <head>
-
         <title> Home </title>
-        <link rel="stylesheet" href="styles.css">
-
     </head>
 
     <body>
@@ -24,14 +20,14 @@
                     <?php
                         include_once('PHP Scripts/Article-Display-Handler.php');
                         echoArticleLinks('articlePublishDate','DESC',3);
-                        echo "<h2><a class='dark-text' href='News.php'> View More Here </a></h2>";
+                        echo "<h2><a class='dark-text' href='/The Augmented Eye/News.php'> View More Here </a></h2>";
                         echo "<br>";
                     ?>
                 </div>
             </fieldset>
             <br><br>
             <a href='https://hypnospace.fandom.com/wiki/Beefbrain'>
-                <img width=30% src='Images/beefbrainshieldbadge.webp' alt='This brain is protected by BEEFBRAIN SHIELD PRO'></img>
+                <img width=30% src='/The Augmented Eye/Images/beefbrainshieldbadge.webp' alt='This brain is protected by BEEFBRAIN SHIELD PRO'></img>
             </a>
         </div>
     </body>

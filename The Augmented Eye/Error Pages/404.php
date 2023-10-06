@@ -1,11 +1,8 @@
-<?php include_once('Header.php'); ?>
+<?php include_once('../Header.php'); ?>
 
 <html> 
     <head>
-
         <title> 404 | Page not Found! </title>
-        <link rel="stylesheet" href="styles.css">
-
     </head>
 
     <body>

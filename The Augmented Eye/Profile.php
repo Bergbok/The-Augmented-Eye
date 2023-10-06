@@ -3,13 +3,6 @@
 ?>
 
 <html>
-
-    <head>
-
-        <link rel="stylesheet" href="styles.css">
-
-    </head>
-
     <body>
         <?php
             if (isset($_GET["profileID"])) {
@@ -30,12 +23,6 @@
                 } 
             } else {
                 echoProfileNotFound();
-                // include_once("PHP Scripts/Login-Handler.php");
-                // if (isLoggedIn()) {
-                //     header("Location: Profile.php?profileID=".$_SESSION["userID"]);
-                // } else {
-                //     header("Location: Home.php");
-                // }
             }
 
             function echoProfileInfo($userInfo) {
@@ -62,9 +49,9 @@
                 if (isLoggedIn()) {
                     if ($_GET["profileID"] == $_SESSION["userID"]) {
                         echo "<div class='article-link'>";
-                        echo "  <a class='dark-text' href='Change-Password.php'> Change Password </a>";
+                        echo "  <a class='dark-text' href='/The Augmented Eye/Change-Password.php'> Change Password </a>";
                         echo "  <br><br>";
-                        echo "  <a class='dark-text' href='Logout.php'>Logout</a>";
+                        echo "  <a class='dark-text' href='/The Augmented Eye/Logout.php'>Logout</a>";
                         echo "</div>";
                     }
                 }

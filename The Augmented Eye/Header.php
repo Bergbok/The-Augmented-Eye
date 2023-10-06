@@ -4,9 +4,20 @@
 
 <html>
     <head>
+        <?php
 
-        <link rel="stylesheet" href="styles.css">
-        <link rel="icon" href="Images/favicon.ico">
+            // echo "<link rel=\"stylesheet\" href=\"".rootLevelHTML()."styles.css\">";
+            // echo "<link rel=\"icon\" href=\"".rootLevelHTML()."Images/favicon.ico\">";
+
+            // function rootLevelHTML() {
+            //     $uri = $_SERVER['REQUEST_URI'] ?? NULL;
+            //     $slash_count = substr_count($uri,'/',17);
+            //     return str_repeat("../",$slash_count);
+            // }
+
+        ?>
+        <link rel="stylesheet" href="/The Augmented Eye/styles.css">
+        <link rel="icon" href="/The Augmented Eye/Images/favicon.ico">
 
     </head>
 
@@ -14,20 +25,20 @@
 
     <body>
         <div class="header center pixel-text">
-            <img src="Images/logo.png" alt="The Augemented Eye Logo"></img>
+            <img src="/The Augmented Eye/Images/logo.png" alt="The Augmented Eye Logo"></img>
             <ul class="header-tabs">
-                <li><a href="Home.php">Home</a></li>
-                <li><a href="News.php">News</a></li>
-                <li><a href="Contact-Us.php">Contact</a></li>
-                <li><a href="About.php">About</a></li>
+                <li><a href="/The Augmented Eye/Home.php">Home</a></li>
+                <li><a href="/The Augmented Eye/News.php">News</a></li>
+                <li><a href="/The Augmented Eye/Contact-Us.php">Contact</a></li>
+                <li><a href="/The Augmented Eye/About.php">About</a></li>
             </ul> 
             <?php 
                 include_once('PHP Scripts/Login-Handler.php'); 
                 if (isAdmin()){
                     echo "<ul class='header-tabs'>
-                            <li><a href='Send-Newsletter.php'>Newsletter</a></li>
-                            <li><a href='User-Stats.php'>User Stats</a></li>
-                            <li><a href='Article-Stats.php'>Article Stats</a></li>
+                            <li><a href='/The Augmented Eye/Send-Newsletter.php'>Newsletter</a></li>
+                            <li><a href='/The Augmented Eye/User-Stats.php'>User Stats</a></li>
+                            <li><a href='/The Augmented Eye/Article-Stats.php'>Article Stats</a></li>
                           </ul>";
                 }
             ?>

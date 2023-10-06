@@ -3,12 +3,8 @@
 ?>
 
 <html>
-
     <head>
-
         <title> Change Password </title>
-        <link rel="stylesheet" href="styles.css">
-
     </head>
 
     <body>
@@ -44,5 +40,4 @@
             </form>
         </div>
     </body>
-
 </html>                            

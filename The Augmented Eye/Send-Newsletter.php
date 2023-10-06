@@ -1,12 +1,8 @@
 <?php include_once('Header.php'); ?>
 
 <html>
-
     <head>
-
         <title> Newsletter </title>
-        <link rel="stylesheet" href="styles.css">
-
     </head>
 
     <body>
@@ -31,7 +27,6 @@
                         echo "</fieldset>";
 
                         include_once('PHP Scripts/Form-Validation.php');
-                        //Inserting user into database
                         if (validateNewsletter()) {
                             include_once('PHP Scripts/Email-Handler.php');
                             sendNewsletter();
@@ -41,5 +36,4 @@
             </form>
         </div>
     </body>
-
 </html>

@@ -1,21 +1,13 @@
 <?php include_once('Header.php'); ?>
 
 <html>
-
     <head>
-
         <title> Registration </title>
-        <link rel="stylesheet" href="styles.css">
-
     </head>
 
     <body>
         <div class="centered-column pixel-text">
-
-            <!-- <h3> Registration </h3> -->
-
-            <form method="POST">
-
+             <form method="POST">
                 <fieldset>
 
                     <legend class="center">
@@ -81,12 +73,12 @@
                             if (sendPassword()) {
                                 echo "<div class='centered-text'>";
                                 echo "  <p> Successfully created account, check your email for your password. </p>";
-                                echo "  <a class='dark-text' href='Login.php'> LOGIN </a>";
+                                echo "  <a class='dark-text' href='/The Augmented Eye/Login.php'> LOGIN </a>";
                                 echo "</div>";
                             } else {
                                 echo "<div class='centered-text'>";
                                 echo "  <p> Successfully created account, couldn't send you your password via email though :( </p>";
-                                echo "  <a class='dark-text' href='Login.php'> LOGIN </a>";
+                                echo "  <a class='dark-text' href='/The Augmented Eye/Login.php'> LOGIN </a>";
                                 echo "</div>";
                             }
                         } else {
@@ -96,7 +88,5 @@
                 ?>
             </form>      
         </div>
-
     </body>
-
 </html>

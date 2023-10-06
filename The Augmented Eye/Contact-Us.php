@@ -1,12 +1,8 @@
 <?php include_once('Header.php') ?>
 
 <html>
-
     <head>
-
         <title> Contact Us </title>
-        <link rel="stylesheet" href="styles.css">
-
     </head>
 
     <body>
