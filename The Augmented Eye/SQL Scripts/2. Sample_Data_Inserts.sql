@@ -180,7 +180,7 @@ Not the first time this would be a thing.
 More than half a century ago, a group of notorious hackers rose to prominence, and they called themselves Anon
 <br><br>
 <p id="hacked-text"> HahAHhah thEy wErEnt EvEn a ThrEaT to rEaL protEctEd daTa $#%#////// dEcEmbEr 17 //////////#$%#$ </p>
-<script src="JavaScript/hackerText.js"></script>
+<script type="text/javascript" src="JavaScript/hackerText.js"></script>
 <script>Init("hacked-text", 1, 1)</script>';
 INSERT INTO Articles(articleAuthorID, articleTitle, articleContent, articlePublishDate)
 VALUES('1','Is Alice Rabbit a group? The answer here',@content,'1999-12-15 13:00:00');

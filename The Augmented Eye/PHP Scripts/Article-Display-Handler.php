@@ -11,6 +11,10 @@
         echo "      <h4 align=left> Views: ".$articleInfo["articleViews"]."</h4>";
         echo "  </div>";
         echo "  <p class='article-text'>".$articleInfo["articleContent"]."</p>";
+        echo "  <script type='text/javascript' src='JavaScript/copyToClipboard.js'></script>"; 
+        include_once("getCurrentPageInfo.php"); 
+        $url = getCurrentPageInfo("url");    
+        echo "  <button class='submit-button' id='share-button' onclick='copyToClipboard(\"".$url."\")'>Copy Link</button>";
         echo "</div>";
     }
 
