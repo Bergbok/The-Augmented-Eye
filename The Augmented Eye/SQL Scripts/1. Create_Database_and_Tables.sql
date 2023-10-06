@@ -37,6 +37,7 @@ CREATE TABLE Articles
 	articleTitle VARCHAR(150) NOT NULL,
     articleContent TEXT NOT NULL,
     articlePublishDate DATETIME NOT NULL,
+    articleViews INT NOT NULL DEFAULT 0, 
     FOREIGN KEY (articleAuthorID) REFERENCES Users(userID),
 	PRIMARY KEY (articleID)
 );

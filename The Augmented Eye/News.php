@@ -47,6 +47,9 @@
                                             case 'articlePublishDate':
                                                 echo "<option disabled selected value='articlePublishDate'> By Date </option>";
                                                 break;
+                                            case 'articleViews':
+                                                echo "<option disabled selected value='articleViews'> By Views </option>";
+                                                break;
                                             default:
                                                 unset($_GET["sort-by"]);
                                                 echo "<option disabled selected> SORT ARTICLES HERE </option>";
@@ -58,6 +61,7 @@
                                 ?>
                                 <option value="articleTitle"> By Title </option> 
                                 <option value="articlePublishDate"> By Date </option> 
+                                <option value="articleViews"> By Views </option> 
                                 <!-- <option value="articleAuthorID"> By Author </option>  -->
                             </select>
                             <br>

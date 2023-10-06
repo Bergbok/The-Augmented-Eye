@@ -1,4 +1,5 @@
 <?php
+    $from = "albertus.cilliers@gmail.com"; //your gmail address here
     function sendNewsletter() {
         $show_email_info = false;
         $show_email_errors = true;
@@ -8,7 +9,7 @@
 
         foreach ($subscribers as $recipient_email) {
             if ($recipient_email != null) {
-                $from = "albertus.cilliers@gmail.com"; //your gmail address here
+                global $from; 
 
                 $headers ='from:' . $from;
 
