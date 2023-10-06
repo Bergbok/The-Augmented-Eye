@@ -18,7 +18,7 @@
                             </ul>
                             </li>";
                 } else {
-                    echo "<a class='top-left bright-text' href='Login.php'><u>Login</u></a>";
+                    echo "<a class='top-left bright-text' href='Login.php'><u>Login / Register</u></a>";
                 }
             ?>
         </div>

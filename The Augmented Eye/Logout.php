@@ -18,7 +18,7 @@
     <body>
         <h1 class="centered-text pixel-text bright-text"> You've been logged out, cya</h1>
         
-        <div class="bottom-center">
+        <div class="bottom-left">
             <img src="Images/Wave.gif" alt="Bye :)"></img>
         </div>
     </body>

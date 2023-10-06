@@ -12,81 +12,84 @@
     </head>
 
     <body>
-        <div id="" class="centered-column pixel-text">
+        <div class="centered-column pixel-text">
             <form method="GET">
                 <h1 class="centered-text"><a id= "compose_article_link" href="Compose-Article.php"> Compose Article 📝 </a></h1>
-                <br>
-                <div class='toolbar'>
-                    <div class='limiter'>
-                        <label for="limit-articles-combobox"> Show: </label>
-                        <select id="limit-articles-combobox" name="limit">
-                            <?php
-                                if (isset($_GET["limit"])) {
-                                    echo "<option disabled selected value=".$_GET["limit"].">".$_GET["limit"]."</option>";
-                                } else {
-                                    echo "<option disabled selected>LIMIT AMOUNT OF ARTICLES HERE</option>";
-                                }
-                            ?>
-                            <option value=10> 10 </option> 
-                            <option value=25> 25 </option> 
-                            <option value=50> 50 </option> 
-                            <option value=100> 100 </option> 
-                            <option value=500> 500 </option> 
-                        </select>
-                    </div>
-                    <br>
-                    <div class='sorter'>
-                        <label for="sort-by-combobox"> Sort: </label>
-                        <select id="sort-by-combobox" name="sort-by"> 
-                            <?php
-                                if (isset($_GET["sort-by"])) {
-                                    switch ($_GET["sort-by"]) {
-                                        case 'articleTitle':
-                                            echo "<option disabled selected value='articleTitle'> By Title </option>";
-                                            break;
-                                        case 'articlePublishDate':
-                                            echo "<option disabled selected value='articlePublishDate'> By Date </option>";
-                                            break;
-                                        default:
-                                            echo "<option disabled selected> SORT ARTICLES HERE </option>";
-                                            break;
+                <fieldset>
+                    <div class='toolbar'>
+                        <div class='limiter'>
+                            <label for="limit-articles-combobox"> Show: </label>
+                            <select id="limit-articles-combobox" name="limit">
+                                <?php
+                                    if (isset($_GET["limit"])) {
+                                        echo "<option disabled selected value=".$_GET["limit"].">".$_GET["limit"]."</option>";
+                                    } else {
+                                        echo "<option disabled selected>LIMIT AMOUNT OF ARTICLES HERE</option>";
                                     }
-                                } else {
-                                    echo "<option disabled selected> SORT ARTICLES HERE </option>";
-                                }
-                            ?>
-                            <option value="articleTitle"> By Title </option> 
-                            <option value="articlePublishDate"> By Date </option> 
-                            <!-- <option value="articleAuthorID"> By Author </option>  -->
-                        </select>
+                                ?>
+                                <option value=10> 10 </option> 
+                                <option value=25> 25 </option> 
+                                <option value=50> 50 </option> 
+                                <option value=100> 100 </option> 
+                                <option value=500> 500 </option> 
+                            </select>
+                        </div>
                         <br>
-                        <br>
-                        <label for="sort-by-direction-combobox"> Sort Direction: </label>
-                        <select id="sort-by-direction-combobox" name="sort-by-direction"> 
-                            <?php
-                                if (isset($_GET["sort-by-direction"])) {
-                                    switch ($_GET["sort-by-direction"]) {
-                                        case 'ASC':
-                                            echo "<option disabled selected value='ASC'> Ascending </option>";
-                                            break;
-                                        case 'DESC':
-                                            echo "<option disabled selected value='DESC'> Descending </option>";
-                                            break;
-                                        default:
-                                            echo "<option disabled selected>CHANGE SORT DIRECTION HERE</option>";
-                                            break;
+                        <div class='sorter'>
+                            <label for="sort-by-combobox"> Sort: </label>
+                            <select id="sort-by-combobox" name="sort-by"> 
+                                <?php
+                                    if (isset($_GET["sort-by"])) {
+                                        switch ($_GET["sort-by"]) {
+                                            case 'articleTitle':
+                                                echo "<option disabled selected value='articleTitle'> By Title </option>";
+                                                break;
+                                            case 'articlePublishDate':
+                                                echo "<option disabled selected value='articlePublishDate'> By Date </option>";
+                                                break;
+                                            default:
+                                                unset($_GET["sort-by"]);
+                                                echo "<option disabled selected> SORT ARTICLES HERE </option>";
+                                                break;
+                                        }
+                                    } else {
+                                        echo "<option disabled selected> SORT ARTICLES HERE </option>";
                                     }
-                                } else {
-                                    echo "<option disabled selected>CHANGE SORT DIRECTION HERE</option>";
-                                }
-                            ?>
-                            <option value="ASC"> Ascending </option> 
-                            <option value="DESC"> Descending </option> 
-                        </select>
+                                ?>
+                                <option value="articleTitle"> By Title </option> 
+                                <option value="articlePublishDate"> By Date </option> 
+                                <!-- <option value="articleAuthorID"> By Author </option>  -->
+                            </select>
+                            <br>
+                            <br>
+                            <label for="sort-by-direction-combobox"> Sort Direction: </label>
+                            <select id="sort-by-direction-combobox" name="sort-by-direction"> 
+                                <?php
+                                    if (isset($_GET["sort-by-direction"])) {
+                                        switch ($_GET["sort-by-direction"]) {
+                                            case 'ASC':
+                                                echo "<option disabled selected value='ASC'> Ascending </option>";
+                                                break;
+                                            case 'DESC':
+                                                echo "<option disabled selected value='DESC'> Descending </option>";
+                                                break;
+                                            default:
+                                                unset($_GET["sort-by-direction"]);
+                                                echo "<option disabled selected>CHANGE SORT DIRECTION HERE</option>";
+                                                break;
+                                        }
+                                    } else {
+                                        echo "<option disabled selected>CHANGE SORT DIRECTION HERE</option>";
+                                    }
+                                ?>
+                                <option value="ASC"> Ascending </option> 
+                                <option value="DESC"> Descending </option> 
+                            </select>
+                        </div>
+                        <br>
+                        <input class="submit-button" type="submit" value="Sort"></input>
                     </div>
-                    <br>
-                    <input class="submit-button" type="submit" value="Sort"></input>
-                </div>
+                </fieldset>
 
                 <br>
                 <!-- <hr> -->
@@ -139,7 +142,7 @@
                                 // echo "<a class='article-link' href='Profile.php?profileID=".$article_author_ID."'> ".$article_author_name." ".$article_author_surname."</a>";
                                 echo "<br>";
                                 echo "<br>";
-                                // echo "<hr>";
+                                echo "<hr>";
                                 echo "<br>";
                             }
 

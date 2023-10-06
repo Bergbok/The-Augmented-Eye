@@ -24,6 +24,12 @@ CREATE TABLE Users
 	PRIMARY KEY (userID)
 );
 
+CREATE TABLE Admins
+(
+	userID INT NOT NULL,
+    FOREIGN KEY (userID) REFERENCES Users(userID)
+);
+
 CREATE TABLE Articles
 (
 	articleID INT NOT NULL AUTO_INCREMENT,

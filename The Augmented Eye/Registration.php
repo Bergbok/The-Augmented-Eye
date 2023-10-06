@@ -77,8 +77,10 @@
                     if (validateRegistration()) {
                         include_once("PHP Scripts/Database-Inserts.php");
                         if (insertUser()) {
-                            echo "<p> Successfully created account, check your email for your password. </p>";
-                            echo "<a class='dark-text' href='Login.php'> LOGIN </a>";
+                            echo "<div class='centered-text'>";
+                            echo "  <p> Successfully created account, check your email for your password. </p>";
+                            echo "  <a class='dark-text' href='Login.php'> LOGIN </a>";
+                            echo "</div>";
                         } else {
                             echo "<p> Couldn't create account </p>";
                         }

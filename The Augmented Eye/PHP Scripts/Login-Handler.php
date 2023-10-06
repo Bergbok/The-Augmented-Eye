@@ -36,8 +36,14 @@
     }
 
     function isLoggedIn() {
-        if (isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true) {
-            return true;
+        (isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true) ? $isLoggedIn=true : $isLoggedIn=true;
+        return $isLoggedIn;
+    }
+
+    function isAdmin() {
+        if (isset($_SESSION["userID"])) {
+            !empty(selectAdmin($_SESSION["userID"])) ? $isAdmin=true : $isAdmin=false;
+            return $isAdmin;
         } else {
             return false;
         }

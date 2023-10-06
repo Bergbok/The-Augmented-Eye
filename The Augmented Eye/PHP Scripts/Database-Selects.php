@@ -13,7 +13,7 @@
 
            if ($show_select_info) {echo 'User found';}
 
-            return $stmt->fetch();
+            return $stmt->fetch(PDO::FETCH_ASSOC);
 
         } catch(PDOException $e) {
 
@@ -21,6 +21,28 @@
             return [];
         }
     }
+
+    // function selectAllUsers($where_clause, $where_values) {
+    //     $show_select_info = false;
+
+    //     try{
+            
+    //         $dbh = connectToDB();
+
+    //         //prepare the sql statement
+    //         $stmt = $dbh->prepare("SELECT * FROM Users WHERE ".$where_clause.";");
+    //         $stmt -> execute($where_values);
+
+    //        if ($show_select_info) {echo 'Users found';}
+
+    //         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    //     } catch(PDOException $e) {
+
+    //         echo $e->getMessage();
+    //         return [];
+    //     }
+    // }
 
     function selectArticle($where_clause, $where_values) {
         $show_select_info = false;
@@ -35,7 +57,7 @@
 
            if ($show_select_info) {echo 'Article found';}
 
-            return $stmt->fetch();
+            return $stmt->fetch(PDO::FETCH_ASSOC);
 
         } catch(PDOException $e) {
 
@@ -54,7 +76,7 @@
             //prepare the sql statement
             $stmt = $dbh->prepare("SELECT * FROM Articles ORDER BY ".$order_by_column ." ". $order_by_direction." LIMIT ".$row_limit."; <br>");
 
-            if ($show_select_info) {}
+            if ($show_select_info) {echo 'Articles found';}
 
             $stmt -> execute();
 
@@ -68,6 +90,54 @@
 
             echo $e->getMessage();
             return [];
+        }
+    }
+
+    function selectAdmin($userID) {
+        $show_select_info = false;
+
+        try{
+            
+            $dbh = connectToDB();
+
+            //prepare the sql statement
+            $stmt = $dbh->prepare("SELECT * FROM Admins WHERE userID = :id;");
+            $where_values = [
+                'id' => $userID
+            ];
+            $stmt -> execute($where_values);
+
+           if ($show_select_info) {echo 'Admin found';}
+
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+
+        } catch(PDOException $e) {
+
+            echo $e->getMessage();
+            return [];
+        }
+    }
+
+    function getNewsletterSubcriberEmails() {
+        $show_select_info = false;
+
+        try{
+            
+            $dbh = connectToDB();
+
+            //prepare the sql statement
+            $stmt = $dbh->query("SELECT userEmail FROM Users WHERE userSubscribedToNewsletter = 1;");
+            $stmt -> execute();
+
+           if ($show_select_info) {echo 'Users found';}
+
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        } catch(PDOException $e) {
+
+            echo $e->getMessage();
+            return [];
+
         }
     }
 
