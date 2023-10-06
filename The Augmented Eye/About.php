@@ -13,9 +13,9 @@
         <div class="centered-column pixel-text">
             <h1 class="centered-text"> About </h1>
             <div class="article-text">
-                <p> The Augmented Eye is a digital news source from the game <b><a href="https://store.steampowered.com/app/447530/VA11_HallA_Cyberpunk_Bartender_Action/">VA-11 Hall-A: Cyberpunk Bartender Action</a></b>. </p>
+                <p> The Augmented Eye is a digital news source from the game <a href="https://store.steampowered.com/app/447530/VA11_HallA_Cyberpunk_Bartender_Action/">VA-11 Hall-A: Cyberpunk Bartender Action</a>.</p>
                 <p> One of the project options for a PHP course I was doing was to create a news website, at the time I was playing through VA-11 HALL-A and I thought recreating The Augmented Eye could be more fun than simply creating a basic news website with no personality. </p>
-                <p> The website comes preloaded with a bunch of articles from the game, written by Fernando Damas, obtained from the <a href="https://va11halla.fandom.com/wiki/The_Augmented_Eye"> wiki</a></p>
+                <p> The website comes preloaded with a bunch of (but not all) articles from the game, written by Fernando Damas, obtained from the <a href="https://va11halla.fandom.com/wiki/The_Augmented_Eye"> wiki</a></p>
             </div>
             <div id="staff">
                 <h1 class="centered-text"> Meet the Staff </h1>

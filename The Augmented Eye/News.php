@@ -18,11 +18,11 @@
                 <fieldset>
                     <div class='toolbar'>
                         <div class='limiter'>
-                            <label for="limit-articles-combobox"> Show: </label>
-                            <select id="limit-articles-combobox" name="limit">
+                            <label for="row_limit-articles-combobox"> Show: </label>
+                            <select id="row_limit-articles-combobox" name="row_limit">
                                 <?php
-                                    if (isset($_GET["limit"])) {
-                                        echo "<option disabled selected value=".$_GET["limit"].">".$_GET["limit"]."</option>";
+                                    if (isset($_GET["row_limit"])) {
+                                        echo "<option disabled selected value=".$_GET["row_limit"].">".$_GET["row_limit"]."</option>";
                                     } else {
                                         echo "<option disabled selected>LIMIT AMOUNT OF ARTICLES HERE</option>";
                                     }
@@ -36,11 +36,11 @@
                         </div>
                         <br>
                         <div class='sorter'>
-                            <label for="sort-by-combobox"> Sort: </label>
-                            <select id="sort-by-combobox" name="sort-by"> 
+                            <label for="order-by-combobox"> Sort: </label>
+                            <select id="order-by-combobox" name="order-by"> 
                                 <?php
-                                    if (isset($_GET["sort-by"])) {
-                                        switch ($_GET["sort-by"]) {
+                                    if (isset($_GET["order-by"])) {
+                                        switch ($_GET["order-by"]) {
                                             case 'articleTitle':
                                                 echo "<option disabled selected value='articleTitle'> By Title </option>";
                                                 break;
@@ -51,7 +51,7 @@
                                                 echo "<option disabled selected value='articleViews'> By Views </option>";
                                                 break;
                                             default:
-                                                unset($_GET["sort-by"]);
+                                                unset($_GET["order-by"]);
                                                 echo "<option disabled selected> SORT ARTICLES HERE </option>";
                                                 break;
                                         }
@@ -66,11 +66,11 @@
                             </select>
                             <br>
                             <br>
-                            <label for="sort-by-direction-combobox"> Sort Direction: </label>
-                            <select id="sort-by-direction-combobox" name="sort-by-direction"> 
+                            <label for="order-by-direction-combobox"> Sort Direction: </label>
+                            <select id="order-by-direction-combobox" name="order-by-direction"> 
                                 <?php
-                                    if (isset($_GET["sort-by-direction"])) {
-                                        switch ($_GET["sort-by-direction"]) {
+                                    if (isset($_GET["order-by-direction"])) {
+                                        switch ($_GET["order-by-direction"]) {
                                             case 'ASC':
                                                 echo "<option disabled selected value='ASC'> Ascending </option>";
                                                 break;
@@ -78,7 +78,7 @@
                                                 echo "<option disabled selected value='DESC'> Descending </option>";
                                                 break;
                                             default:
-                                                unset($_GET["sort-by-direction"]);
+                                                unset($_GET["order-by-direction"]);
                                                 echo "<option disabled selected>CHANGE SORT DIRECTION HERE</option>";
                                                 break;
                                         }
@@ -101,60 +101,11 @@
 
                 <div id="article-list" class="centered-text">
                     <?php
-                        $show_article_info = false;
-                        include_once('PHP Scripts/Database-Selects.php'); 
-
-                        isset($_GET["sort-by"]) ? $sort_by = $_GET["sort-by"] : $sort_by = 'articlePublishDate';
-                        isset($_GET["sort-by-direction"]) ? $sort_by_direction = $_GET["sort-by-direction"] : $sort_by_direction = 'DESC';
-                        isset($_GET["limit"]) ? $limit = $_GET["limit"] : $limit = 50;
-
-                        foreach (selectAllArticles($sort_by, $sort_by_direction, $limit) as $rows) {
-                            if ($show_article_info) {
-                                echo "Row Info: <br>";
-                                print_r($rows);
-                                echo "<br><br>";
-                            }
-
-                            unset($article_ID, $article_title, $article_author);
-
-                            foreach ($rows as $column => $value) {
-                                if ($show_article_info) {
-                                    echo 'Column: '.$column.' <br> Value:'.$value.'<br><br>';
-                                } 
-                                
-                                switch ($column) {
-                                    case 'articleID':
-                                        $article_ID = $value;
-                                        break;
-                                    case 'articleTitle':
-                                        $article_title = $value;
-                                        break;
-                                    case 'articleAuthorID':
-                                        $article_author_ID = $value;
-                                        break;
-                                    default:
-                                        # code...
-                                        break;
-                                }
-                            }
-
-                            if (isset($article_ID, $article_title, $article_author_ID)){
-                                echo "<a class='article-link' href='Article.php?viewArticle=".$article_ID."'>".$article_title."</a>";
-                                // $article_author_name = getUserNameFromID($article_author_ID);
-                                // $article_author_surname = getUserSurnameFromID($article_author_ID);
-                                // echo "<a class='no-decor-link' style='font-size: 1.25vw'> by </a>";
-                                // echo "<a class='article-link' href='Profile.php?profileID=".$article_author_ID."'> ".$article_author_name." ".$article_author_surname."</a>";
-                                echo "<br>";
-                                echo "<br>";
-                                echo "<hr>";
-                                echo "<br>";
-                            }
-
-                            // hmmmmm
-                            if (isset($_GET["viewArticle"])) {
-                                echo $_GET["viewArticle"];
-                            } 
-                        }
+                        isset($_GET["order-by"])           ? $order_by_column = $_GET["order-by"]              : $order_by_column = 'articlePublishDate';
+                        isset($_GET["order-by-direction"]) ? $order_by_direction = $_GET["order-by-direction"] : $order_by_direction = 'DESC';
+                        isset($_GET["row_limit"])          ? $row_limit = $_GET["row_limit"]                   : $row_limit = 50;
+                        include_once('PHP Scripts/Article-Display-Handler.php'); 
+                        echoArticleLinks($order_by_column, $order_by_direction, $row_limit);
                     ?>
                 </div>
             </form>
