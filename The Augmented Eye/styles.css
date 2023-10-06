@@ -192,6 +192,11 @@ form {
     padding: 21px;
 }
 
+html {
+    height: 100vh;
+    cursor: url("Cursors/CALICOMP1.1.cur"), auto;
+}
+
 hr {
     opacity: 33%;
     z-index: -1;
