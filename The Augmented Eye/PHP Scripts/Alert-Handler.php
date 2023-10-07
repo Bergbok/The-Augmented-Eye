@@ -13,3 +13,5 @@ switch ($page) {
         echo '<script>alert(\'No known alert for this page:' . $page . '\')</script>';
         break;
 }
+
+// EOF
