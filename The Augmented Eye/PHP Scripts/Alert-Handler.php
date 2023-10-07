@@ -1,6 +1,6 @@
 <?php
 
-    include_once("getCurrentPageInfo.php"); 
+    include_once("Current-Page-Info.php"); 
     
     $page = getCurrentPageInfo("page");
 

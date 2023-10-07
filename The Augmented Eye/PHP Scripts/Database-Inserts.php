@@ -3,7 +3,7 @@
     include_once("Database-Connection.php");
     include_once("Password-Generator.php");
 
-    function insertUser() {
+    function insertUser(): bool {
         $show_insert_info = false;
 
         try{
@@ -43,7 +43,7 @@
         }
     }
 
-    function insertArticle() {
+    function insertArticle(): bool {
         $show_insert_info = false;
 
         try{

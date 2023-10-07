@@ -1,6 +1,6 @@
 <?php
     include_once("Database-Selects.php");
-    function logIn() {
+    function logIn(): bool {
         $where_clause = "userEmail = :email AND userPassword = :password";
         $where_values = [
             'email' => $_POST["user_Email"],
@@ -31,16 +31,16 @@
         }
     }
 
-    function logOut() {
+    function logOut(): void {
         session_destroy();
     }
 
-    function isLoggedIn() {
+    function isLoggedIn(): bool {
         (isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true) ? $isLoggedIn=true : $isLoggedIn=false;
         return $isLoggedIn;
     }
 
-    function isAdmin() {
+    function isAdmin(): bool {
         if (isset($_SESSION["userID"])) {
             !empty(selectAdmin($_SESSION["userID"])) ? $isAdmin=true : $isAdmin=false;
             return $isAdmin;

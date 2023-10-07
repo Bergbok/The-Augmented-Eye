@@ -1,5 +1,5 @@
 <?php
-    function getCurrentPageInfo($value){
+    function getCurrentPageInfo(string $value): string {
         //If called from within a function, the return() statement immediately ends execution of the current function, thus break; isn't needed.
         switch ($value) {
             case "uri": // Outputs: URI
@@ -12,8 +12,7 @@
                 return urldecode($url); 
             case "page": //Outputs current page identifier
                 $uri = $_SERVER['REQUEST_URI'] ?? NULL;
-                // can maybe remove rtrim
-                return urldecode(rtrim(substr($uri, strrpos($uri, '/') + 1),"<br>"));
+                return urldecode(substr($uri, strrpos($uri, '/') + 1));
             case "query-string": // Outputs: Query String
                 $query = $_SERVER['QUERY_STRING'] ?? NULL;
                 return urldecode($query); 

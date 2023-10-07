@@ -1,5 +1,5 @@
 <?php
-    function echoArticleInfo($articleInfo) {
+    function echoArticleInfo(array $articleInfo): void {
         $article_author_name = getUserNameFromArticleID($articleInfo["articleID"]);
         $article_author_surname = getUserSurnameFromArticleID($articleInfo["articleID"]);
         echo "<title> ".$articleInfo["articleTitle"]." </title>";
@@ -35,12 +35,14 @@
         echo "</div>";
     }
 
-    function echoArticleNotFound() {
+    function echoArticleNotFound(): void {
         echo "<h1 class='centered-text bright-text pixel-text'> Article not found :( </h1>";
     }
 
-    function echoArticleLinks($order_by_column, $order_by_direction, $row_limit) {
+    function echoArticleLinks(string $order_by_column, string $order_by_direction, int $row_limit): void {
+        $include_article_author = false;
         $show_article_info = false;
+
         include_once('Database-Selects.php'); 
 
         foreach (selectAllArticles($order_by_column, $order_by_direction, $row_limit) as $rows) {
@@ -75,10 +77,12 @@
 
             if (isset($article_ID, $article_title, $article_author_ID)){
                 echo "<a class='article-link' href='/The Augmented Eye/Article?viewArticle=".$article_ID."'>".$article_title."</a>";
-                // $article_author_name = getUserNameFromID($article_author_ID);
-                // $article_author_surname = getUserSurnameFromID($article_author_ID);
-                // echo "<a class='no-decor-link' style='font-size: 1.25vw'> by </a>";
-                // echo "<a class='article-link' href='/The Augmented Eye/Profile?profileID=".$article_author_ID."'> ".$article_author_name." ".$article_author_surname."</a>";
+                if ($include_article_author) {
+                    $article_author_name = getUserNameFromArticleID($article_ID);
+                    $article_author_surname = getUserSurnameFromArticleID($article_ID);
+                    echo "<a class='no-decor-link' style='font-size: 1.25vw'> by </a>";
+                    echo "<a class='article-link' href='/The Augmented Eye/Profile?profileID=".$article_author_ID."'> ".$article_author_name." ".$article_author_surname."</a>";
+                }
                 echo "<br>";
                 echo "<br>";
                 echo "<hr>";

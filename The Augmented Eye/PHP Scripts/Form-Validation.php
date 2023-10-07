@@ -16,7 +16,7 @@
     //         break;
     // }
 
-    function validateLogin() {
+    function validateLogin(): bool {
         $show_login_errors = true;
         $show_provided_login_info = false;
 
@@ -54,7 +54,7 @@
     }
 
     //Return true if valid, false if invalid
-    function validateRegistration() {
+    function validateRegistration(): bool {
         $show_registration_errors = true;
         $show_provided_registration_info = false;
 
@@ -133,7 +133,7 @@
         }
     }
 
-    function validateArticle() {
+    function validateArticle(): bool {
         $show_article_errors = true;
         $show_provided_article_info = false;
 
@@ -174,7 +174,7 @@
         }
     }
 
-    function validateNewsletter() {
+    function validateNewsletter(): bool {
         $show_newsletter_errors = true;
         $show_provided_newsletter_info = false;
 
@@ -211,7 +211,7 @@
         }
     }
 
-    function validatePasswordChange() {
+    function validatePasswordChange(): bool {
         $show_new_password_errors = true;
         $show_provided_new_password_info = false;
 
