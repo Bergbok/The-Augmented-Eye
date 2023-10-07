@@ -2,11 +2,11 @@
 
 // include_once 'Current-Page-Info'; 
 
-// $uri = getCurrentPageInfo('uri');
+// $uri = get_current_page_info('uri');
 
 // switch (substr($uri, strrpos($uri, '/') + 1)) {
 //     case 'Registration.php':
-//         return validateRegistration();
+//         return validate_registration();
 //         break;
 //     case 'Login.php':
 
@@ -17,7 +17,7 @@
 //         break;
 // }
 
-function validateLogin(): bool {
+function validate_login(): bool {
     $show_login_errors = true;
     $show_provided_login_info = false;
 
@@ -55,7 +55,7 @@ function validateLogin(): bool {
 }
 
 //Return true if valid, false if invalid
-function validateRegistration(): bool {
+function validate_registration(): bool {
     $show_registration_errors = true;
     $show_provided_registration_info = false;
 
@@ -134,7 +134,7 @@ function validateRegistration(): bool {
     }
 }
 
-function validateArticle(): bool {
+function validate_article(): bool {
     $show_article_errors = true;
     $show_provided_article_info = false;
 
@@ -175,7 +175,7 @@ function validateArticle(): bool {
     }
 }
 
-function validateNewsletter(): bool {
+function validate_newsletter(): bool {
     $show_newsletter_errors = true;
     $show_provided_newsletter_info = false;
 
@@ -212,7 +212,7 @@ function validateNewsletter(): bool {
     }
 }
 
-function validatePasswordChange(): bool {
+function validate_password_change(): bool {
     $show_new_password_errors = true;
     $show_provided_new_password_info = false;
 

@@ -3,12 +3,12 @@
 // Purpose: Used to connect to database.
 include_once 'Database-Connection.php';
 
-function selectUser(string $where_clause, array $where_values): array {
+function select_user(string $where_clause, array $where_values): array {
     $show_select_info = false;
 
     try{
         
-        $dbh = connectToDB();
+        $dbh = connect_to_db();
 
         //prepare the sql statement
         $stmt = $dbh->prepare('SELECT * FROM Users WHERE ' . $where_clause . ';');
@@ -30,7 +30,7 @@ function selectUser(string $where_clause, array $where_values): array {
 
 //     try{
         
-//         $dbh = connectToDB();
+//         $dbh = connect_to_db();
 
 //         //prepare the sql statement
 //         $stmt = $dbh->prepare('SELECT * FROM Users WHERE ' . $where_clause . ';');
@@ -47,12 +47,12 @@ function selectUser(string $where_clause, array $where_values): array {
 //     }
 // }
 
-function selectArticle(string $where_clause, array $where_values): array {
+function select_article(string $where_clause, array $where_values): array {
     $show_select_info = false;
 
     try{
         
-        $dbh = connectToDB();
+        $dbh = connect_to_db();
 
         //prepare the sql statement
         $stmt = $dbh->prepare('SELECT * FROM Articles WHERE ' . $where_clause . ';');
@@ -69,12 +69,12 @@ function selectArticle(string $where_clause, array $where_values): array {
     }
 }
 
-function selectAllArticles(string $order_by_column, string $order_by_direction, string $row_limit): array {
+function select_all_articles(string $order_by_column, string $order_by_direction, string $row_limit): array {
     $show_select_info = false;
 
     try{
         
-        $dbh = connectToDB();
+        $dbh = connect_to_db();
 
         //prepare the sql statement
         $stmt = $dbh->prepare('SELECT * FROM Articles ORDER BY ' . $order_by_column . ' ' . $order_by_direction . ' LIMIT ' . $row_limit . '; <br>');
@@ -96,12 +96,12 @@ function selectAllArticles(string $order_by_column, string $order_by_direction, 
     }
 }
 
-function selectAdmin(int $userID): array {
+function select_admin(int $userID): array {
     $show_select_info = false;
 
     try{
         
-        $dbh = connectToDB();
+        $dbh = connect_to_db();
 
         //prepare the sql statement
         $stmt = $dbh->prepare('SELECT * FROM Admins WHERE userID = :id;');
@@ -121,12 +121,12 @@ function selectAdmin(int $userID): array {
     }
 }
 
-function getNewsletterSubcriberEmails(): array {
+function get_newsletter_subscriber_emails(): array {
     $show_select_info = false;
 
     try{
         
-        $dbh = connectToDB();
+        $dbh = connect_to_db();
 
         //prepare the sql statement
         $stmt = $dbh->query('SELECT userEmail FROM Users WHERE userSubscribedToNewsletter = 1;');
@@ -144,36 +144,36 @@ function getNewsletterSubcriberEmails(): array {
     }
 }
 
-function getAuthorID(int $article_ID): int {
+function get_author_id(int $article_ID): int {
     $where_clause = 'articleID = :id';
     $where_values = [
         'id' => $article_ID,
     ];
 
-    $article_Info = selectArticle($where_clause, $where_values);
+    $article_Info = select_article($where_clause, $where_values);
     $author_ID = $article_Info['articleAuthorID'];
 
     return $author_ID;
 }
 
-function getUserNameFromArticleID(int $article_ID): string {
+function get_author_name_from_article_id(int $article_ID): string {
     $where_clause = 'userID = :id';
     $where_values = [
-        'id' => getAuthorID($article_ID),
+        'id' => get_author_id($article_ID),
     ];
 
-    $userInfo = selectUser($where_clause, $where_values);
+    $userInfo = select_user($where_clause, $where_values);
     $author_name = $userInfo['userName'];
     return $author_name;
 }
 
-function getUserSurnameFromArticleID(int $article_ID): string {
+function get_author_surname_from_article_id(int $article_ID): string {
     $where_clause = 'userID = :id';
     $where_values = [
-        'id' => getAuthorID($article_ID),
+        'id' => get_author_id($article_ID),
     ];
 
-    $userInfo = selectUser($where_clause, $where_values);
+    $userInfo = select_user($where_clause, $where_values);
     $author_surname = $userInfo['userSurname'];
     return $author_surname;
 }

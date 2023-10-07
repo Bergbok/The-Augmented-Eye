@@ -4,7 +4,7 @@
     include_once 'Header.php'; 
     // Purpose: Used to log out user.
     include_once 'PHP Scripts/Login-Handler.php';
-    logOut();
+    logout();
     // Purpose: Used to display a alert informing the user that they have been logged out.
     // include_once 'PHP Scripts/Alert-Handler.php';
 ?>

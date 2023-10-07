@@ -3,14 +3,14 @@
 // Purpose: Used to get user info from database.
 include_once 'Database-Selects.php';
 
-function logIn(): bool {
+function login(): bool {
     $where_clause = 'userEmail = :email AND userPassword = :password';
     $where_values = [
         'email' => $_POST['user_Email'],
         'password' => $_POST['user_Password'],
     ];
 
-    $userInfo = selectUser($where_clause, $where_values);
+    $userInfo = select_user($where_clause, $where_values);
 
     !empty($userInfo) ? $userExists = true : $userExists = false;
 
@@ -34,19 +34,19 @@ function logIn(): bool {
     }
 }
 
-function logOut(): void {
+function logout(): void {
     session_destroy();
 }
 
-function isLoggedIn(): bool {
-    (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) ? $isLoggedIn=true : $isLoggedIn=false;
-    return $isLoggedIn;
+function is_logged_in(): bool {
+    (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) ? $is_logged_in=true : $is_logged_in=false;
+    return $is_logged_in;
 }
 
-function isAdmin(): bool {
+function is_admin(): bool {
     if (isset($_SESSION['userID'])) {
-        !empty(selectAdmin($_SESSION['userID'])) ? $isAdmin=true : $isAdmin=false;
-        return $isAdmin;
+        !empty(select_admin($_SESSION['userID'])) ? $is_admin=true : $is_admin=false;
+        return $is_admin;
     } else {
         return false;
     }

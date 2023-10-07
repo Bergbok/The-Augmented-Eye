@@ -1,13 +1,13 @@
 <?php
 
-function echoArticleInfo(array $articleInfo): void {
+function show_article_info(array $articleInfo): void {
     // Purpose: Used to get current page URL for sharing articles.
     include_once 'Current-Page-Info.php'; 
 
-    $url = getCurrentPageInfo('url'); 
+    $url = get_current_page_info('url'); 
     $use_addtoany_share = true;
-    $articleInfo["articleAuthorName"] = getUserNameFromArticleID($articleInfo['articleID']);
-    $articleInfo["articleAuthorSurname"] = getUserSurnameFromArticleID($articleInfo['articleID']);
+    $articleInfo["articleAuthorName"] = get_author_name_from_article_id($articleInfo['articleID']);
+    $articleInfo["articleAuthorSurname"] = get_author_surname_from_article_id($articleInfo['articleID']);
 
     echo '<title> ' . $articleInfo['articleTitle'] . ' </title>';
     echo '<div class=\'centered-column pixel-text\'>';
@@ -39,19 +39,19 @@ function echoArticleInfo(array $articleInfo): void {
     echo '</div>';
 }
 
-function echoArticleNotFound(): void {
+function show_article_not_found(): void {
     echo '<h1 class=\'centered-text bright-text pixel-text\'> Article not found :( </h1>';
 }
 
-function echoArticleLinks(string $order_by_column, string $order_by_direction, int $row_limit): void {
+function show_article_links(string $order_by_column, string $order_by_direction, int $row_limit): void {
     $include_article_author_in_link = false;
-    $show_article_info = false;
+    $show_select_info = false;
 
     // Purpose: Used to select articles.
     include_once 'Database-Selects.php'; 
 
-    foreach (selectAllArticles($order_by_column, $order_by_direction, $row_limit) as $rows) {
-        if ($show_article_info) {
+    foreach (select_all_articles($order_by_column, $order_by_direction, $row_limit) as $rows) {
+        if ($show_select_info) {
             echo 'Row Info: <br>';
             print_r($rows);
             echo '<br><br>';
@@ -60,7 +60,7 @@ function echoArticleLinks(string $order_by_column, string $order_by_direction, i
         unset($article_ID, $article_title, $article_author);
 
         foreach ($rows as $column => $value) {
-            if ($show_article_info) {
+            if ($show_select_info) {
                 echo 'Column: ' . $column . ' <br> Value:' . $value . '<br><br>';
             } 
             
@@ -83,8 +83,8 @@ function echoArticleLinks(string $order_by_column, string $order_by_direction, i
         if (isset($article_ID, $article_title, $article_author_ID)){
             echo '<a class=\'article-link\' href=\'/The Augmented Eye/Article?viewArticle=' . $article_ID . '\'>' . $article_title . '</a>';
             if ($include_article_author_in_link) {
-                $article_author_name = getUserNameFromArticleID($article_ID);
-                $article_author_surname = getUserSurnameFromArticleID($article_ID);
+                $article_author_name = get_author_name_from_article_id($article_ID);
+                $article_author_surname = get_author_surname_from_article_id($article_ID);
                 echo '<a class=\'no-decor-link\' style=\'font-size: 1.25vw\'> by </a>';
                 echo '<a class=\'article-link\' href=\'/The Augmented Eye/Profile?profileID=\'' . $article_author_ID . '\'>' . $article_author_name . ' ' . $article_author_surname . '</a>';
             }

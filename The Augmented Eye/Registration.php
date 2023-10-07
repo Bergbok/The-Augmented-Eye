@@ -69,15 +69,15 @@
                     // Purpose: Used to validate registration information.
                     include_once 'PHP Scripts/Form-Validation.php';
 
-                    if (validateRegistration()) {
+                    if (validate_registration()) {
                         // Purpose: Used to insert new user into database.
                         include_once 'PHP Scripts/Database-Inserts.php';
 
-                        if (insertUser()) {
+                        if (insert_user()) {
                             // Purpose: Used to email password to user upon successful registration.
                             include_once 'PHP Scripts/Email-Handler.php';
 
-                            if (sendPassword()) {
+                            if (send_password()) {
                                 echo '<div class=\'centered-text\'>';
                                 echo '  <p> Successfully created account, check your email for your password. </p>';
                                 echo '  <a class=\'dark-text\' href=\'/The Augmented Eye/Login\'> LOGIN </a>';

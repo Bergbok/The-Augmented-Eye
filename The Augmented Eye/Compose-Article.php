@@ -16,7 +16,7 @@
                     // Purpose: Used to check if the user is logged in.
                     include_once('PHP Scripts/Login-Handler.php');
 
-                    if (!isLoggedIn()){
+                    if (!is_logged_in()){
                         echo '<p> Login to be able to post. </p>';
                         echo '<a class=\'dark-text\' href=\'/The Augmented Eye/Login\'> LOGIN </a>';
                     } else {
@@ -30,11 +30,11 @@
                         // Purpose: Used to check if the article is valid.
                         include_once('PHP Scripts/Form-Validation.php');
 
-                        if (validateArticle()) {
+                        if (validate_article()) {
                             // Purpose: Used to insert article into database.
                             include_once('PHP Scripts/Database-Inserts.php');
 
-                            if (insertArticle()) {
+                            if (insert_article()) {
                                 echo '<p> Successfully submitted article. </p>';
                             } else {
                                 echo '<p> Couldn\'t submit article. </p>';

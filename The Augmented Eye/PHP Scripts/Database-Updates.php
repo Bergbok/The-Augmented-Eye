@@ -5,11 +5,11 @@
 // Purpose: Used to connect to database.
 include_once 'Database-Connection.php';
 
-function updateUserPassword(): bool {
+function update_user_password(): bool {
     $show_update_info = false;
 
     try{
-        $dbh = connectToDB();
+        $dbh = connect_to_db();
 
         //prepare the sql statement
         $stmt = $dbh->prepare('UPDATE Users SET userPassword = :newPassword WHERE userID = :userID');
@@ -37,11 +37,11 @@ function updateUserPassword(): bool {
     }
 }
 
-function incrementArticleViews(int $article_ID): bool {
+function increment_article_viewcount(int $article_ID): bool {
     $show_update_info = false;
 
     try{
-        $dbh = connectToDB();
+        $dbh = connect_to_db();
 
         //prepare the sql statement
         $stmt = $dbh->prepare('UPDATE Articles SET articleViews = articleViews+1 WHERE articleID = :articleID');

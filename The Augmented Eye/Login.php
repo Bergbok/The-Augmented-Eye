@@ -35,11 +35,11 @@
                     // Purpose: Used to validate login information.
                     include_once 'PHP Scripts/Form-Validation.php'; 
 
-                    if (validateLogin()) {
+                    if (validate_login()) {
                         // Purpose: Used to check if login is successful.
                         include_once('PHP Scripts/Login-Handler.php');
 
-                        if (logIn()) {
+                        if (login()) {
                             echo '<p> Successfully logged in! </p> <br>';
                             header('Location: Home');
                         } else {

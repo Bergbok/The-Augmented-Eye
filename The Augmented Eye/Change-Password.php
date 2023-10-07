@@ -25,15 +25,15 @@
                         // Purpose: Used to check if user is logged in.
                         include_once 'PHP Scripts/Login-Handler.php'; 
 
-                        if (isLoggedIn()) {
+                        if (is_logged_in()) {
                             // Purpose: Used to check if new password is valid.
                             include_once 'PHP Scripts/Form-Validation.php';
 
-                            if (validatePasswordChange()) {
+                            if (validate_password_change()) {
                                 // Purpose: Used to update the password.
                                 include_once 'PHP Scripts/Database-Updates.php';
 
-                                if (updateUserPassword()) {
+                                if (update_user_password()) {
                                     echo '<p> Successfully updated password! </p>';
                                 } else {
                                     echo '<p class=\'error-message\'> Couldn\'t update password </p>';

@@ -15,7 +15,7 @@
                     // Purpose: Used to check if the user is an admin.
                     include_once 'PHP Scripts/Login-Handler.php';
 
-                    if (!isAdmin()){
+                    if (!is_admin()){
                         echo '<div class=\'centered-text\'>';
                         echo '  <h1> Access Forbidden </h1>';
                         echo '  <h2> Only admins may access this page. </h2>';
@@ -34,11 +34,11 @@
                         // Purpose: Used to validate newsletter information.
                         include_once 'PHP Scripts/Form-Validation.php';
 
-                        if (validateNewsletter()) {
+                        if (validate_newsletter()) {
                             // Purpose: Used to send newsletter to subscribers.
                             include_once 'PHP Scripts/Email-Handler.php';
 
-                            sendNewsletter();
+                            send_newsletter();
                         }
                     }
                 ?>

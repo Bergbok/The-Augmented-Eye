@@ -1,7 +1,7 @@
 <?php
 
 $from = 'albertus.cilliers@gmail.com'; //your gmail address here
-function sendPassword(): bool {
+function send_password(): bool {
     $show_email_info = false;
     $show_email_errors = false;
     $show_successfull_emails = false;
@@ -20,7 +20,7 @@ function sendPassword(): bool {
         'subscribedToNewsletter' => $_POST['newuser_ReceiveNewsletter'] ?? 0,
     ];
 
-    $userInfo = selectUser($where_clause, $where_values);
+    $userInfo = select_user($where_clause, $where_values);
 
     !empty($userInfo) ? $userExists = true : $userExists = false;
 
@@ -60,12 +60,12 @@ function sendPassword(): bool {
     }
 }
 
-function sendNewsletter(): bool {
+function send_newsletter(): bool {
     $show_email_info = false;
     $show_email_errors = true;
     $show_successfull_emails = true;
 
-    $subscribers = getToEmails();
+    $subscribers = get_to_emails();
 
     !empty($subscribers) ? $newsletter_has_subscribers = true : $newsletter_has_subscribers = false;
 
@@ -106,7 +106,7 @@ function sendNewsletter(): bool {
     }
 }
 
-function getToEmails(): array {
+function get_to_emails(): array {
     $show_email_info = false;
 
     // Purpose: Used to get newsletter subscriber emails.
@@ -114,7 +114,7 @@ function getToEmails(): array {
 
     $recipients[] = null;
 
-    foreach (getNewsletterSubcriberEmails() as $rows) {
+    foreach (get_newsletter_subscriber_emails() as $rows) {
         if ($show_email_info) {
             echo 'Row Info: <br>';
             print_r($rows);

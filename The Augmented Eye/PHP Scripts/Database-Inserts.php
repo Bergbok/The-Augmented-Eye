@@ -8,18 +8,18 @@ include_once 'Database-Connection.php';
 // Purpose: Used to generate passwords for new users.
 include_once 'Password-Generator.php';
 
-function insertUser(): bool {
+function insert_user(): bool {
     $show_insert_info = false;
 
     try{
-        $dbh = connectToDB();
+        $dbh = connect_to_db();
 
         //prepare the sql statement
         $stmt = $dbh->prepare('INSERT INTO Users (userPassword, userName, userSurname, userGender, userBirthday, userEmail, userContactNo, userSubscribedToNewsletter, userRegistrationDate)
         VALUES (:userPassword, :newuser_Name, :newuser_Surname, :newuser_Gender, :newuser_Birthday, :newuser_Email, :newuser_Contact, :newuser_ReceiveNewsletter, :newuser_RegistrationDate)');
         
         $data = [
-            'userPassword' => generatePassword(30),
+            'userPassword' => generate_password(30),
             'newuser_Name' => $_POST['newuser_Name'],
             'newuser_Surname' => $_POST['newuser_Surname'],
             'newuser_Gender' => $_POST['newuser_Gender'],
@@ -48,18 +48,18 @@ function insertUser(): bool {
     }
 }
 
-function insertArticle(): bool {
+function insert_article(): bool {
     $show_insert_info = false;
 
     try{
-        $dbh = connectToDB();
+        $dbh = connect_to_db();
 
         //prepare the sql statement
         $stmt = $dbh->prepare('INSERT INTO Articles (articleID, articleAuthorID, articleTitle, articleContent, articlePublishDate)
         VALUES (:articleID, :articleAuthorID, :articleTitle, :articleContent, :articlePublishDate)');
         
         $data = [
-            'articleID' => generatePassword(30),
+            'articleID' => generate_password(30),
             'articleAuthorID' => $_SESSION['userID'],
             'articleTitle' => $_POST['article_Title'],
             'articleContent' => nl2br($_POST['article_Content']),

@@ -15,20 +15,20 @@
                     'id' => $_GET['profileID']
                 ];
 
-                $userInfo = selectUser($where_clause, $where_values);
+                $userInfo = select_user($where_clause, $where_values);
 
                 !empty($userInfo) ? $userExists = true : $userExists = false;
 
                 if ($userExists) {
-                    echoProfileInfo($userInfo);
+                    show_profile_info($userInfo);
                 } else {
-                    echoProfileNotFound();
+                    show_profile_not_found();
                 } 
             } else {
-                echoProfileNotFound();
+                show_profile_not_found();
             }
 
-            function echoProfileInfo(array $userInfo): void {
+            function show_profile_info(array $userInfo): void {
                 echo '<title> ' . $userInfo['userName'] . ' ' . $userInfo['userSurname'] . '\'s Profile </title>';
                 echo '<div class=\'centered-column centered-text pixel-text\'>';
                 echo '  <form type=\'POST\'>';
@@ -51,7 +51,7 @@
                 // Purpose: Used to check if profile belongs to currently logged in user.
                 include_once 'PHP Scripts/Login-Handler.php'; 
 
-                if (isLoggedIn()) {
+                if (is_logged_in()) {
                     if ($_GET['profileID'] == $_SESSION['userID']) {
                         echo '<div class=\'article-link\'>';
                         echo '  <a class=\'dark-text\' href=\'/The Augmented Eye/Change-Password\'> Change Password </a>';
@@ -63,7 +63,7 @@
                 echo '  </form>';
                 echo '</div>';
             }
-            function echoProfileNotFound(): void {
+            function show_profile_not_found(): void {
                 echo '<h1 class=\'centered-text bright-text pixel-text\'> User not found :( </h1>';
             }
         ?>

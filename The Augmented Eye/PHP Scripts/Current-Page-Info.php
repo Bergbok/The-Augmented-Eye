@@ -1,6 +1,6 @@
 <?php
 
-function getCurrentPageInfo(string $value): string {
+function get_current_page_info(string $value): string {
     //If called from within a function, the return() statement immediately ends execution of the current function, thus break; isn't needed.
     switch ($value) {
         case 'uri': // Outputs: URI

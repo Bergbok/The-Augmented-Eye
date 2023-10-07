@@ -3,12 +3,12 @@
 //Modified version of: https://gist.github.com/fedir/4662cd863475eb08765ecf19e302949a
 
 //Used to generate a random password
-function generatePassword(int $length): string {
-    return substr(preg_replace('/[^a-zA-Z0-9]/', '', base64_encode(getRandomBytes($length+1))),0,$length);
+function generate_password(int $length): string {
+    return substr(preg_replace('/[^a-zA-Z0-9]/', '', base64_encode(get_random_bytes($length+1))),0,$length);
 }
 
-//Used in generatePassword function
-function getRandomBytes(int $nbBytes = 32): string  {
+//Used in generate_password function
+function get_random_bytes(int $nbBytes = 32): string  {
     $strong = null;
     $bytes = openssl_random_pseudo_bytes($nbBytes, $strong);
     if ($bytes !== false && $strong === true) {

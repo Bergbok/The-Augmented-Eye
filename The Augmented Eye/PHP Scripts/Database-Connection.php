@@ -3,7 +3,7 @@
 // Purpose: Provides authentication info for connection to database. 
 include_once 'Database-Authentication-Info.php';
 
-function connectToDB(): PDO {
+function connect_to_db(): PDO {
     $show_connection_info = false;
 
     // From Database-Authentication-Info.php

@@ -23,7 +23,7 @@
                     <?php
                         // Purpose: Used to display a preview of the 3 newest articles.
                         include_once 'PHP Scripts/Article-Display-Handler.php';
-                        echoArticleLinks('articlePublishDate','DESC',3);
+                        show_article_links('articlePublishDate','DESC',3);
                         echo '<h2><a class=\'dark-text\' href=\'/The Augmented Eye/News\'> View More Here </a></h2>';
                         echo '<br>';
                     ?>

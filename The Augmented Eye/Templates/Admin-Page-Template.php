@@ -18,7 +18,7 @@
                 // Purpose: Used to check if the user is an admin.
                 include_once 'PHP Scripts/Login-Handler.php';
 
-                if (!isAdmin()){
+                if (!is_admin()){
                     echo '<div class=\'centered-text\'>';
                     echo '  <h1> Access Forbidden </h1>';
                     echo '  <h2> Only admins may access this page. </h2>';

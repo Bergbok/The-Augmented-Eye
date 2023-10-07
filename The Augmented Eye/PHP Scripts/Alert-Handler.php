@@ -3,7 +3,7 @@
 // Purpose: Used to get current page.
 include_once 'Current-Page-Info.php'; 
 
-$page = getCurrentPageInfo('page');
+$page = get_current_page_info('page');
 
 switch ($page) {
     case ('Logout.php' || 'Logout'):
