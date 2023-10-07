@@ -64,7 +64,7 @@ function validate_registration(): bool {
     if (isset($_SERVER['REQUEST_METHOD'])){
         if ($_SERVER['REQUEST_METHOD'] == 'POST'){                
 
-            if (isset($_POST['newuser_Name']) && $_POST['newuser_Name'] != null) {
+            if (isset($_POST['newuser_Name'])) {
                 $newuser_name_isvalid = true;
                 if ($show_provided_registration_info){
                     echo '<p class=error-message> Provided name is: ' . $_POST['newuser_Name'] . '</p>';
@@ -73,7 +73,7 @@ function validate_registration(): bool {
                 echo '<p class=\'error-message\'> Please enter your name </p>';   
             }
 
-            if (isset($_POST['newuser_Surname']) && $_POST['newuser_Surname'] != null) {
+            if (isset($_POST['newuser_Surname'])) {
                 $newuser_surname_isvalid = true;
                 if ($show_provided_registration_info){
                     echo '<p class=\'error-message\'> Provided surname is: ' . $_POST['newuser_Surname'] . '</p>';
@@ -82,7 +82,7 @@ function validate_registration(): bool {
                 echo '<p class=\'error-message\'> Please enter your surname </p>';
             }
 
-            if (isset($_POST['newuser_Gender']) && $_POST['newuser_Gender'] != null) {
+            if (isset($_POST['newuser_Gender'])) {
                 $newuser_gender_isvalid = true;
                 if ($show_provided_registration_info){
                     echo '<p class=\'error-message\'> Provided gender is: ' . $_POST['newuser_Gender'] . '</p>';
@@ -91,7 +91,7 @@ function validate_registration(): bool {
                 echo '<p class=\'error-message\'> Please enter your gender </p>';
             }
 
-            if (isset($_POST['newuser_Birthday']) && $_POST['newuser_Birthday'] != null) {
+            if (isset($_POST['newuser_Birthday'])) {
                 $newuser_birthday_isvalid = true;
                 if ($show_provided_registration_info){
                     echo '<p class=\'error-message\'> Provided birthday is: ' . $_POST['newuser_Birthday'] . '</p>';
@@ -100,7 +100,7 @@ function validate_registration(): bool {
                 echo '<p class=\'error-message\'> Please enter your birthday </p>';
             }
 
-            if (isset($_POST['newuser_Email']) && $_POST['newuser_Email'] != null) {
+            if (isset($_POST['newuser_Email'])) {
                 $newuser_email_isvalid = true;
                 if ($show_provided_registration_info){
                     echo '<p class=\'error-message\'> Provided e-mail is: ' . $_POST['newuser_Email'] . '</p>';
@@ -109,7 +109,7 @@ function validate_registration(): bool {
                 echo '<p class=\'error-message\'> Please enter your e-mail </p>';
             }
 
-            if (isset($_POST['newuser_Contact']) && $_POST['newuser_Contact'] != null) {
+            if (isset($_POST['newuser_Contact'])) {
                 $newuser_contact_isvalid = true;
                 if ($show_provided_registration_info){
                     echo '<p class=\'error-message\'> Provided contact is: ' . $_POST['newuser_Contact'] . '</p>';
@@ -118,7 +118,7 @@ function validate_registration(): bool {
                 echo '<p class=\'error-message\'> Please enter your contact information </p>';
             }
             
-            if (isset($_POST['newuser_ReceiveNewsletter']) && $_POST['newuser_ReceiveNewsletter'] != null) {
+            if (isset($_POST['newuser_ReceiveNewsletter'])) {
                 if ($show_provided_registration_info){
                     echo '<p class=\'error-message\'> Provided newsletter choice is: ' . $_POST['newuser_ReceiveNewsletter'] . '</p>';
                 }
