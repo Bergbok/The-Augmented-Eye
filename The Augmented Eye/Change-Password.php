@@ -1,8 +1,13 @@
+<!-- 
+    Filename: Change-Password.php
+    Author: Albertus Cilliers   
+    Description: Lets a logged in user change their password.
+ -->
+
 <?php 
     // Purpose: Displays header.
     include_once 'Header.php'; 
 ?>
-
 
 <html>
     <head>

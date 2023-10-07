@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Filename: About.php
+ * Author: Albertus Cilliers  
+ * Description: Handles displaying article links & pages.
+ */
+
 function show_article_info(array $article_info): void {
     // Purpose: Used to get current page URL for sharing articles.
     include_once 'Current-Page-Info.php'; 

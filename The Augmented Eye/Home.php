@@ -1,3 +1,10 @@
+<!-- 
+    Filename: Home.php
+    Author: Albertus Cilliers   
+    Description: Home page, didn't really know what to include here, ended up deciding on a simple welcome message,
+                 brief description of this project, 3 newest articles and a BEEFBRAIN SHIELD PRO sticker cause I think it's funny.
+ -->
+
 <?php 
     // Purpose: Displays header.
     include_once 'Header.php'; 

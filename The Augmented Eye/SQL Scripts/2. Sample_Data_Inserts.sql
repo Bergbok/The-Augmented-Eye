@@ -1,3 +1,9 @@
+/*===============================AT==================================== 
+Filename: 2. Sample_Data_Inserts.sql
+Author: Albertus Cilliers
+Description: This file will insert sample data into the database.
+=====================================================================*/
+
 USE TheAugmentedEye;
 
 INSERT INTO Users(userPassword, userName, userSurname, userGender, userBirthday, userEmail, userContactNo, userSubscribedToNewsletter, userRegistrationDate)

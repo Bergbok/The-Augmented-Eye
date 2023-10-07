@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Filename: About.php
+ * Author: Albertus Cilliers  
+ * Description: Used to select data and rows from database tables.
+ */
+
 // Purpose: Used to connect to database.
 include_once 'Database-Connection.php';
 

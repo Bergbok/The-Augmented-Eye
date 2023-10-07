@@ -1,6 +1,11 @@
 <?php
 
-//Modified version of: https://gist.github.com/fedir/4662cd863475eb08765ecf19e302949a
+/**
+ * Filename: About.php
+ * Author: Albertus Cilliers  
+ * Description: Used to generate a secure password when a new user registers.
+ *              Modified version of: https://gist.github.com/fedir/4662cd863475eb08765ecf19e302949a
+ */
 
 //Used to generate a random password
 function generate_password(int $length): string {

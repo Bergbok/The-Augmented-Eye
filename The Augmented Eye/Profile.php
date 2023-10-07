@@ -1,3 +1,9 @@
+<!-- 
+    Filename: Profile.php
+    Author: Albertus Cilliers   
+    Description: Displays user information and user options if the profile belongs to them.
+ -->
+
 <?php 
     // Purpose: Displays header.
     include_once 'Header.php'; 

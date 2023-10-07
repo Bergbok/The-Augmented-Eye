@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Filename: About.php
+ * Author: Albertus Cilliers  
+ * Description: Used to insert rows into database tables.
+ */
+
 date_default_timezone_set('UTC');
 
 // Purpose: Used to connect to database.

@@ -1,8 +1,13 @@
+<!-- 
+    Filename: Article.php
+    Author: Albertus Cilliers   
+    Description: Shows article information (title, author, publish date, viewcount, body & sharing options) 
+ -->
+
 <?php 
     // Purpose: Displays header.
     include_once 'Header.php'; 
 ?>
-
 
 <html>
     <body>

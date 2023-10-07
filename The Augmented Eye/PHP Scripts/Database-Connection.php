@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Filename: About.php
+ * Author: Albertus Cilliers  
+ * Description: Used to create a connection to the database.
+ */
+
 // Purpose: Provides authentication info for connection to database. 
 include_once 'Database-Authentication-Info.php';
 

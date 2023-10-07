@@ -1,3 +1,9 @@
+<!-- 
+    Filename: Profile-Preview.php
+    Author: Albertus Cilliers   
+    Description: Displays welcome message and user options on the left side of the header.
+ -->
+
 <html> 
     <body>
         <div class='pixel-text bright-text'>

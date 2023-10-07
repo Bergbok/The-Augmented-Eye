@@ -1,3 +1,9 @@
+<!-- 
+    Filename: News.php
+    Author: Albertus Cilliers   
+    Description: Displays article links based on sorting/filtering options.
+ -->
+
 <?php 
     // Purpose: Displays header.
     include_once 'Header.php'; 

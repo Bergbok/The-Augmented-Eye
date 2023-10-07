@@ -1,3 +1,9 @@
+<!-- 
+    Filename: Compose-Article.php
+    Author: Albertus Cilliers   
+    Description: Lets a logged in user post an article.
+ -->
+
 <?php 
     // Purpose: Displays header.
     include_once 'Header.php'; 

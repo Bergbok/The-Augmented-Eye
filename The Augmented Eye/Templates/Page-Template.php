@@ -1,3 +1,9 @@
+<!-- 
+    Filename: 
+    Author: Albertus Cilliers   
+    Description: 
+ -->
+
 <?php 
     // Purpose: Displays header.
     include_once 'Header.php'; 

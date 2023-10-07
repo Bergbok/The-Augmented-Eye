@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Filename: Alert-Handler.php
+ * Author: Albertus Cilliers  
+ * Description: Handles displaying alerts through the browser.
+ */
+
 // Purpose: Used to get current page.
 include_once 'Current-Page-Info.php'; 
 

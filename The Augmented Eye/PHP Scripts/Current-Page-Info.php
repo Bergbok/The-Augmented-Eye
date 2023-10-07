@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Filename: About.php
+ * Author: Albertus Cilliers  
+ * Description: Used to get information about the page the user is currently on.
+ */
+
 function get_current_page_info(string $value): string {
     //If called from within a function, the return() statement immediately ends execution of the current function, thus break; isn't needed.
     switch ($value) {

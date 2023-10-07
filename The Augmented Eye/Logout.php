@@ -1,3 +1,9 @@
+<!-- 
+    Filename: Logout.php
+    Author: Albertus Cilliers   
+    Description: Logs the user out and redirects them to the home page after 3 seconds.
+ -->
+
 <?php 
     header( 'refresh:3;url=Home' );
     // Purpose: Displays header.

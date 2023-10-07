@@ -1,8 +1,13 @@
+<!-- 
+    Filename: Contact-Us.php
+    Author: Albertus Cilliers   
+    Description: Shows contact information.
+ -->
+
 <?php 
     // Purpose: Displays header.
     include_once 'Header.php'; 
 ?>
-
 
 <html>
     <head>

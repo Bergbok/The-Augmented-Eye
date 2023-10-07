@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Filename: About.php
+ * Author: Albertus Cilliers  
+ * Description: Handles loggin in/out aswell as checking whether the user is logged in and whether the user is an admin.
+ */
+
 // Purpose: Used to get user info from database.
 include_once 'Database-Selects.php';
 

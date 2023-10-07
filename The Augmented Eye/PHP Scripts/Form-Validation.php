@@ -1,21 +1,10 @@
 <?php
 
-// include_once 'Current-Page-Info'; 
-
-// $uri = get_current_page_info('uri');
-
-// switch (substr($uri, strrpos($uri, '/') + 1)) {
-//     case 'Registration.php':
-//         return validate_registration();
-//         break;
-//     case 'Login.php':
-
-//         break;
-    
-//     default:
-//         # code...
-//         break;
-// }
+/**
+ * Filename: About.php
+ * Author: Albertus Cilliers  
+ * Description: Used to validate forms across the website.
+ */
 
 function validate_login(): bool {
     $show_login_errors = true;

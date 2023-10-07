@@ -1,3 +1,9 @@
+<!-- 
+    Filename: Registration.php
+    Author: Albertus Cilliers   
+    Description: Lets the user create a new account.
+ -->
+
 <?php 
     // Purpose: Displays header.
     include_once 'Header.php'; 

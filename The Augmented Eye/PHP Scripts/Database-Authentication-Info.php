@@ -1,7 +1,9 @@
 <?php
 
 /**
- * Connection string paramaters for connecting to database.
+ * Filename: About.php
+ * Author: Albertus Cilliers  
+ * Description: Connection string paramaters for connecting to database.
  */
 
 $db_hostname = 'localhost';

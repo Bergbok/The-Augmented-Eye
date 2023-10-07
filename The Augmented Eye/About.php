@@ -1,3 +1,9 @@
+<!-- 
+    Filename: About.php
+    Author: Albertus Cilliers   
+    Description: Show misc. information about this project and employees of The Augmented Eye.
+ -->
+
 <?php 
     // Purpose: Displays header.
     include_once 'Header.php'; 

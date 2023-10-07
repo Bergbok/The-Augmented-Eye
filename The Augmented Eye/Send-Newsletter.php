@@ -1,3 +1,9 @@
+<!-- 
+    Filename: Send-Newsletter.php
+    Author: Albertus Cilliers   
+    Description: Lets admins send out newsletters to subscribers.
+ -->
+
 <?php 
     // Purpose: Displays header.
     include_once 'Header.php'; 

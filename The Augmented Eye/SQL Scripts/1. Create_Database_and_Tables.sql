@@ -1,6 +1,6 @@
  /*=============================================================
-Filename: Create_Database_And_Tables.sql
-Programmer: Albertus Cilliers
+Filename: 1. Create_Database_And_Tables.sql
+Author: Albertus Cilliers
 Description: This file will create the database and tables with the necessary constraints.
 =============================================================*/
 

@@ -1,3 +1,5 @@
+# Partially made with the help of this tool: http://www.htaccesseditor.com/en.shtml
+
 ErrorDocument 404 /The%20Augmented%20Eye/Error%20Pages/404
 <IfModule mod_rewrite.c>
 RewriteEngine on

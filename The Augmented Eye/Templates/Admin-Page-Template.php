@@ -1,3 +1,9 @@
+<!-- 
+    Filename: Admin-Page-Template.php
+    Author: Albertus Cilliers   
+    Description: Template for pages only admins are allowed to access.
+ -->
+
 <?php 
     // Purpose: Displays header.
     include_once 'Header.php'; 

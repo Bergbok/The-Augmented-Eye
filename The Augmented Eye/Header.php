@@ -1,3 +1,9 @@
+<!-- 
+    Filename: Header.php
+    Author: Albertus Cilliers   
+    Description: Header that gets displayed on every other page.
+ -->
+
 <?php
     session_start();
 ?>

@@ -1,6 +1,14 @@
 <?php
 
-$from = 'albertus.cilliers@gmail.com'; //your gmail address here
+/**
+ * Filename: About.php
+ * Author: Albertus Cilliers  
+ * Description: Handles sending emails.
+ */
+
+// Insert the email you have set as auth_username in sendmail.ini
+$from = 'albertus.cilliers@gmail.com'; 
+
 function send_password(): bool {
     $show_email_info = false;
     $show_email_errors = false;
