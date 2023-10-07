@@ -11,7 +11,7 @@
         echo "      <h4 align=left> Views: ".$articleInfo["articleViews"]."</h4>";
         echo "  </div>";
         echo "  <p class='article-text'>".$articleInfo["articleContent"]."</p>";
-        include_once("getCurrentPageInfo.php"); 
+        include_once("Current-Page-Info.php"); 
         $url = getCurrentPageInfo("url"); 
         $use_addtoany_share = true;
         if ($use_addtoany_share) {

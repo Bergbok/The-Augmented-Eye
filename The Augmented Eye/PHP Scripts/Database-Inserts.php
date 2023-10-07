@@ -1,7 +1,7 @@
 <?php
     date_default_timezone_set('UTC');
     include_once("Database-Connection.php");
-    include_once("generatePassword.php");
+    include_once("Password-Generator.php");
 
     function insertUser() {
         $show_insert_info = false;

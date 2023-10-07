@@ -17,10 +17,6 @@
             case "query-string": // Outputs: Query String
                 $query = $_SERVER['QUERY_STRING'] ?? NULL;
                 return urldecode($query); 
-            case "title":
-                $page = file_get_contents(getCurrentPageInfo("url"));
-                $title = preg_match('/<title[^>]*>(.*?)<\/title>/ims', $page, $match) ? $match[1] : null;
-                return $title;
             default:
                 return "Error: please enter one of the accepted values (uri / url / page / query-string / title)";
         }
