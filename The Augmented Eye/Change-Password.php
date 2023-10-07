@@ -1,6 +1,8 @@
-<?php
-    include_once('Header.php'); 
+<?php 
+    // Purpose: Displays header.
+    include_once 'Header.php'; 
 ?>
+
 
 <html>
     <head>
@@ -20,12 +22,17 @@
                         echo "<br><br>";
                         echo "<input class='submit-button' type='submit' value='Change Password'></input>";
                         
-                        include_once('PHP Scripts/Login-Handler.php'); 
+                        // Purpose: Used to check if user is logged in.
+                        include_once 'PHP Scripts/Login-Handler.php'; 
+
                         if (isLoggedIn()) {
-                            include_once("PHP Scripts/Form-Validation.php");
-                            //Update password
+                            // Purpose: Used to check if new password is valid.
+                            include_once 'PHP Scripts/Form-Validation.php';
+
                             if (validatePasswordChange()) {
-                                include_once("PHP Scripts/Database-Updates.php");
+                                // Purpose: Used to update the password.
+                                include_once 'PHP Scripts/Database-Updates.php';
+                                
                                 if (updateUserPassword()) {
                                     echo "<p> Successfully updated password! </p>";
                                 } else {

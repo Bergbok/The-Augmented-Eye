@@ -1,6 +1,7 @@
 <?php
 
-include_once("Current-Page-Info.php"); 
+// Purpose: Used to get current page.
+include_once 'Current-Page-Info.php'; 
 
 $page = getCurrentPageInfo("page");
 

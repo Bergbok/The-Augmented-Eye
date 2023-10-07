@@ -1,10 +1,12 @@
 <?php
 
-include_once("Database-Authentication-Info.php");
+// Purpose: Provides authentication info for connection to database. 
+include_once 'Database-Authentication-Info.php';
 
 function connectToDB(): PDO {
     $show_connection_info = false;
 
+    // From Database-Authentication-Info.php
     global $db_hostname,
             $db_username, 
             $db_password, 

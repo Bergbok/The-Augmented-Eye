@@ -1,4 +1,7 @@
-<?php include_once('Header.php'); ?>
+<?php 
+    // Purpose: Displays header.
+    include_once 'Header.php'; 
+?>
 
 <html>
 
@@ -12,7 +15,9 @@
     <body>
         <div class="centered-column pixel-text centered-text">
             <?php         
-                include_once('PHP Scripts/Login-Handler.php');
+                // Purpose: Used to check if the user is an admin.
+                include_once 'PHP Scripts/Login-Handler.php';
+
                 if (!isAdmin()){
                     echo "<div class='centered-text'>";
                     echo "  <h1> Access Forbidden </h1>";

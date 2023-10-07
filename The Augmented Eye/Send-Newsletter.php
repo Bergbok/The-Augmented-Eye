@@ -1,4 +1,7 @@
-<?php include_once('Header.php'); ?>
+<?php 
+    // Purpose: Displays header.
+    include_once 'Header.php'; 
+?>
 
 <html>
     <head>
@@ -9,7 +12,9 @@
         <div class="centered-column pixel-text centered-text">
             <form method='POST'>
                 <?php         
-                    include_once('PHP Scripts/Login-Handler.php');
+                    // Purpose: Used to check if the user is an admin.
+                    include_once 'PHP Scripts/Login-Handler.php';
+
                     if (!isAdmin()){
                         echo "<div class='centered-text'>";
                         echo "  <h1> Access Forbidden </h1>";
@@ -26,9 +31,13 @@
                         echo "  <input class='submit-button' type='submit' value='Send'></input>";
                         echo "</fieldset>";
 
-                        include_once('PHP Scripts/Form-Validation.php');
+                        // Purpose: Used to validate newsletter information.
+                        include_once 'PHP Scripts/Form-Validation.php';
+
                         if (validateNewsletter()) {
-                            include_once('PHP Scripts/Email-Handler.php');
+                            // Purpose: Used to send newsletter to subscribers.
+                            include_once 'PHP Scripts/Email-Handler.php';
+
                             sendNewsletter();
                         }
                     }

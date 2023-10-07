@@ -6,7 +6,9 @@ function sendPassword(): bool {
     $show_email_errors = false;
     $show_successfull_emails = false;
 
-    include_once('Database-Selects.php');
+    // Purpose: Used to get users password.
+    include_once 'Database-Selects.php';
+
     $where_clause = "userName = :name AND userSurname = :surname AND userGender = :gender AND userBirthday = :birthday AND userEmail = :email AND userContactNo = :contactNo and userSubscribedToNewsletter = :subscribedToNewsletter";
     $where_values = [
         'name' => $_POST["newuser_Name"],
@@ -107,7 +109,9 @@ function sendNewsletter(): bool {
 function getToEmails(): array {
     $show_email_info = false;
 
-    include_once('PHP Scripts/Database-Selects.php');
+    // Purpose: Used to get newsletter subscriber emails.
+    include_once 'PHP Scripts/Database-Selects.php';
+
     $recipients[] = null;
 
     foreach (getNewsletterSubcriberEmails() as $rows) {

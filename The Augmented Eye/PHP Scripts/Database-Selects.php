@@ -1,6 +1,8 @@
 <?php
 
-include_once("Database-Connection.php");
+// Purpose: Used to connect to database.
+include_once 'Database-Connection.php';
+
 function selectUser(string $where_clause, array $where_values): array {
     $show_select_info = false;
 

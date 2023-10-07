@@ -1,8 +1,12 @@
 <?php
 
 date_default_timezone_set('UTC');
-include_once("Database-Connection.php");
-include_once("Password-Generator.php");
+
+// Purpose: Used to connect to database.
+include_once 'Database-Connection.php';
+
+// Purpose: Used to generate passwords for new users.
+include_once 'Password-Generator.php';
 
 function insertUser(): bool {
     $show_insert_info = false;

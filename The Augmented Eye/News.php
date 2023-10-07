@@ -1,5 +1,6 @@
-<?php
-    include_once('Header.php'); 
+<?php 
+    // Purpose: Displays header.
+    include_once 'Header.php'; 
 ?>
 
 <html>
@@ -100,7 +101,10 @@
                         isset($_GET["order-by"])           ? $order_by_column = $_GET["order-by"]              : $order_by_column = 'articlePublishDate';
                         isset($_GET["order-by-direction"]) ? $order_by_direction = $_GET["order-by-direction"] : $order_by_direction = 'DESC';
                         isset($_GET["row_limit"])          ? $row_limit = $_GET["row_limit"]                   : $row_limit = 50;
-                        include_once('PHP Scripts/Article-Display-Handler.php'); 
+
+                        // Purpose: Used to display article links.
+                        include_once 'PHP Scripts/Article-Display-Handler.php'; 
+
                         echoArticleLinks($order_by_column, $order_by_direction, $row_limit);
                     ?>
                 </div>

@@ -1,8 +1,14 @@
 <?php
 
 function echoArticleInfo(array $articleInfo): void {
+    // Purpose: Used to get current page URL for sharing articles.
+    include_once 'Current-Page-Info.php'; 
+
+    $url = getCurrentPageInfo("url"); 
+    $use_addtoany_share = true;
     $article_author_name = getUserNameFromArticleID($articleInfo["articleID"]);
     $article_author_surname = getUserSurnameFromArticleID($articleInfo["articleID"]);
+
     echo "<title> ".$articleInfo["articleTitle"]." </title>";
     echo "<div class='centered-column pixel-text'>";
     echo "  <div class='article-header'>";
@@ -12,9 +18,7 @@ function echoArticleInfo(array $articleInfo): void {
     echo "      <h4 align=left> Views: ".$articleInfo["articleViews"]."</h4>";
     echo "  </div>";
     echo "  <p class='article-text'>".$articleInfo["articleContent"]."</p>";
-    include_once("Current-Page-Info.php"); 
-    $url = getCurrentPageInfo("url"); 
-    $use_addtoany_share = true;
+
     if ($use_addtoany_share) {
         echo "<!-- AddToAny BEGIN -->";
         echo "<div class='share-buttons'>";
@@ -41,10 +45,11 @@ function echoArticleNotFound(): void {
 }
 
 function echoArticleLinks(string $order_by_column, string $order_by_direction, int $row_limit): void {
-    $include_article_author = false;
+    $include_article_author_in_link = false;
     $show_article_info = false;
 
-    include_once('Database-Selects.php'); 
+    // Purpose: Used to select articles.
+    include_once 'Database-Selects.php'; 
 
     foreach (selectAllArticles($order_by_column, $order_by_direction, $row_limit) as $rows) {
         if ($show_article_info) {
@@ -78,7 +83,7 @@ function echoArticleLinks(string $order_by_column, string $order_by_direction, i
 
         if (isset($article_ID, $article_title, $article_author_ID)){
             echo "<a class='article-link' href='/The Augmented Eye/Article?viewArticle=".$article_ID."'>".$article_title."</a>";
-            if ($include_article_author) {
+            if ($include_article_author_in_link) {
                 $article_author_name = getUserNameFromArticleID($article_ID);
                 $article_author_surname = getUserSurnameFromArticleID($article_ID);
                 echo "<a class='no-decor-link' style='font-size: 1.25vw'> by </a>";

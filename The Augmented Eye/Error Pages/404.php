@@ -1,4 +1,7 @@
-<?php include_once('../Header.php'); ?>
+<?php 
+    // Purpose: Displays header.
+    include_once '../Header.php'; 
+?>
 
 <html> 
     <head>

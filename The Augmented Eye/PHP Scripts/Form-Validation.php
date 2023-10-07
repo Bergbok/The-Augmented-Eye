@@ -1,6 +1,6 @@
 <?php
 
-// include_once("Current-Page-Info"); 
+// include_once 'Current-Page-Info'; 
 
 // $uri = getCurrentPageInfo("uri");
 

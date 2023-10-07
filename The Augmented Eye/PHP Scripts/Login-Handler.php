@@ -1,6 +1,8 @@
 <?php
 
-include_once("Database-Selects.php");
+// Purpose: Used to get user info from database.
+include_once 'Database-Selects.php';
+
 function logIn(): bool {
     $where_clause = "userEmail = :email AND userPassword = :password";
     $where_values = [

@@ -21,7 +21,10 @@
 
     </head>
 
-    <?php include_once('Profile-Preview.php'); ?>
+    <?php 
+        // Purpose: Displays profile widget at the top left of page.
+        include_once 'Profile-Preview.php'; 
+    ?>
 
     <body>
         <div class="header center pixel-text">
@@ -33,7 +36,9 @@
                 <li><a href="/The Augmented Eye/About">About</a></li>
             </ul> 
             <?php 
-                include_once('PHP Scripts/Login-Handler.php'); 
+                // Purpose: Used to check if the user is a admin.
+                include_once 'PHP Scripts/Login-Handler.php'; 
+
                 if (isAdmin()){
                     echo "<ul class='header-tabs'>
                             <li><a href='/The Augmented Eye/Send-Newsletter'>Newsletter</a></li>

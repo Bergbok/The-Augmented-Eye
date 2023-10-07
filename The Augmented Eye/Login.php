@@ -1,5 +1,6 @@
-<?php
-    include_once('Header.php'); 
+<?php 
+    // Purpose: Displays header.
+    include_once 'Header.php'; 
 ?>
 
 <html>
@@ -31,9 +32,13 @@
                 </fieldset>
 
                 <?php 
-                    include_once("PHP Scripts/Form-Validation.php"); 
+                    // Purpose: Used to validate login information.
+                    include_once 'PHP Scripts/Form-Validation.php'; 
+
                     if (validateLogin()) {
+                        // Purpose: Used to check if login is successful.
                         include_once("PHP Scripts/Login-Handler.php");
+
                         if (logIn()) {
                             echo "<p> Successfully logged in! </p> <br>";
                             header("Location: Home");

@@ -1,12 +1,15 @@
-<?php
-    include_once('Header.php'); 
+<?php 
+    // Purpose: Displays header.
+    include_once 'Header.php'; 
 ?>
 
 <html>
     <body>
         <?php
             if (isset($_GET["profileID"])) {
-                include_once('PHP Scripts/Database-Selects.php'); 
+                // Purpose: Used to select user information for display on profile.
+                include_once 'PHP Scripts/Database-Selects.php'; 
+
                 $where_clause = "userID = :id";
                 $where_values = [
                     'id' => $_GET["profileID"]
@@ -45,7 +48,9 @@
                 }
                 echo "      <br>";
 
-                include_once('PHP Scripts/Login-Handler.php'); 
+                // Purpose: Used to check if profile belongs to currently logged in user.
+                include_once 'PHP Scripts/Login-Handler.php'; 
+
                 if (isLoggedIn()) {
                     if ($_GET["profileID"] == $_SESSION["userID"]) {
                         echo "<div class='article-link'>";

@@ -1,4 +1,7 @@
-<?php include_once('Header.php'); ?>
+<?php 
+    // Purpose: Displays header.
+    include_once 'Header.php'; 
+?>
 
 <html>
     <head>
@@ -64,12 +67,17 @@
                 </fieldset>
                     
                 <?php         
-                    include_once("PHP Scripts/Form-Validation.php");
-                    //Inserting user into database
+                    // Purpose: Used to validate registration information.
+                    include_once 'PHP Scripts/Form-Validation.php';
+
                     if (validateRegistration()) {
-                        include_once("PHP Scripts/Database-Inserts.php");
+                        // Purpose: Used to insert new user into database.
+                        include_once 'PHP Scripts/Database-Inserts.php';
+
                         if (insertUser()) {
-                            include_once("PHP Scripts/Email-Handler.php");
+                            // Purpose: Used to email password to user upon successful registration.
+                            include_once 'PHP Scripts/Email-Handler.php';
+
                             if (sendPassword()) {
                                 echo "<div class='centered-text'>";
                                 echo "  <p> Successfully created account, check your email for your password. </p>";

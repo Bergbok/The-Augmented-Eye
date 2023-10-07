@@ -1,7 +1,9 @@
 <?php
 
 // date_default_timezone_set('UTC');
-include_once("Database-Connection.php");
+
+// Purpose: Used to connect to database.
+include_once 'Database-Connection.php';
 
 function updateUserPassword(): bool {
     $show_update_info = false;

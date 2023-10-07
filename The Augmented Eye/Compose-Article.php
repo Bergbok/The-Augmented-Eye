@@ -1,6 +1,8 @@
-<?php
-    include_once('Header.php'); 
+<?php 
+    // Purpose: Displays header.
+    include_once 'Header.php'; 
 ?>
+
 
 <html>
     <head>
@@ -11,7 +13,9 @@
         <div class='centered-column centered-text pixel-text'>
             <form method='POST'>
                 <?php         
+                    // Purpose: Used to check if the user is logged in.
                     include_once('PHP Scripts/Login-Handler.php');
+
                     if (!isLoggedIn()){
                         echo "<p> Login to be able to post. </p>";
                         echo "<a class='dark-text' href='/The Augmented Eye/Login'> LOGIN </a>";
@@ -23,10 +27,13 @@
                         echo "<br><br>";
                         echo "<input class='submit-button' type='submit' value='Submit'></input>";
 
+                        // Purpose: Used to check if the article is valid.
                         include_once('PHP Scripts/Form-Validation.php');
-                        //Inserting article into database
+
                         if (validateArticle()) {
+                            // Purpose: Used to insert article into database.
                             include_once('PHP Scripts/Database-Inserts.php');
+
                             if (insertArticle()) {
                                 echo "<p> Successfully submitted article. </p>";
                             } else {
