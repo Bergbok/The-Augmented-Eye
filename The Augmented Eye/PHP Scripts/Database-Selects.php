@@ -102,7 +102,7 @@ function select_all_articles(string $order_by_column, string $order_by_direction
     }
 }
 
-function select_admin(int $userID): array {
+function select_admin(int $userID): array | bool {
     $show_select_info = false;
 
     try{
@@ -127,7 +127,7 @@ function select_admin(int $userID): array {
     }
 }
 
-function get_newsletter_subscriber_emails(): array {
+function get_newsletter_subscriber_emails(): array | bool {
     $show_select_info = false;
 
     try{

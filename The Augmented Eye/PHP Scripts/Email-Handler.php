@@ -6,7 +6,7 @@
  * Description: Handles sending emails.
  */
 
-// Insert the email you have set as auth_username in sendmail.ini
+// Insert the email you have set as auth_username in sendmail.ini and sendmail_from in php.ini
 $from = 'albertus.cilliers@gmail.com'; 
 
 function send_password(): bool {

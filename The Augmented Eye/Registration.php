@@ -67,11 +67,12 @@
 
                     <br/><br/>
 
-                    <input class='submit-button' type='submit' value='Register'></input>
+                    <input class='submit-button' type='submit' value='Register' name='Register'></input>
 
                 </fieldset>
                     
                 <?php         
+                    var_dump($_REQUEST['Register']);
                     // Purpose: Used to validate registration information.
                     include_once 'PHP Scripts/Form-Validation.php';
 
