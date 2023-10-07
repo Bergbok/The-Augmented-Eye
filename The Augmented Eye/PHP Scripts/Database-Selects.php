@@ -9,7 +9,7 @@
 // Purpose: Used to connect to database.
 include_once 'Database-Connection.php';
 
-function select_user(string $where_clause, array $where_values): array {
+function select_user(string $where_clause, array $where_values): array | bool {
     $show_select_info = false;
 
     try{
@@ -53,7 +53,7 @@ function select_user(string $where_clause, array $where_values): array {
 //     }
 // }
 
-function select_article(string $where_clause, array $where_values): array {
+function select_article(string $where_clause, array $where_values): array | bool {
     $show_select_info = false;
 
     try{

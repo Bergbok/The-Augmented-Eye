@@ -49,7 +49,7 @@
                             echo '<p> Successfully logged in! </p> <br>';
                             header('Location: Home');
                         } else {
-                            echo '<p class=\'error-message\'> No accounts found for given email/password combination. </p> <br>';
+                            echo '<p class=\'centered-text error-message\'> No accounts found for given email/password combination. </p> <br>';
                         }
                     }
                 ?>
