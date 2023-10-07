@@ -2,7 +2,7 @@
     // date_default_timezone_set('UTC');
     include_once("Database-Connection.php");
 
-    function updateUserPassword() {
+    function updateUserPassword(): bool {
         $show_update_info = false;
 
         try{
@@ -34,7 +34,7 @@
         }
     }
 
-    function incrementArticleViews($article_ID) {
+    function incrementArticleViews(int $article_ID): bool {
         $show_update_info = false;
 
         try{

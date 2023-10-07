@@ -1,6 +1,6 @@
 <?php
     include_once("Database-Connection.php");
-    function selectUser($where_clause, $where_values) {
+    function selectUser(string $where_clause, array $where_values): array {
         $show_select_info = false;
 
         try{
@@ -44,7 +44,7 @@
     //     }
     // }
 
-    function selectArticle($where_clause, $where_values) {
+    function selectArticle(string $where_clause, array $where_values): array {
         $show_select_info = false;
 
         try{
@@ -66,7 +66,7 @@
         }
     }
 
-    function selectAllArticles($order_by_column, $order_by_direction, $row_limit) {
+    function selectAllArticles(string $order_by_column, string $order_by_direction, string $row_limit): array {
         $show_select_info = false;
 
         try{
@@ -93,7 +93,7 @@
         }
     }
 
-    function selectAdmin($userID) {
+    function selectAdmin(int $userID): array {
         $show_select_info = false;
 
         try{
@@ -118,7 +118,7 @@
         }
     }
 
-    function getNewsletterSubcriberEmails() {
+    function getNewsletterSubcriberEmails(): array {
         $show_select_info = false;
 
         try{
@@ -141,7 +141,7 @@
         }
     }
 
-    function getAuthorID($article_ID) {
+    function getAuthorID(int $article_ID): int {
         $where_clause = "articleID = :id";
         $where_values = [
             'id' => $article_ID,
@@ -153,7 +153,7 @@
         return $author_ID;
     }
 
-    function getUserNameFromArticleID($article_ID) {
+    function getUserNameFromArticleID(int $article_ID): string {
         $where_clause = "userID = :id";
         $where_values = [
             'id' => getAuthorID($article_ID),
@@ -164,7 +164,7 @@
         return $author_name;
     }
 
-    function getUserSurnameFromArticleID($article_ID) {
+    function getUserSurnameFromArticleID(int $article_ID): string {
         $where_clause = "userID = :id";
         $where_values = [
             'id' => getAuthorID($article_ID),

@@ -25,7 +25,7 @@
                 echoProfileNotFound();
             }
 
-            function echoProfileInfo($userInfo) {
+            function echoProfileInfo(array $userInfo): void {
                 echo "<title> ".$userInfo["userName"]." ".$userInfo["userSurname"]."'s Profile </title>";
                 echo "<div class='centered-column centered-text pixel-text'>";
                 echo "  <form type='POST'>";
@@ -58,7 +58,7 @@
                 echo "  </form>";
                 echo "</div>";
             }
-            function echoProfileNotFound() {
+            function echoProfileNotFound(): void {
                 echo "<h1 class='centered-text bright-text pixel-text'> User not found :( </h1>";
             }
         ?>
