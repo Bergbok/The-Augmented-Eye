@@ -4,7 +4,7 @@
 
 //Used to generate a random password
 function generatePassword(int $length): string {
-    return substr(preg_replace("/[^a-zA-Z0-9]/", "", base64_encode(getRandomBytes($length+1))),0,$length);
+    return substr(preg_replace('/[^a-zA-Z0-9]/', '', base64_encode(getRandomBytes($length+1))),0,$length);
 }
 
 //Used in generatePassword function
@@ -15,7 +15,7 @@ function getRandomBytes(int $nbBytes = 32): string  {
         return $bytes;
     }
     else {
-        throw new Exception("Unable to generate secure token from OpenSSL.");
+        throw new Exception('Unable to generate secure token from OpenSSL.');
     }
 }
 

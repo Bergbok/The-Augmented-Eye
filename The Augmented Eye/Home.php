@@ -9,7 +9,7 @@
     </head>
 
     <body>
-        <div class="centered-column pixel-text centered-text">
+        <div class='centered-column pixel-text centered-text'>
             <h1> Welcome to The Augmented Eye </h1>
             <div class='article-text centered-text'>
                 <p > This recreation was made by <a href='https://github.com/Bergbok'> Albertus Cilliers </a> </p>
@@ -19,13 +19,13 @@
                 <h2> Newest Articles </h2>
                 <hr>
                 <br>
-                <div id="article-list">
+                <div id='article-list'>
                     <?php
                         // Purpose: Used to display a preview of the 3 newest articles.
                         include_once 'PHP Scripts/Article-Display-Handler.php';
                         echoArticleLinks('articlePublishDate','DESC',3);
-                        echo "<h2><a class='dark-text' href='/The Augmented Eye/News'> View More Here </a></h2>";
-                        echo "<br>";
+                        echo '<h2><a class=\'dark-text\' href=\'/The Augmented Eye/News\'> View More Here </a></h2>';
+                        echo '<br>';
                     ?>
                 </div>
             </fieldset>

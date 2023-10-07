@@ -243,7 +243,7 @@ form {
 
 html {
     height: 100vh;
-    cursor: url("Cursors/CALICOMP1.1.cur"), auto;
+    cursor: url('Cursors/CALICOMP1.1.cur'), auto;
 }
 
 hr {
@@ -291,7 +291,7 @@ textarea {
 }
 
 /* ID-Specific */
-#compose_article_link {
+#compose-article-link {
     text-decoration: none;
     font-size: 1.8vw;
     color: white;

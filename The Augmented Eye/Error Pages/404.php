@@ -9,6 +9,6 @@
     </head>
 
     <body>
-        <img class="center" src="Images/404.png" alt="sorry bro" style="right:50px;">
+        <img class='center' src='Images/404.png' alt='sorry bro'>
     </body>
 </html>

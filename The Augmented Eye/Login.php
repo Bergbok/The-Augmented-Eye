@@ -9,25 +9,25 @@
     </head>
 
     <body>
-        <div class="centered-column pixel-text">
-            <form method="POST">
+        <div class='centered-column pixel-text'>
+            <form method='POST'>
                 <fieldset>
 
-                    <legend class="center">
+                    <legend class='center'>
                         <strong>Login</strong>
                     </legend>
 
-                    <label for="email">Email:</label>
-                    <input type="text" id="email" name="user_Email"></input>
+                    <label for='email'>Email:</label>
+                    <input type='text' id='email' name='user_Email'></input>
 
                     <br/><br/>
 
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="user_Password"></input>
+                    <label for='password'>Password:</label>
+                    <input type='password' id='password' name='user_Password'></input>
 
                     <br/><br/>
 
-                    <input class="submit-button" type="submit" value="Login"></input>
+                    <input class='submit-button' type='submit' value='Login'></input>
 
                 </fieldset>
 
@@ -37,13 +37,13 @@
 
                     if (validateLogin()) {
                         // Purpose: Used to check if login is successful.
-                        include_once("PHP Scripts/Login-Handler.php");
+                        include_once('PHP Scripts/Login-Handler.php');
 
                         if (logIn()) {
-                            echo "<p> Successfully logged in! </p> <br>";
-                            header("Location: Home");
+                            echo '<p> Successfully logged in! </p> <br>';
+                            header('Location: Home');
                         } else {
-                            echo "<p class='error-message'> No accounts found for given email/password combination. </p> <br>";
+                            echo '<p class=\'error-message\'> No accounts found for given email/password combination. </p> <br>';
                         }
                     }
                 ?>
@@ -52,11 +52,11 @@
                 <form>
                     <fieldset>
 
-                        <legend class="center">
+                        <legend class='center'>
                             <strong>Don't have an account?</strong>
                         </legend>
 
-                        <button class="submit-button" onclick="location.href='/The Augmented Eye/Registration'" type="button">Register</button>
+                        <button class='submit-button' onclick="location.href='/The Augmented Eye/Registration'" type='button'>Register</button>
 
                     </fieldset>
                 </form>

@@ -8,12 +8,12 @@
     <head>
 
         <title> TITLE-GOES-HERE </title>
-        <link rel="stylesheet" href="styles.css">
+        <link rel='stylesheet' href='styles.css'>
 
     </head>
 
     <body>
-        <div class="centered-column pixel-text">
+        <div class='centered-column pixel-text'>
 
         </div>
     </body>

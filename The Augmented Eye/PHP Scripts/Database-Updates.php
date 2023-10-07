@@ -12,17 +12,17 @@ function updateUserPassword(): bool {
         $dbh = connectToDB();
 
         //prepare the sql statement
-        $stmt = $dbh->prepare("UPDATE Users SET userPassword = :newPassword WHERE userID = :userID");
+        $stmt = $dbh->prepare('UPDATE Users SET userPassword = :newPassword WHERE userID = :userID');
         
         $data = [
-            'newPassword' => $_POST["new_Password"],
-            'userID' => $_SESSION["userID"]
+            'newPassword' => $_POST['new_Password'],
+            'userID' => $_SESSION['userID']
         ];
         
         if ($show_update_info) {
-            echo "Trying to update values: <br>";
+            echo 'Trying to update values: <br>';
             foreach ($data as $key => $value) {
-                echo "$key: $value<br>";
+                echo $key . ':' . $value . '<br>';
             }
         }
     
@@ -44,15 +44,15 @@ function incrementArticleViews(int $article_ID): bool {
         $dbh = connectToDB();
 
         //prepare the sql statement
-        $stmt = $dbh->prepare("UPDATE Articles SET articleViews = articleViews+1 WHERE articleID = :articleID");
+        $stmt = $dbh->prepare('UPDATE Articles SET articleViews = articleViews+1 WHERE articleID = :articleID');
         $data = [
             'articleID' => $article_ID
         ];
         
         if ($show_update_info) {
-            echo "Trying to update values: <br>";
+            echo 'Trying to update values: <br>';
             foreach ($data as $key => $value) {
-                echo "$key: $value<br>";
+                echo $key . ':' . $value . '<br>';
             }
         }
     
