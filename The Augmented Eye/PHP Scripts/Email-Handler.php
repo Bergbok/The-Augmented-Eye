@@ -20,11 +20,11 @@ function send_password(): bool {
         'subscribedToNewsletter' => $_POST['newuser_ReceiveNewsletter'] ?? 0,
     ];
 
-    $userInfo = select_user($where_clause, $where_values);
+    $user_info = select_user($where_clause, $where_values);
 
-    !empty($userInfo) ? $userExists = true : $userExists = false;
+    !empty($user_info) ? $user_exists = true : $user_exists = false;
 
-    if (!$userExists) {
+    if (!$user_exists) {
         if ($show_email_errors) { echo '<p class=\'error-message\'> Error sending email, couldn\'t find user </p><br>'; }
         return false;
     } else {
@@ -36,7 +36,7 @@ function send_password(): bool {
 
         $subject = 'The Augemented Eye Password';
 
-        $message = 'Your password is: '.$userInfo['userPassword'];
+        $message = 'Your password is: '.$user_info['userPassword'];
 
         $message =  str_replace('\n.', '\n..', $message);
 

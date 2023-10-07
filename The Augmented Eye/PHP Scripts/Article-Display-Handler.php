@@ -1,23 +1,23 @@
 <?php
 
-function show_article_info(array $articleInfo): void {
+function show_article_info(array $article_info): void {
     // Purpose: Used to get current page URL for sharing articles.
     include_once 'Current-Page-Info.php'; 
 
     $url = get_current_page_info('url'); 
     $use_addtoany_share = true;
-    $articleInfo["articleAuthorName"] = get_author_name_from_article_id($articleInfo['articleID']);
-    $articleInfo["articleAuthorSurname"] = get_author_surname_from_article_id($articleInfo['articleID']);
+    $article_info["articleAuthorName"] = get_author_name_from_article_id($article_info['articleID']);
+    $article_info["articleAuthorSurname"] = get_author_surname_from_article_id($article_info['articleID']);
 
-    echo '<title> ' . $articleInfo['articleTitle'] . ' </title>';
+    echo '<title> ' . $article_info['articleTitle'] . ' </title>';
     echo '<div class=\'centered-column pixel-text\'>';
     echo '  <div class=\'article-header\'>';
-    echo '      <h1 align=left>' . $articleInfo['articleTitle'] . '</h1>';
-    echo '      <h2 align=left> By: <a href=\'/The Augmented Eye/Profile?profileID=' . $articleInfo['articleAuthorID'] . '\'>' . $articleInfo["articleAuthorName"] . ' ' . $articleInfo["articleAuthorSurname"] . '</a></h2>';
-    echo '      <h3 align=left> Published @ ' . $articleInfo['articlePublishDate'] . ' (UTC)</h3>';
-    echo '      <h4 align=left> Views: ' . $articleInfo['articleViews'] . '</h4>';
+    echo '      <h1 align=left>' . $article_info['articleTitle'] . '</h1>';
+    echo '      <h2 align=left> By: <a href=\'/The Augmented Eye/Profile?profileID=' . $article_info['articleAuthorID'] . '\'>' . $article_info["articleAuthorName"] . ' ' . $article_info["articleAuthorSurname"] . '</a></h2>';
+    echo '      <h3 align=left> Published @ ' . $article_info['articlePublishDate'] . ' (UTC)</h3>';
+    echo '      <h4 align=left> Views: ' . $article_info['articleViews'] . '</h4>';
     echo '  </div>';
-    echo '  <p class=\'article-text\'>' . $articleInfo['articleContent'] . '</p>';
+    echo '  <p class=\'article-text\'>' . $article_info['articleContent'] . '</p>';
 
     if ($use_addtoany_share) {
         echo '<!-- AddToAny BEGIN -->';
@@ -57,7 +57,7 @@ function show_article_links(string $order_by_column, string $order_by_direction,
             echo '<br><br>';
         }
 
-        unset($article_ID, $article_title, $article_author);
+        unset($article_id, $article_title, $article_author);
 
         foreach ($rows as $column => $value) {
             if ($show_select_info) {
@@ -66,13 +66,13 @@ function show_article_links(string $order_by_column, string $order_by_direction,
             
             switch ($column) {
                 case 'articleID':
-                    $article_ID = $value;
+                    $article_id = $value;
                     break;
                 case 'articleTitle':
                     $article_title = $value;
                     break;
                 case 'articleAuthorID':
-                    $article_author_ID = $value;
+                    $article_author_id = $value;
                     break;
                 default:
                     # code...
@@ -80,13 +80,13 @@ function show_article_links(string $order_by_column, string $order_by_direction,
             }
         }
 
-        if (isset($article_ID, $article_title, $article_author_ID)){
-            echo '<a class=\'article-link\' href=\'/The Augmented Eye/Article?viewArticle=' . $article_ID . '\'>' . $article_title . '</a>';
+        if (isset($article_id, $article_title, $article_author_id)){
+            echo '<a class=\'article-link\' href=\'/The Augmented Eye/Article?viewArticle=' . $article_id . '\'>' . $article_title . '</a>';
             if ($include_article_author_in_link) {
-                $article_author_name = get_author_name_from_article_id($article_ID);
-                $article_author_surname = get_author_surname_from_article_id($article_ID);
+                $article_author_name = get_author_name_from_article_id($article_id);
+                $article_author_surname = get_author_surname_from_article_id($article_id);
                 echo '<a class=\'no-decor-link\' style=\'font-size: 1.25vw\'> by </a>';
-                echo '<a class=\'article-link\' href=\'/The Augmented Eye/Profile?profileID=\'' . $article_author_ID . '\'>' . $article_author_name . ' ' . $article_author_surname . '</a>';
+                echo '<a class=\'article-link\' href=\'/The Augmented Eye/Profile?profileID=\'' . $article_author_id . '\'>' . $article_author_name . ' ' . $article_author_surname . '</a>';
             }
             echo '<br>';
             echo '<br>';

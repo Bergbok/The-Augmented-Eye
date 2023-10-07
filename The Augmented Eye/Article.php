@@ -19,12 +19,12 @@
                     'id' => $_GET['viewArticle']
                 ];
 
-                $articleInfo = select_article($where_clause, $where_values);
+                $article_info = select_article($where_clause, $where_values);
 
-                !empty($articleInfo) ? $articleExists = true : $articleExists = false;
+                !empty($article_info) ? $article_exists = true : $article_exists = false;
 
-                if ($articleExists) {
-                    show_article_info($articleInfo);
+                if ($article_exists) {
+                    show_article_info($article_info);
                     // Purpose: Used to increment the article view count.
                     include_once 'PHP Scripts/Database-Updates.php'; 
                     increment_article_viewcount($_GET['viewArticle']);

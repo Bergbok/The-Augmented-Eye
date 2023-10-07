@@ -15,12 +15,12 @@
                     'id' => $_GET['profileID']
                 ];
 
-                $userInfo = select_user($where_clause, $where_values);
+                $user_info = select_user($where_clause, $where_values);
 
-                !empty($userInfo) ? $userExists = true : $userExists = false;
+                !empty($user_info) ? $user_exists = true : $user_exists = false;
 
-                if ($userExists) {
-                    show_profile_info($userInfo);
+                if ($user_exists) {
+                    show_profile_info($user_info);
                 } else {
                     show_profile_not_found();
                 } 
@@ -28,20 +28,20 @@
                 show_profile_not_found();
             }
 
-            function show_profile_info(array $userInfo): void {
-                echo '<title> ' . $userInfo['userName'] . ' ' . $userInfo['userSurname'] . '\'s Profile </title>';
+            function show_profile_info(array $user_info): void {
+                echo '<title> ' . $user_info['userName'] . ' ' . $user_info['userSurname'] . '\'s Profile </title>';
                 echo '<div class=\'centered-column centered-text pixel-text\'>';
                 echo '  <form type=\'POST\'>';
-                echo '      <h1> ' . $userInfo['userName'] . ' ' . $userInfo['userSurname'] . '\'s Profile </h1>';
-                echo '      <p> Date Joined: ' . $userInfo['userRegistrationDate'] . ' </p>';
+                echo '      <h1> ' . $user_info['userName'] . ' ' . $user_info['userSurname'] . '\'s Profile </h1>';
+                echo '      <p> Date Joined: ' . $user_info['userRegistrationDate'] . ' </p>';
                 echo '      <br>';
-                echo '      <p> Birthday: ' . $userInfo['userBirthday'] . ' </p>';
-                echo '      <p> Gender: ' . $userInfo['userGender'] . ' </p>';
+                echo '      <p> Birthday: ' . $user_info['userBirthday'] . ' </p>';
+                echo '      <p> Gender: ' . $user_info['userGender'] . ' </p>';
                 echo '      <br>';
-                echo '      <p> Contact Number: <a href=\'tel: ' . $userInfo['userContactNo'] . '\'>' . $userInfo['userContactNo'] . '</a> </p>';
-                echo '      <p> Email: <a href=\'mailto: ' . $userInfo['userEmail'] . '\'>' . $userInfo['userEmail'] . '</a> </p>';
+                echo '      <p> Contact Number: <a href=\'tel: ' . $user_info['userContactNo'] . '\'>' . $user_info['userContactNo'] . '</a> </p>';
+                echo '      <p> Email: <a href=\'mailto: ' . $user_info['userEmail'] . '\'>' . $user_info['userEmail'] . '</a> </p>';
                 echo '      <br>';
-                if ($userInfo['userSubscribedToNewsletter']) {
+                if ($user_info['userSubscribedToNewsletter']) {
                     echo '  <p> This user is subscribed to the newsletter 💌 </p>';
                 } else {
                     echo '  <p> This user isn\'t subscribed to the newsletter :( </p>';

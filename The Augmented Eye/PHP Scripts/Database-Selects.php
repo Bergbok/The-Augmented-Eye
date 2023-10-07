@@ -144,10 +144,10 @@ function get_newsletter_subscriber_emails(): array {
     }
 }
 
-function get_author_id(int $article_ID): int {
+function get_author_id(int $article_id): int {
     $where_clause = 'articleID = :id';
     $where_values = [
-        'id' => $article_ID,
+        'id' => $article_id,
     ];
 
     $article_Info = select_article($where_clause, $where_values);
@@ -156,25 +156,25 @@ function get_author_id(int $article_ID): int {
     return $author_ID;
 }
 
-function get_author_name_from_article_id(int $article_ID): string {
+function get_author_name_from_article_id(int $article_id): string {
     $where_clause = 'userID = :id';
     $where_values = [
-        'id' => get_author_id($article_ID),
+        'id' => get_author_id($article_id),
     ];
 
-    $userInfo = select_user($where_clause, $where_values);
-    $author_name = $userInfo['userName'];
+    $user_info = select_user($where_clause, $where_values);
+    $author_name = $user_info['userName'];
     return $author_name;
 }
 
-function get_author_surname_from_article_id(int $article_ID): string {
+function get_author_surname_from_article_id(int $article_id): string {
     $where_clause = 'userID = :id';
     $where_values = [
-        'id' => get_author_id($article_ID),
+        'id' => get_author_id($article_id),
     ];
 
-    $userInfo = select_user($where_clause, $where_values);
-    $author_surname = $userInfo['userSurname'];
+    $user_info = select_user($where_clause, $where_values);
+    $author_surname = $user_info['userSurname'];
     return $author_surname;
 }
 

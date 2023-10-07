@@ -10,24 +10,24 @@ function login(): bool {
         'password' => $_POST['user_Password'],
     ];
 
-    $userInfo = select_user($where_clause, $where_values);
+    $user_info = select_user($where_clause, $where_values);
 
-    !empty($userInfo) ? $userExists = true : $userExists = false;
+    !empty($user_info) ? $user_exists = true : $user_exists = false;
 
-    if ($userExists) {
-        //print_r($userInfo);
+    if ($user_exists) {
+        //print_r($user_info);
 
         $_SESSION['loggedIn'] = true;
         $_SESSION['loggedInSince'] = date('d-m-y h:i:s');
-        $_SESSION['userID'] = $userInfo['userID'];
-        $_SESSION['userName'] = $userInfo['userName'];
-        $_SESSION['userSurname'] = $userInfo['userSurname'];
-        $_SESSION['userGender'] = $userInfo['userGender'];
-        $_SESSION['userBirthday'] = $userInfo['userBirthday'];
-        $_SESSION['userEmail'] = $userInfo['userEmail'];
-        $_SESSION['userContactNo'] = $userInfo['userContactNo'];
-        $_SESSION['userSubscribedToNewsletter'] = $userInfo['userSubscribedToNewsletter'];
-        // $_SESSION[''] = $userInfo[''];
+        $_SESSION['userID'] = $user_info['userID'];
+        $_SESSION['userName'] = $user_info['userName'];
+        $_SESSION['userSurname'] = $user_info['userSurname'];
+        $_SESSION['userGender'] = $user_info['userGender'];
+        $_SESSION['userBirthday'] = $user_info['userBirthday'];
+        $_SESSION['userEmail'] = $user_info['userEmail'];
+        $_SESSION['userContactNo'] = $user_info['userContactNo'];
+        $_SESSION['userSubscribedToNewsletter'] = $user_info['userSubscribedToNewsletter'];
+        // $_SESSION[''] = $user_info[''];
         return true;
     } else {
         return false;

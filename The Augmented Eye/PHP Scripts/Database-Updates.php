@@ -37,7 +37,7 @@ function update_user_password(): bool {
     }
 }
 
-function increment_article_viewcount(int $article_ID): bool {
+function increment_article_viewcount(int $article_id): bool {
     $show_update_info = false;
 
     try{
@@ -46,7 +46,7 @@ function increment_article_viewcount(int $article_ID): bool {
         //prepare the sql statement
         $stmt = $dbh->prepare('UPDATE Articles SET articleViews = articleViews+1 WHERE articleID = :articleID');
         $data = [
-            'articleID' => $article_ID
+            'articleID' => $article_id
         ];
         
         if ($show_update_info) {
