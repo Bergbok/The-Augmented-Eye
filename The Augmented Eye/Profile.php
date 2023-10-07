@@ -49,9 +49,9 @@
                 if (isLoggedIn()) {
                     if ($_GET["profileID"] == $_SESSION["userID"]) {
                         echo "<div class='article-link'>";
-                        echo "  <a class='dark-text' href='/The Augmented Eye/Change-Password.php'> Change Password </a>";
+                        echo "  <a class='dark-text' href='/The Augmented Eye/Change-Password'> Change Password </a>";
                         echo "  <br><br>";
-                        echo "  <a class='dark-text' href='/The Augmented Eye/Logout.php'>Logout</a>";
+                        echo "  <a class='dark-text' href='/The Augmented Eye/Logout'>Logout</a>";
                         echo "</div>";
                     }
                 }

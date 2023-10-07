@@ -1,6 +1,18 @@
-<Files ~ "^\.(htaccess|htpasswd)$">
-deny from all
-</Files>
-Options Indexes
-ErrorDocument 404 /The%20Augmented%20Eye/Error%20Pages/404.php
-order deny,allow
+ErrorDocument 404 /The%20Augmented%20Eye/Error%20Pages/404
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php
+</IfModule>
+
+#Options +FollowSymLinks
+#<Files ~ "^\.(htaccess|htpasswd)$">
+#deny from all
+#</Files>
+#Options Indexes
+#ErrorDocument 404 /The%20Augmented%20Eye/Error%20Pages/404.php
+#<IfModule mod_rewrite.c>
+#RewriteEngine On
+#</IfModule>
+#RedirectMatch "\/The%20Augmented%20Eye\/$" "/The%20Augmented%20Eye/About.php"
+#order deny,allow

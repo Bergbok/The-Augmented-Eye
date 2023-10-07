@@ -1,5 +1,5 @@
 <?php 
-    header( "refresh:3;url=Home.php" );
+    header( "refresh:3;url=Home" );
     include_once('Header.php'); 
     include_once('PHP Scripts/Login-Handler.php');
     logOut();

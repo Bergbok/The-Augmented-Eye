@@ -36,7 +36,7 @@
                         include_once("PHP Scripts/Login-Handler.php");
                         if (logIn()) {
                             echo "<p> Successfully logged in! </p> <br>";
-                            header("Location: Home.php");
+                            header("Location: Home");
                         } else {
                             echo "<p class='error-message'> No accounts found for given email/password combination. </p> <br>";
                         }
@@ -51,7 +51,7 @@
                             <strong>Don't have an account?</strong>
                         </legend>
 
-                        <button class="submit-button" onclick="location.href='/The Augmented Eye/Registration.php'" type="button">Register</button>
+                        <button class="submit-button" onclick="location.href='/The Augmented Eye/Registration'" type="button">Register</button>
 
                     </fieldset>
                 </form>

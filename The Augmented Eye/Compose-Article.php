@@ -14,7 +14,7 @@
                     include_once('PHP Scripts/Login-Handler.php');
                     if (!isLoggedIn()){
                         echo "<p> Login to be able to post. </p>";
-                        echo "<a class='dark-text' href='/The Augmented Eye/Login.php'> LOGIN </a>";
+                        echo "<a class='dark-text' href='/The Augmented Eye/Login'> LOGIN </a>";
                     } else {
                         echo "<label for='name'>Title:</label>";
                         echo "<input type='text' id='titleInput' name='article_Title'></input>";

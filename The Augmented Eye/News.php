@@ -10,7 +10,7 @@
     <body>
         <div class="centered-column pixel-text">
             <form method="GET">
-                <h1 class="centered-text"><a id= "compose_article_link" href="/The Augmented Eye/Compose-Article.php"> Compose Article 📝 </a></h1>
+                <h1 class="centered-text"><a id= "compose_article_link" href="/The Augmented Eye/Compose-Article"> Compose Article 📝 </a></h1>
                 <fieldset>
                     <div class='toolbar'>
                         <div class='limiter'>

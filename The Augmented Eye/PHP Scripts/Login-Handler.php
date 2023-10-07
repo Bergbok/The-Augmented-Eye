@@ -36,7 +36,7 @@
     }
 
     function isLoggedIn() {
-        (isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true) ? $isLoggedIn=true : $isLoggedIn=true;
+        (isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true) ? $isLoggedIn=true : $isLoggedIn=false;
         return $isLoggedIn;
     }
 

@@ -5,7 +5,7 @@
     $page = getCurrentPageInfo("page");
 
     switch ($page) {
-        case "Logout.php":
+        case ("Logout.php" || "Logout"):
             echo '<script>alert("Logged out! Redirecting to homepage in 3 seconds.")</script>';
             break;
         default:

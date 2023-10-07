@@ -20,7 +20,7 @@
                     <?php
                         include_once('PHP Scripts/Article-Display-Handler.php');
                         echoArticleLinks('articlePublishDate','DESC',3);
-                        echo "<h2><a class='dark-text' href='/The Augmented Eye/News.php'> View More Here </a></h2>";
+                        echo "<h2><a class='dark-text' href='/The Augmented Eye/News'> View More Here </a></h2>";
                         echo "<br>";
                     ?>
                 </div>

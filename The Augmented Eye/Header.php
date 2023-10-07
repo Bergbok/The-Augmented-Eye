@@ -27,18 +27,18 @@
         <div class="header center pixel-text">
             <img src="/The Augmented Eye/Images/logo.png" alt="The Augmented Eye Logo"></img>
             <ul class="header-tabs">
-                <li><a href="/The Augmented Eye/Home.php">Home</a></li>
-                <li><a href="/The Augmented Eye/News.php">News</a></li>
-                <li><a href="/The Augmented Eye/Contact-Us.php">Contact</a></li>
-                <li><a href="/The Augmented Eye/About.php">About</a></li>
+                <li><a href="/The Augmented Eye/Home">Home</a></li>
+                <li><a href="/The Augmented Eye/News">News</a></li>
+                <li><a href="/The Augmented Eye/Contact-Us">Contact</a></li>
+                <li><a href="/The Augmented Eye/About">About</a></li>
             </ul> 
             <?php 
                 include_once('PHP Scripts/Login-Handler.php'); 
                 if (isAdmin()){
                     echo "<ul class='header-tabs'>
-                            <li><a href='/The Augmented Eye/Send-Newsletter.php'>Newsletter</a></li>
-                            <li><a href='/The Augmented Eye/User-Stats.php'>User Stats</a></li>
-                            <li><a href='/The Augmented Eye/Article-Stats.php'>Article Stats</a></li>
+                            <li><a href='/The Augmented Eye/Send-Newsletter'>Newsletter</a></li>
+                            <li><a href='/The Augmented Eye/User-Stats'>User Stats</a></li>
+                            <li><a href='/The Augmented Eye/Article-Stats'>Article Stats</a></li>
                           </ul>";
                 }
             ?>
