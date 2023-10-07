@@ -163,6 +163,55 @@ li.top-left {
     border: 3px solid rgb(255, 255, 255);
 }
 
+.share-buttons {
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+    width: 20%;
+    margin: auto;
+}
+
+.share-buttons * {
+    width: 32;
+    height: 32;
+    padding-inline: 10%;
+}
+
+.share-buttons #copy-link {
+    background-color:#596064FF;
+    border: 3px solid rgb(145, 145, 145);
+}
+
+.share-buttons #email {
+    background-color:#596064FF;
+    border: 3px solid rgb(145, 145, 145);
+}
+
+.share-buttons #sms {
+    background-color:#649534FF;
+    border: 3px solid rgb(135, 187, 105);
+}
+
+.share-buttons #whatsapp {
+    background-color:#0E8C08FF;
+    border: 3px solid rgb(136, 238, 104);
+}
+
+.share-buttons #telegram {
+    background-color:#197BABFF;
+    border: 3px solid rgb(0, 170, 162);
+}
+
+.share-buttons #reddit {
+    background-color:#CC3700FF;
+    border: 3px solid rgb(255, 123, 0);
+}
+
+.share-buttons #teams {
+    background-color:#2C3490FF;
+    border: 3px solid rgb(145, 152, 255);
+}
+
 .submit-button {
     text-transform: uppercase; 
     width: 100%;

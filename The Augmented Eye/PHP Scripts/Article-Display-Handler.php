@@ -11,10 +11,27 @@
         echo "      <h4 align=left> Views: ".$articleInfo["articleViews"]."</h4>";
         echo "  </div>";
         echo "  <p class='article-text'>".$articleInfo["articleContent"]."</p>";
-        echo "  <script type='text/javascript' src='/The Augmented Eye/JavaScript/copyToClipboard.js'></script>"; 
         include_once("getCurrentPageInfo.php"); 
-        $url = getCurrentPageInfo("url");    
-        echo "  <button class='submit-button' id='share-button' onclick='copyToClipboard(\"".$url."\")'>Copy Link</button>";
+        $url = getCurrentPageInfo("url"); 
+        $use_addtoany_share = true;
+        if ($use_addtoany_share) {
+            echo "<!-- AddToAny BEGIN -->";
+            echo "<div class='share-buttons'>";
+            // echo "<a href='https://www.addtoany.com/share#url=".$url."&amp;title=' target='_blank'><img src='https://static.addtoany.com/buttons/a2a.svg' width='32' height='32' style='background-color:royalblue'></a>";
+            echo "  <a href='https://www.addtoany.com/add_to/copy_link?linkurl=".$url."&amp;linkname=' target='_blank'><img id='copy-link' src='https://static.addtoany.com/buttons/link.svg'></a>";
+            echo "  <a href='https://www.addtoany.com/add_to/email?linkurl=".$url."&amp;linkname=' target='_blank'><img id='email' src='https://static.addtoany.com/buttons/email.svg'></a>";
+            echo "  <a href='https://www.addtoany.com/add_to/sms?linkurl=".$url."&amp;linkname=' target='_blank'><img id='sms' src='https://static.addtoany.com/buttons/sms.svg'></a>";
+            echo "  <a href='https://www.addtoany.com/add_to/whatsapp?linkurl=".$url."&amp;linkname=' target='_blank'><img id='whatsapp' src='https://static.addtoany.com/buttons/whatsapp.svg'></a>";
+            echo "  <a href='https://www.addtoany.com/add_to/telegram?linkurl=".$url."&amp;linkname=' target='_blank'><img id='telegram' src='https://static.addtoany.com/buttons/telegram.svg'></a>";
+            echo "  <a href='https://www.addtoany.com/add_to/reddit?linkurl=".$url."&amp;linkname=' target='_blank'><img id='reddit' src='https://static.addtoany.com/buttons/reddit.svg'></a>";
+            echo "  <a href='https://www.addtoany.com/add_to/microsoft_teams?linkurl=".$url."&amp;linkname=' target='_blank'><img id='teams' src='https://static.addtoany.com/buttons/microsoft_teams.svg'></a>";
+            echo "</div>";
+            echo "<!-- AddToAny END -->";
+        } else {
+            echo "  <script type='text/javascript' src='/The Augmented Eye/JavaScript/copyToClipboard.js'></script>";    
+            echo "  <button class='submit-button' id='share-button' onclick='copyToClipboard(\"".$url."\")'>Copy Link</button>";
+        }
+
         echo "</div>";
     }
 

@@ -73,12 +73,12 @@
                             if (sendPassword()) {
                                 echo "<div class='centered-text'>";
                                 echo "  <p> Successfully created account, check your email for your password. </p>";
-                                echo "  <a class='dark-text' href='/The Augmented Eye/Login.php'> LOGIN </a>";
+                                echo "  <a class='dark-text' href='/The Augmented Eye/Login'> LOGIN </a>";
                                 echo "</div>";
                             } else {
                                 echo "<div class='centered-text'>";
                                 echo "  <p> Successfully created account, couldn't send you your password via email though :( </p>";
-                                echo "  <a class='dark-text' href='/The Augmented Eye/Login.php'> LOGIN </a>";
+                                echo "  <a class='dark-text' href='/The Augmented Eye/Login'> LOGIN </a>";
                                 echo "</div>";
                             }
                         } else {

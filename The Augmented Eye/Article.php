@@ -3,7 +3,6 @@
 ?>
 
 <html>
-
     <body>
         <?php
             include_once('PHP Scripts/Article-Display-Handler.php'); 
@@ -29,7 +28,5 @@
                 echoArticleNotFound();
             }
         ?>
-        
     </body>
-
 </html>
