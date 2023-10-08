@@ -16,7 +16,7 @@
 
     <body>
         <div class='centered-column pixel-text'>
-             <form method='POST'>
+             <form method='POST' enctype='multipart/form-data'>
                 <fieldset>
 
                     <legend class='center'>
@@ -67,6 +67,11 @@
 
                     <br/><br/>
 
+                    <label for='profile_picture'>Profile Picture:</label>
+                    <input type='file' id='profile_picture' name='newuser_profile_picture'></input>
+
+                    <br/><br/>
+
                     <input class='submit-button' type='submit' value='Register' name='Register'></input>
 
                 </fieldset>
@@ -94,6 +99,13 @@
                                     echo '  <p> Successfully created account, couldn\'t send you your password via email though :( </p>';
                                     echo '  <a class=\'dark-text\' href=\'/The Augmented Eye/Login\'> LOGIN </a>';
                                     echo '</div>';
+                                }
+
+                                if (isset($_FILES['newuser_profile_picture']) && $_FILES['newuser_profile_picture']['error'] == 0) {
+                                    // Purpose: Used to upload profile picture to FTP server.
+                                    include_once 'PHP Scripts/FTP-Handler.php';
+        
+                                    upload_profile_picture_from_registration($_POST['newuser_Email']);
                                 }
                             } else {
                                 echo '<p> Couldn\'t create account </p>';

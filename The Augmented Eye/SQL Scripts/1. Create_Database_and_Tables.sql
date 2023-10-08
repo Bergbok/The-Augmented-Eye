@@ -21,6 +21,7 @@ CREATE TABLE Users
     userContactNo VARCHAR(10) NOT NULL,
     userSubscribedToNewsletter BOOL NOT NULL,
     userRegistrationDate DATETIME NOT NULL,    
+    userProfilePictureFilename VARCHAR(100),
 	PRIMARY KEY (userID)
 );
 

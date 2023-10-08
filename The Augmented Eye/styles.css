@@ -102,6 +102,7 @@ Description: Most of the time spent on this project was spent tinkering in this 
     top: 88px;
     left: 16px;
     font-size: 18px;
+    text-overflow: ellipsis;
 }
 
 a.top-left, p.top-left {
@@ -148,7 +149,7 @@ li.top-left {
     /* border-bottom: 1px solid rgba(85, 85, 85, 0.438); */
     position: sticky;
     top: 0%;
-    background-color: #000000;
+    /* background-color: #000000; */
     padding: 20px 0px;
     width: 69%;
     z-index: 9001;
@@ -166,6 +167,7 @@ li.top-left {
 
 .pfp-preview {
     width: 50px;
+    height: 50px;
     border: 3px solid rgb(255, 255, 255);
 }
 

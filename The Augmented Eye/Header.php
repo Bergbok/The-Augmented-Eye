@@ -10,14 +10,12 @@
 
 <html>
     <head>
-
         <link rel='stylesheet' href='/The Augmented Eye/styles.css'>
         <link rel='icon' href='/The Augmented Eye/Images/favicon.ico'>
-
     </head>
 
     <?php 
-        // Purpose: Displays profile widget at the top left of page.
+        // Purpose: Displays profile picture at the top left of page.
         include_once 'Profile-Preview.php'; 
     ?>
 

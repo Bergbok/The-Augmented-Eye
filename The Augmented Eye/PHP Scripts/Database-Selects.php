@@ -25,8 +25,7 @@ function select_user(string $where_clause, array $where_values): array | bool {
         return $stmt->fetch(PDO::FETCH_ASSOC);
 
     } catch(PDOException $e) {
-
-        echo $e->getMessage();
+        // echo $e->getMessage();
         return [];
     }
 }
@@ -182,6 +181,25 @@ function get_author_surname_from_article_id(int $article_id): string {
     $user_info = select_user($where_clause, $where_values);
     $author_surname = $user_info['userSurname'];
     return $author_surname;
+}
+
+function get_profile_picture_filename(int | null $user_id) {
+    $where_clause = 'userID = :id';
+    $where_values = [
+        'id' => $user_id,
+    ];
+
+    $user_info = select_user($where_clause, $where_values);
+
+    !empty($user_info) ? $user_exists = true : $user_exists = false;
+
+    if ($user_exists && $user_info['userProfilePictureFilename'] != null) {
+        $picture_filename = $user_info['userProfilePictureFilename'];
+    } else {
+        $picture_filename = 'pfp-placeholder.png';
+    }
+    
+    return $picture_filename;
 }
 
 // EOF

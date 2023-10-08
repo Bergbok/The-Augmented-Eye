@@ -43,6 +43,33 @@ function update_user_password(): bool {
     }
 }
 
+function update_user_profile_picture_filename($data): bool {
+    $show_update_info = false;
+
+    try{
+        $dbh = connect_to_db();
+
+        //prepare the sql statement
+        $stmt = $dbh->prepare('UPDATE Users SET userProfilePictureFilename = :picture_name WHERE userID = :user_id');
+        
+        if ($show_update_info) {
+            echo 'Trying to update values: <br>';
+            foreach ($data as $key => $value) {
+                echo $key . ':' . $value . '<br>';
+            }
+        }
+    
+        $stmt->execute($data);
+
+        if ($show_update_info) {echo 'Records updated successfully';}
+        return true;
+
+    }catch(PDOException $e){
+        echo $e->getMessage();
+        return false;
+    }
+}
+
 function increment_article_viewcount(int $article_id): bool {
     $show_update_info = false;
 

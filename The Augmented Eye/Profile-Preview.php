@@ -7,8 +7,10 @@
 <html> 
     <body>
         <div class='pixel-text bright-text'>
-            <img class='pfp-preview top-left' src='/The Augmented Eye/Images/pfp-placeholder.png'></img>
+            <!-- <img class='pfp-preview top-left' src='/The Augmented Eye/Images/pfp-placeholder.png'></img> -->
             <?php
+                echo '<img class=\'pfp-preview top-left\' src=\'/The Augmented Eye/PHP Scripts/Get-Picture.php\'></img>';
+
                 if (isset($_SESSION['userName'])) {
                     echo '<li class=\'dropdown bright-text top-left\'>';
                     echo '  <p>Welcome back, ' . $_SESSION['userName'] . '</p>';

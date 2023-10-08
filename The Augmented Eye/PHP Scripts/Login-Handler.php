@@ -33,6 +33,7 @@ function login(): bool {
         $_SESSION['userEmail'] = $user_info['userEmail'];
         $_SESSION['userContactNo'] = $user_info['userContactNo'];
         $_SESSION['userSubscribedToNewsletter'] = $user_info['userSubscribedToNewsletter'];
+        $_SESSION['userProfilePictureFilename'] = $user_info['userProfilePictureFilename'];
         // $_SESSION[''] = $user_info[''];
         return true;
     } else {
