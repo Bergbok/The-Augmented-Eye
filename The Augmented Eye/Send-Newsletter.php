@@ -15,7 +15,7 @@
     </head>
 
     <body>
-        <div class=\'centered-column pixel-text centered-text'>
+        <div class='centered-column pixel-text centered-text'>
             <form method='POST'>
                 <?php         
                     // Purpose: Used to check if the user is an admin.
@@ -34,10 +34,11 @@
                         echo '  <h3> Email Body: </h1>';
                         echo '  <textarea name=\'newsletter_Body\'></textarea>';
                         echo '  <br><br>';
-                        echo '  <input class=\'submit-button\' type=\'submit\' value=\'Send\'></input>';
+                        echo '  <input class=\'submit-button\' type=\'submit\' value=\'Send\' name=\'Send\'></input>';
                         echo '</fieldset>';
 
-                        // Purpose: Used to validate newsletter information.
+                        if (isset($_REQUEST['Send'])) {
+                            // Purpose: Used to validate newsletter information.
                         include_once 'PHP Scripts/Form-Validation.php';
 
                         if (validate_newsletter()) {
@@ -45,6 +46,7 @@
                             include_once 'PHP Scripts/Email-Handler.php';
 
                             send_newsletter();
+                        }
                         }
                     }
                 ?>

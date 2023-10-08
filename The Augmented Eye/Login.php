@@ -33,23 +33,25 @@
 
                     <br/><br/>
 
-                    <input class='submit-button' type='submit' value='Login'></input>
+                    <input class='submit-button' type='submit' value='Login' name='Login'></input>
 
                 </fieldset>
 
                 <?php 
-                    // Purpose: Used to validate login information.
-                    include_once 'PHP Scripts/Form-Validation.php'; 
+                    if (isset($_REQUEST['Login'])) {
+                        // Purpose: Used to validate login information.
+                        include_once 'PHP Scripts/Form-Validation.php'; 
 
-                    if (validate_login()) {
-                        // Purpose: Used to check if login is successful.
-                        include_once('PHP Scripts/Login-Handler.php');
+                        if (validate_login()) {
+                            // Purpose: Used to check if login is successful.
+                            include_once('PHP Scripts/Login-Handler.php');
 
-                        if (login()) {
-                            echo '<p> Successfully logged in! </p> <br>';
-                            header('Location: Home');
-                        } else {
-                            echo '<p class=\'centered-text error-message\'> No accounts found for given email/password combination. </p> <br>';
+                            if (login()) {
+                                echo '<p> Successfully logged in! </p> <br>';
+                                header('Location: Home');
+                            } else {
+                                echo '<p class=\'centered-text error-message\'> No accounts found for given email/password combination. </p> <br>';
+                            }
                         }
                     }
                 ?>

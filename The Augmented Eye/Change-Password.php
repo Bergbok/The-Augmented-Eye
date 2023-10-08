@@ -25,27 +25,29 @@
                         echo '<label for=changePassword> New Password </label>';
                         echo '<input type=\'text\' name=\'new_Password\'></input>';
                         echo '<br><br>';
-                        echo '<input class=\'submit-button\' type=\'submit\' value=\'Change Password\'></input>';
-                        
-                        // Purpose: Used to check if user is logged in.
-                        include_once 'PHP Scripts/Login-Handler.php'; 
+                        echo '<input class=\'submit-button\' type=\'submit\' value=\'Change Password\' name=\'Change\'></input>';
 
-                        if (is_logged_in()) {
-                            // Purpose: Used to check if new password is valid.
-                            include_once 'PHP Scripts/Form-Validation.php';
+                        if (isset($_REQUEST['Change'])) {
+                            // Purpose: Used to check if user is logged in.
+                            include_once 'PHP Scripts/Login-Handler.php'; 
 
-                            if (validate_password_change()) {
-                                // Purpose: Used to update the password.
-                                include_once 'PHP Scripts/Database-Updates.php';
+                            if (is_logged_in()) {
+                                // Purpose: Used to check if new password is valid.
+                                include_once 'PHP Scripts/Form-Validation.php';
 
-                                if (update_user_password()) {
-                                    echo '<p> Successfully updated password! </p>';
-                                } else {
-                                    echo '<p class=\'error-message\'> Couldn\'t update password </p>';
+                                if (validate_password_change()) {
+                                    // Purpose: Used to update the password.
+                                    include_once 'PHP Scripts/Database-Updates.php';
+
+                                    if (update_user_password()) {
+                                        echo '<p> Successfully updated password! </p>';
+                                    } else {
+                                        echo '<p class=\'error-message\'> Couldn\'t update password </p>';
+                                    }
                                 }
+                            } else {
+                                echo '<p class=\'error-message\'> Not logged in! </p>';
                             }
-                        } else {
-                            echo '<p class=\'error-message\'> Not logged in! </p>';
                         }
                     ?>
                 </fieldset>

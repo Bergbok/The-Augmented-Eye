@@ -72,31 +72,32 @@
                 </fieldset>
                     
                 <?php         
-                    var_dump($_REQUEST['Register']);
-                    // Purpose: Used to validate registration information.
-                    include_once 'PHP Scripts/Form-Validation.php';
+                    if (isset($_REQUEST['Register'])) {
+                        // Purpose: Used to validate registration information.
+                        include_once 'PHP Scripts/Form-Validation.php';
 
-                    if (validate_registration()) {
-                        // Purpose: Used to insert new user into database.
-                        include_once 'PHP Scripts/Database-Inserts.php';
+                        if (validate_registration()) {
+                            // Purpose: Used to insert new user into database.
+                            include_once 'PHP Scripts/Database-Inserts.php';
 
-                        if (insert_user()) {
-                            // Purpose: Used to email password to user upon successful registration.
-                            include_once 'PHP Scripts/Email-Handler.php';
+                            if (insert_user()) {
+                                // Purpose: Used to email password to user upon successful registration.
+                                include_once 'PHP Scripts/Email-Handler.php';
 
-                            if (send_password()) {
-                                echo '<div class=\'centered-text\'>';
-                                echo '  <p> Successfully created account, check your email for your password. </p>';
-                                echo '  <a class=\'dark-text\' href=\'/The Augmented Eye/Login\'> LOGIN </a>';
-                                echo '</div>';
+                                if (send_password()) {
+                                    echo '<div class=\'centered-text\'>';
+                                    echo '  <p> Successfully created account, check your email for your password. </p>';
+                                    echo '  <a class=\'dark-text\' href=\'/The Augmented Eye/Login\'> LOGIN </a>';
+                                    echo '</div>';
+                                } else {
+                                    echo '<div class=\'centered-text\'>';
+                                    echo '  <p> Successfully created account, couldn\'t send you your password via email though :( </p>';
+                                    echo '  <a class=\'dark-text\' href=\'/The Augmented Eye/Login\'> LOGIN </a>';
+                                    echo '</div>';
+                                }
                             } else {
-                                echo '<div class=\'centered-text\'>';
-                                echo '  <p> Successfully created account, couldn\'t send you your password via email though :( </p>';
-                                echo '  <a class=\'dark-text\' href=\'/The Augmented Eye/Login\'> LOGIN </a>';
-                                echo '</div>';
+                                echo '<p> Couldn\'t create account </p>';
                             }
-                        } else {
-                            echo '<p> Couldn\'t create account </p>';
                         }
                     }
                 ?>

@@ -31,19 +31,21 @@
                         echo '<h3> Content: </h1>';
                         echo '<textarea name=\'article_Content\' placeholder=\'Please ensure your article is at least 50 characters\'></textarea>';
                         echo '<br><br>';
-                        echo '<input class=\'submit-button\' type=\'submit\' value=\'Submit\'></input>';
+                        echo '<input class=\'submit-button\' type=\'submit\' value=\'Submit\' name=\'Submit\'></input>';
 
-                        // Purpose: Used to check if the article is valid.
-                        include_once('PHP Scripts/Form-Validation.php');
+                        if (isset($_REQUEST['Submit'])) {
+                            // Purpose: Used to check if the article is valid.
+                            include_once('PHP Scripts/Form-Validation.php');
 
-                        if (validate_article()) {
-                            // Purpose: Used to insert article into database.
-                            include_once('PHP Scripts/Database-Inserts.php');
+                            if (validate_article()) {
+                                // Purpose: Used to insert article into database.
+                                include_once('PHP Scripts/Database-Inserts.php');
 
-                            if (insert_article()) {
-                                echo '<p> Successfully submitted article. </p>';
-                            } else {
-                                echo '<p> Couldn\'t submit article. </p>';
+                                if (insert_article()) {
+                                    echo '<p> Successfully submitted article. </p>';
+                                } else {
+                                    echo '<p> Couldn\'t submit article. </p>';
+                                }
                             }
                         }
                     }
