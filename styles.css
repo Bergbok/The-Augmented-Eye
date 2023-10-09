@@ -1,0 +1,375 @@
+/* 
+Filename: styles.css
+Author: Albertus Cilliers
+Description: Most of the time spent on this project was spent tinkering in this file, provides styling properties to elements accross the entire website. 
+*/
+
+@font-face {
+    font-family: CyberpunkWaifus;
+    src: url(Fonts/CyberpunkWaifus.ttf);
+}
+
+:root {
+    --bg-img: url(Images/blackbg.png);
+    --light-text-color: white;
+    --dark-text-color: black;
+    --strong-text-color: #242424;
+    --main-font: CyberpunkWaifus;
+    --input-color: #4D0A31FF;
+    --input-focused-color: lightblue;
+    --hover-color: #4D0A31FF;
+    --column-color: #F0D3CEFF;
+}
+
+/* Text Classes */
+.article-link {
+    /* white-space: nowrap; */
+    /* text-overflow: ellipsis;  */
+    color: #5D0E35FF;
+    font-size: 1.8vw;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+.article-text {
+    /* white-space: pre-wrap; */
+    color: var(--dark-text-color);
+    text-align: left;
+    word-wrap: break-word;
+    word-break: break-word;
+    padding: 10px;
+}
+
+.bright-text {
+    color: var(--light-text-color);
+}
+
+.dark-text {
+    color: var(--dark-text-color);
+}
+
+.error-message {
+    color:#882222;
+}
+
+.no-decor-link {
+    text-decoration: none;
+}
+
+.pixel-text {
+    font-family: var(--main-font);
+}
+    /* Text Positioning Classes  */
+    .centered-text {
+        text-align: center;
+    }
+
+    .justified-text {
+        text-align: center;
+    }
+
+    .right-aligned-text {
+        text-align: right;
+    }
+    /* ------------------------- */
+/* ------------ */
+
+/* Positioning Classes */
+.bottom-left {
+    position: absolute;
+    scale: 200%;
+    bottom: 5%;
+    left: 2%;
+}
+
+.center, .center img, .center form {
+    display: block;
+    margin: auto;
+    /* width: 50%; */
+}
+
+.center ul, .center li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    list-style-type: none;
+}
+
+.top-right {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+}
+
+.top-left {
+    position: fixed;
+    top: 88px;
+    left: 16px;
+    font-size: 18px;
+    text-overflow: ellipsis;
+    z-index: 999;
+}
+
+a.top-left, p.top-left {
+    position: fixed;
+    top: 105px;
+    left: 90px;
+}
+
+li.top-left {
+    position: fixed;
+    top: 90px;
+    left: 105px;
+    z-index: 999;
+}
+/* ------------------- */
+
+.centered-column {
+    margin: auto;
+    width: 30%;
+    /* height: 9999999%; */
+    background-color: var(--column-color);
+    padding: 20px;
+}
+
+.dropdown {
+    z-index: 1;
+    list-style-type: none;
+}
+
+.dropdown-items {
+    display: none;
+}
+  
+.dropdown:hover .dropdown-items{
+    display: block;
+    position: absolute;
+    width: 250px;
+    top: 21px;
+    left: -21px;
+}
+
+.header {
+    /* overflow: hidden; */
+    /* background-image: var(--bg-img); */
+    /* border-bottom: 1px solid rgba(85, 85, 85, 0.438); */
+    position: sticky;
+    top: 0%;
+    background-color: #000000;
+    padding: 20px 0px;
+    width: 50%;
+    z-index: 3;
+}
+
+.header li a {
+    color: white;
+    padding: 21px 69px;
+    text-decoration: none;
+}
+  
+.header li a:hover {
+    background-color: var(--hover-color);
+}
+
+.pfp-preview {
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgb(255, 255, 255);
+}
+
+.pfp-preview.comment {
+    float: left;
+}
+
+.pfp-profile {
+    width: 100px;
+    height: 100px;
+    border: 3px solid rgb(255, 255, 255);
+}
+
+.share-buttons {
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+    width: 20%;
+    margin: auto;
+}
+
+.share-buttons * {
+    width: 32;
+    height: 32;
+    padding-inline: 10%;
+}
+
+.share-buttons #copy-link {
+    background-color:#596064FF;
+    border: 3px solid rgb(145, 145, 145);
+}
+
+.share-buttons #email {
+    background-color:#596064FF;
+    border: 3px solid rgb(145, 145, 145);
+}
+
+.share-buttons #sms {
+    background-color:#649534FF;
+    border: 3px solid rgb(135, 187, 105);
+}
+
+.share-buttons #whatsapp {
+    background-color:#0E8C08FF;
+    border: 3px solid rgb(136, 238, 104);
+}
+
+.share-buttons #telegram {
+    background-color:#197BABFF;
+    border: 3px solid rgb(0, 170, 162);
+}
+
+.share-buttons #reddit {
+    background-color:#CC3700FF;
+    border: 3px solid rgb(255, 123, 0);
+}
+
+.share-buttons #teams {
+    background-color:#2C3490FF;
+    border: 3px solid rgb(145, 152, 255);
+}
+
+.submit-button {
+    text-transform: uppercase; 
+    width: 100%;
+}
+
+.staff-border {
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 20px;
+}
+
+.staff-image {
+    width: 150px;
+}
+
+.welcome-message {
+    color: red;
+}
+
+body {
+    /* background-image: var(--bg-img); */
+    background-color: #000000;
+    background-attachment: fixed;
+    color: #000000;
+}
+    
+form {
+    /* background-color:var(--column-color); */
+    /* After 7 digits the browser sets the height equal to it's containing content, somehow works perfectly idk xd */
+    /* height: 999999999999999999999999%; */	
+    /* width: 1000px; */
+    padding: 21px;
+}
+
+html {
+    height: 100vh;
+    cursor: url('Cursors/CALICOMP1.1.cur'), auto;
+}
+
+hr {
+    opacity: 33%;
+    z-index: -1;
+}
+
+iframe {
+    width: 100%;
+    height: 190px;
+}
+
+input, select, button {
+    background-color: var(--input-color);
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 1px;
+    color: var(--light-text-color);
+    font-family: var(--main-font);
+    width: 69%;
+}
+
+input:focus, textarea:focus {
+    background-color: var(--input-focused-color);
+    color: #000000;
+    border: 3px solid #555;
+}
+
+label { 
+    float: left; 
+    width: 31%;
+} 
+
+legend {
+    text-transform: uppercase; 
+}
+
+strong {
+    color: var(--strong-text-color)
+}
+
+table {
+    width: 100%;
+    border: 3px solid rgb(0, 0, 0);
+}
+
+tr, td, th {
+    width: 50%;
+    padding: 5px;
+    border: 3px solid rgba(63, 4, 53, 0.21)
+}
+
+textarea {
+    color: var(--light-text-color);
+    background-color: var(--input-color);
+    width: 100%;
+    resize: vertical;
+}
+
+/* ID-Specific */
+#compose-article-link {
+    text-decoration: none;
+    font-size: 1.8vw;
+    color: white;
+    -webkit-text-stroke: 1px black;
+}
+
+#newsletter {
+    width: 80%;
+}
+
+#newsletter_checkbox {
+    width: 10%;
+}
+/* ----------- */
+
+/* Removes number/slider from input of number type */
+
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    
+    /* Firefox */
+    input[type=number] {
+        appearance: none;
+        -moz-appearance: textfield;
+    }
+
+/* ----------------------------------------------------- */
+
+/* a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    color: initial;
+} */
+
+
