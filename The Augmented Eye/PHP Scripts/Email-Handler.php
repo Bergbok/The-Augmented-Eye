@@ -17,6 +17,8 @@ function send_password(): bool {
     // Purpose: Used to get users password.
     include_once 'Database-Selects.php';
 
+    $columns = '*';
+    $table = 'Users';
     $where_clause = 'userName = :name AND userSurname = :surname AND userGender = :gender AND userBirthday = :birthday AND userEmail = :email AND userContactNo = :contactNo and userSubscribedToNewsletter = :subscribedToNewsletter';
     $where_values = [
         'name' => $_POST['newuser_Name'],
@@ -28,7 +30,7 @@ function send_password(): bool {
         'subscribedToNewsletter' => $_POST['newuser_ReceiveNewsletter'] ?? 0,
     ];
 
-    $user_info = select_user($where_clause, $where_values);
+    $user_info = select($columns, $table, $where_clause, $where_values);
 
     !empty($user_info) ? $user_exists = true : $user_exists = false;
 
@@ -115,14 +117,21 @@ function send_newsletter(): bool {
 }
 
 function get_to_emails(): array {
-    $show_email_info = false;
+    $show_email_info = true;
 
     // Purpose: Used to get newsletter subscriber emails.
     include_once 'PHP Scripts/Database-Selects.php';
 
-    $recipients[] = null;
+    $recipient_emails = [];
 
-    foreach (get_newsletter_subscriber_emails() as $rows) {
+    $columns = 'userEmail';
+    $table = 'Users';
+    $where_clause = 'userSubscribedToNewsletter = 1';
+    $fetch_multiple_rows = true;
+
+    $subscribers = select($columns, $table, $where_clause, [], $fetch_multiple_rows);
+
+    foreach ($subscribers as $rows) {
         if ($show_email_info) {
             echo 'Row Info: <br>';
             print_r($rows);
@@ -133,17 +142,17 @@ function get_to_emails(): array {
             if ($show_email_info) {
                 echo 'Email: ' . $email . '<br><br>';
             }
-            array_push($recipients, $email);
+            array_push($recipient_emails, $email);
         }
     }
 
     if ($show_email_info) {
         echo 'To Array Info: <br>';
-        print_r($recipients);
+        print_r($recipient_emails);
         echo '<br>';
     }
     
-    return($recipients);
+    return $recipient_emails;
 }
 
 // EOF

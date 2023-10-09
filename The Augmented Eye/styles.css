@@ -67,6 +67,10 @@ Description: Most of the time spent on this project was spent tinkering in this 
     .justified-text {
         text-align: center;
     }
+
+    .right-aligned-text {
+        text-align: right;
+    }
     /* ------------------------- */
 /* ------------ */
 
@@ -175,6 +179,12 @@ li.top-left {
 
 .pfp-preview.comment {
     float: left;
+}
+
+.pfp-profile {
+    width: 100px;
+    height: 100px;
+    border: 3px solid rgb(255, 255, 255);
 }
 
 .share-buttons {
@@ -300,6 +310,17 @@ legend {
 
 strong {
     color: var(--strong-text-color)
+}
+
+table {
+    width: 100%;
+    border: 3px solid rgb(0, 0, 0);
+}
+
+tr, td, th {
+    width: 50%;
+    padding: 5px;
+    border: 3px solid rgba(63, 4, 53, 0.21)
 }
 
 textarea {

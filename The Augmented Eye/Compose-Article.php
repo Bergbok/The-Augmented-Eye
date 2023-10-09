@@ -41,7 +41,18 @@
                                 // Purpose: Used to insert article into database.
                                 include_once('PHP Scripts/Database-Inserts.php');
 
-                                if (insert_article()) {
+                                $column_names = 'articleAuthorID, articleTitle, articleContent, articlePublishDate';
+
+                                $values_clause = ':articleAuthorID, :articleTitle, :articleContent, :articlePublishDate';
+                                
+                                $data = [
+                                    'articleAuthorID' => $_SESSION['userID'],
+                                    'articleTitle' => $_POST['article_Title'],
+                                    'articleContent' => nl2br($_POST['article_Content']),
+                                    'articlePublishDate' => date('Y-m-d H:i:s')
+                                ];
+
+                                if (insert('Articles', $column_names, $values_clause, $data)) {
                                     echo '<p> Successfully submitted article. </p>';
                                 } else {
                                     echo '<p> Couldn\'t submit article. </p>';

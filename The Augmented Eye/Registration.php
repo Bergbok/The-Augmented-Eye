@@ -68,7 +68,7 @@
                     <br/><br/>
 
                     <label for='profile_picture'>Profile Picture:</label>
-                    <input type='file' id='profile_picture' name='newuser_profile_picture'></input>
+                    <input type='file' id='profile_picture' name='new_profile_picture'></input>
 
                     <br/><br/>
 
@@ -82,10 +82,28 @@
                         include_once 'PHP Scripts/Form-Validation.php';
 
                         if (validate_registration()) {
+                            // Purpose: Used to generate passwords for new users.
+                            include_once 'PHP Scripts/Password-Generator.php';
                             // Purpose: Used to insert new user into database.
                             include_once 'PHP Scripts/Database-Inserts.php';
 
-                            if (insert_user()) {
+                            $column_names = 'userPassword, userName, userSurname, userGender, userBirthday, userEmail, userContactNo, userSubscribedToNewsletter, userRegistrationDate';
+
+                            $values_clause = ':new_user_password, :newuser_Name, :newuser_Surname, :newuser_Gender, :newuser_Birthday, :newuser_Email, :newuser_Contact, :newuser_ReceiveNewsletter, :newuser_RegistrationDate';
+                            
+                            $data = [
+                                'new_user_password' => generate_password(30),
+                                'newuser_Name' => $_POST['newuser_Name'],
+                                'newuser_Surname' => $_POST['newuser_Surname'],
+                                'newuser_Gender' => $_POST['newuser_Gender'],
+                                'newuser_Birthday' => $_POST['newuser_Birthday'],
+                                'newuser_Email' => $_POST['newuser_Email'],
+                                'newuser_Contact' => $_POST['newuser_Contact'],
+                                'newuser_ReceiveNewsletter' => $_POST['newuser_ReceiveNewsletter'] ?? 'No',
+                                'newuser_RegistrationDate' => date('Y-m-d H:i:s')
+                            ];
+
+                            if (insert('Users', $column_names, $values_clause, $data)) {
                                 // Purpose: Used to email password to user upon successful registration.
                                 include_once 'PHP Scripts/Email-Handler.php';
 
@@ -101,7 +119,7 @@
                                     echo '</div>';
                                 }
 
-                                if (isset($_FILES['newuser_profile_picture']) && $_FILES['newuser_profile_picture']['error'] == 0) {
+                                if (isset($_FILES['new_profile_picture']) && $_FILES['new_profile_picture']['error'] == 0) {
                                     // Purpose: Used to upload profile picture to FTP server.
                                     include_once 'PHP Scripts/FTP-Handler.php';
         

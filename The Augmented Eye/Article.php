@@ -19,12 +19,14 @@
                 // Purpose: Used to get article info.
                 include_once 'PHP Scripts/Database-Selects.php'; 
 
+                $columns = '*';
+                $table = 'Articles';
                 $where_clause = 'articleID = :id';
                 $where_values = [
                     'id' => $_GET['viewArticle']
                 ];
-
-                $article_info = select_article($where_clause, $where_values);
+            
+                $article_info = select($columns, $table, $where_clause, $where_values);
 
                 !empty($article_info) ? $article_exists = true : $article_exists = false;
 
@@ -43,9 +45,22 @@
             if (isset($_REQUEST['post_comment'])) {
                 include_once 'PHP Scripts/Form-Validation.php'; 
                 if (validate_comment()) {
+                    // Purpose: Used to insert comment into database.
                     include_once 'PHP Scripts/Database-Inserts.php';
-                    if (insert_comment()) {
-                        sleep(1);
+
+                    $column_names = 'article_id, comment_poster_id, comment_text, comment_post_date';
+
+                    $values_clause = ':article_id, :comment_poster_id, :comment_text, :comment_post_date';
+                    
+                    $data = [
+                        'article_id' => $_GET['viewArticle'],
+                        'comment_poster_id' => $_SESSION['userID'],
+                        'comment_text' => nl2br($_POST['new_comment_text']),
+                        'comment_post_date' => date('Y-m-d H:i:s')
+                    ];
+                    
+                    if (insert('comments', $column_names, $values_clause, $data)) {
+                        sleep(2);
                         include_once 'PHP Scripts/Current-Page-Info.php';
                         header('Location: ' . get_current_page_info('url'));
                     }                   

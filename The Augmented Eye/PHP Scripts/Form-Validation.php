@@ -141,7 +141,7 @@ function validate_newsletter(): bool {
 
 function validate_password_change(): bool {
     $null_checks = [
-        'new_Password' => 'Please enter a password'
+        'new_password' => 'Please enter a password'
     ];
 
     $is_valid_password_change = validate_post_keys($null_checks);

@@ -11,19 +11,14 @@
 // Purpose: Used to connect to database.
 include_once 'Database-Connection.php';
 
-function update_user_password(): bool {
+function update(string $table, string $set_clause, string $where_clause, array $data): bool {
     $show_update_info = false;
 
     try{
         $dbh = connect_to_db();
 
         //prepare the sql statement
-        $stmt = $dbh->prepare('UPDATE Users SET userPassword = :newPassword WHERE userID = :userID');
-        
-        $data = [
-            'newPassword' => $_POST['new_Password'],
-            'userID' => $_SESSION['userID']
-        ];
+        $stmt = $dbh->prepare('UPDATE ' . $table . ' SET ' . $set_clause . ' WHERE ' . $where_clause . ';');
         
         if ($show_update_info) {
             echo 'Trying to update values: <br>';
@@ -31,73 +26,30 @@ function update_user_password(): bool {
                 echo $key . ':' . $value . '<br>';
             }
         }
-    
-        $stmt->execute($data);
-
-        if ($show_update_info) {echo 'Records updated successfully';}
-        return true;
-
-    }catch(PDOException $e){
-        echo $e->getMessage();
-        return false;
-    }
-}
-
-function update_user_profile_picture_filename($data): bool {
-    $show_update_info = false;
-
-    try{
-        $dbh = connect_to_db();
-
-        //prepare the sql statement
-        $stmt = $dbh->prepare('UPDATE Users SET userProfilePictureFilename = :picture_name WHERE userID = :user_id');
         
-        if ($show_update_info) {
-            echo 'Trying to update values: <br>';
-            foreach ($data as $key => $value) {
-                echo $key . ':' . $value . '<br>';
-            }
+        if ($stmt->execute($data)) {
+            if ($show_update_info) {echo 'Records updated successfully';}
+            return true;
+        } else {
+            return false;
         }
-    
-        $stmt->execute($data);
 
-        if ($show_update_info) {echo 'Records updated successfully';}
-        return true;
-
-    }catch(PDOException $e){
+    } catch(Exception $e) {
         echo $e->getMessage();
         return false;
     }
 }
 
 function increment_article_viewcount(int $article_id): bool {
-    $show_update_info = false;
+    $set_clause = 'articleViews = articleViews + 1';
 
-    try{
-        $dbh = connect_to_db();
+    $where_clause = 'articleID = :articleID';
 
-        //prepare the sql statement
-        $stmt = $dbh->prepare('UPDATE Articles SET articleViews = articleViews+1 WHERE articleID = :articleID');
-        $data = [
-            'articleID' => $article_id
-        ];
-        
-        if ($show_update_info) {
-            echo 'Trying to update values: <br>';
-            foreach ($data as $key => $value) {
-                echo $key . ':' . $value . '<br>';
-            }
-        }
-    
-        $stmt->execute($data);
+    $data = [
+        'articleID' => $article_id
+    ];
 
-        if ($show_update_info) {echo 'Records updated successfully';}
-        return true;
-
-    }catch(PDOException $e){
-        echo $e->getMessage();
-        return false;
-    }
+    return update('Articles', $set_clause, $where_clause, $data);
 }
 
 // EOF

@@ -91,7 +91,16 @@ function show_article_comment_section(int $article_id): void {
         echo '<p class=\'centered-text\'><a class=\'dark-text\' href=\'/The Augmented Eye/Login\'> LOGIN </a></p>';
     }
 
-    $post_comments = select_comments($article_id);
+
+    $columns = '*';
+    $table = 'comments';
+    $where_clause = 'article_id = :article_id';
+    $where_values = ['article_id' => $_GET['viewArticle']];
+    $fetch_multiple_rows = true;
+    $order_by_column = 'comment_post_date';
+    $order_by_direction = 'DESC';
+
+    $post_comments = select($columns, $table, $where_clause, $where_values, $fetch_multiple_rows, $order_by_column, $order_by_direction);
 
     !empty($post_comments) ? $has_comments = true : $has_comments = false;
 
@@ -119,7 +128,15 @@ function show_article_links(string $order_by_column, string $order_by_direction,
     // Purpose: Used to select articles.
     include_once 'Database-Selects.php'; 
 
-    foreach (select_all_articles($order_by_column, $order_by_direction, $row_limit) as $rows) {
+    $columns = '*';
+    $table = 'Articles';
+    // $where_clause = '';
+    // $where_values = [];
+    $fetch_multiple_rows = true;
+
+    $articles = select($columns, $table, '', [], $fetch_multiple_rows, $order_by_column, $order_by_direction, $row_limit);
+
+    foreach ($articles as $rows) {
         if ($show_select_info) {
             echo 'Row Info: <br>';
             print_r($rows);
