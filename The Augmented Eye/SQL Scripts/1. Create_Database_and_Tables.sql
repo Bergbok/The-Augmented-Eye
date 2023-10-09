@@ -43,6 +43,18 @@ CREATE TABLE Articles
 	PRIMARY KEY (articleID)
 );
 
+CREATE TABLE comments
+(
+	comment_id INT NOT NULL AUTO_INCREMENT,
+    article_id INT NOT NULL,
+    comment_poster_id INT NOT NULL,
+    comment_text TEXT,
+    comment_post_date DATETIME NOT NULL,
+    FOREIGN KEY (comment_poster_id) REFERENCES Users(userID),
+    FOREIGN KEY (article_id) REFERENCES Articles(articleID),
+    PRIMARY KEY (comment_id)
+);
+
 -- CREATE TABLE Manufacturers
 -- (
 -- 	manufacturerID INT NOT NULL AUTO_INCREMENT,

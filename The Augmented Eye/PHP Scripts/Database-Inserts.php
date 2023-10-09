@@ -6,7 +6,7 @@
  * Description: Used to insert rows into database tables.
  */
 
-date_default_timezone_set('UTC');
+// date_default_timezone_set('Africa/Johannesburg');
 
 // Purpose: Used to connect to database.
 include_once 'Database-Connection.php';
@@ -22,7 +22,7 @@ function insert_user(): bool {
 
         //prepare the sql statement
         $stmt = $dbh->prepare('INSERT INTO Users (userPassword, userName, userSurname, userGender, userBirthday, userEmail, userContactNo, userSubscribedToNewsletter, userRegistrationDate)
-        VALUES (:userPassword, :newuser_Name, :newuser_Surname, :newuser_Gender, :newuser_Birthday, :newuser_Email, :newuser_Contact, :newuser_ReceiveNewsletter, :newuser_RegistrationDate)');
+        VALUES (:userPassword, :newuser_Name, :newuser_Surname, :newuser_Gender, :newuser_Birthday, :newuser_Email, :newuser_Contact, :newuser_ReceiveNewsletter, :newuser_RegistrationDate);');
         
         $data = [
             'userPassword' => generate_password(30),
@@ -62,7 +62,7 @@ function insert_article(): bool {
 
         //prepare the sql statement
         $stmt = $dbh->prepare('INSERT INTO Articles (articleID, articleAuthorID, articleTitle, articleContent, articlePublishDate)
-        VALUES (:articleID, :articleAuthorID, :articleTitle, :articleContent, :articlePublishDate)');
+        VALUES (:articleID, :articleAuthorID, :articleTitle, :articleContent, :articlePublishDate);');
         
         $data = [
             'articleID' => generate_password(30),
@@ -90,7 +90,43 @@ function insert_article(): bool {
         return false;
 
     }
+}
 
+function insert_comment() {
+    $show_insert_info = true;
+
+    try{
+        $dbh = connect_to_db();
+
+        //prepare the sql statement
+        $stmt = $dbh->prepare('INSERT INTO comments (article_id, comment_poster_id, comment_text, comment_post_date)
+        VALUES (:article_id, :comment_poster_id, :comment_text, :comment_post_date);');
+        
+        $data = [
+            'article_id' => $_GET['viewArticle'],
+            'comment_poster_id' => $_SESSION['userID'],
+            'comment_text' => nl2br($_POST['new_comment_text']),
+            'comment_post_date' => date('Y-m-d H:i:s')
+        ];
+        
+        if ($show_insert_info) {
+            echo 'Trying to insert values: <br>';
+            foreach ($data as $key => $value) {
+                echo '$key: $value<br>';
+            }
+        }
+    
+        $stmt->execute($data);
+
+        if ($show_insert_info) {echo 'New records created successfully';}
+        return true;
+
+    }catch(PDOException $e){
+
+        echo $e->getMessage();
+        return false;
+
+    }
 }
 
 // EOF

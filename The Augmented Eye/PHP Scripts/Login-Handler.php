@@ -43,6 +43,7 @@ function login(): bool {
 
 function logout(): void {
     session_destroy();
+    $_SESSION = [];
 }
 
 function is_logged_in(): bool {

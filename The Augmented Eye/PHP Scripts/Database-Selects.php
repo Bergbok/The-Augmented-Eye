@@ -126,6 +126,31 @@ function select_admin(int $userID): array | bool {
     }
 }
 
+function select_comments(int $article_id, string $order_by_column = 'comment_post_date', string $order_by_direction = 'DESC'): array | bool {
+    $show_select_info = false;
+
+    try{
+        
+        $dbh = connect_to_db();
+
+        //prepare the sql statement
+        $stmt = $dbh->prepare('SELECT * FROM comments WHERE article_id = :id ORDER BY ' . $order_by_column . ' ' . $order_by_direction . ';');
+        $where_values = [
+            'id' => $article_id
+        ];
+        $stmt -> execute($where_values);
+
+        if ($show_select_info) {echo 'Comment(s) found';}
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    } catch(PDOException $e) {
+
+        echo $e->getMessage();
+        return [];
+    }
+}
+
 function get_newsletter_subscriber_emails(): array | bool {
     $show_select_info = false;
 
@@ -145,7 +170,6 @@ function get_newsletter_subscriber_emails(): array | bool {
 
         echo $e->getMessage();
         return [];
-
     }
 }
 
@@ -168,6 +192,7 @@ function get_author_name_from_article_id(int $article_id): string {
     ];
 
     $user_info = select_user($where_clause, $where_values);
+    $user_info = select_user($where_clause, $where_values);
     $author_name = $user_info['userName'];
     return $author_name;
 }
@@ -181,6 +206,16 @@ function get_author_surname_from_article_id(int $article_id): string {
     $user_info = select_user($where_clause, $where_values);
     $author_surname = $user_info['userSurname'];
     return $author_surname;
+}
+
+function get_comment_poster_info(int $comment_poster_id) {
+    $where_clause = 'userID = :id';
+    $where_values = [
+        'id' => $comment_poster_id,
+    ];
+
+    $comment_poster_info = select_user($where_clause, $where_values);
+    return $comment_poster_info;
 }
 
 function get_profile_picture_filename(int | null $user_id) {

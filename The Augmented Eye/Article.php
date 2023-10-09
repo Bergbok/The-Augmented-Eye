@@ -39,6 +39,18 @@
             } else {
                 show_article_not_found();
             }
+
+            if (isset($_REQUEST['post_comment'])) {
+                include_once 'PHP Scripts/Form-Validation.php'; 
+                if (validate_comment()) {
+                    include_once 'PHP Scripts/Database-Inserts.php';
+                    if (insert_comment()) {
+                        sleep(1);
+                        include_once 'PHP Scripts/Current-Page-Info.php';
+                        header('Location: ' . get_current_page_info('url'));
+                    }                   
+                }
+            }
         ?>
     </body>
 </html>

@@ -103,6 +103,7 @@ Description: Most of the time spent on this project was spent tinkering in this 
     left: 16px;
     font-size: 18px;
     text-overflow: ellipsis;
+    z-index: 999;
 }
 
 a.top-left, p.top-left {
@@ -115,6 +116,7 @@ li.top-left {
     position: fixed;
     top: 90px;
     left: 105px;
+    z-index: 999;
 }
 /* ------------------- */
 
@@ -149,10 +151,10 @@ li.top-left {
     /* border-bottom: 1px solid rgba(85, 85, 85, 0.438); */
     position: sticky;
     top: 0%;
-    /* background-color: #000000; */
+    background-color: #000000;
     padding: 20px 0px;
-    width: 69%;
-    z-index: 9001;
+    width: 50%;
+    z-index: 3;
 }
 
 .header li a {
@@ -169,6 +171,10 @@ li.top-left {
     width: 50px;
     height: 50px;
     border: 3px solid rgb(255, 255, 255);
+}
+
+.pfp-preview.comment {
+    float: left;
 }
 
 .share-buttons {
@@ -234,6 +240,10 @@ li.top-left {
     width: 150px;
 }
 
+.welcome-message {
+    color: red;
+}
+
 body {
     /* background-image: var(--bg-img); */
     background-color: #000000;
@@ -296,6 +306,7 @@ textarea {
     color: var(--light-text-color);
     background-color: var(--input-color);
     width: 100%;
+    resize: vertical;
 }
 
 /* ID-Specific */

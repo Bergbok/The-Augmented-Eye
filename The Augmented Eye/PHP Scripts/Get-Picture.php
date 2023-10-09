@@ -1,13 +1,13 @@
 <?php
 
-session_start();
-
 include_once 'FTP-Handler.php';
 
-header('Content-Type: image/jpeg');
+session_start();
 
-if (isset($_SESSION['userID'])) {
-    echo get_profile_picture($_SESSION['userID']);
+header('Content-Type: image');
+
+if (isset($_GET['userID'])) {
+    echo get_profile_picture($_GET['userID']);
 } else {
     echo get_profile_picture(-1);
 }

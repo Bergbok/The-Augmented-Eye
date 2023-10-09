@@ -7,11 +7,9 @@
  */
 
 function show_article_info(array $article_info): void {
-    // Purpose: Used to get current page URL for sharing articles.
-    include_once 'Current-Page-Info.php'; 
+    // Purpose: Used to select author info & comments.
+    include_once 'Database-Selects.php'; 
 
-    $url = get_current_page_info('url'); 
-    $use_addtoany_share = true;
     $article_info["articleAuthorName"] = get_author_name_from_article_id($article_info['articleID']);
     $article_info["articleAuthorSurname"] = get_author_surname_from_article_id($article_info['articleID']);
 
@@ -25,6 +23,39 @@ function show_article_info(array $article_info): void {
     echo '  </div>';
     echo '  <p class=\'article-text\'>' . $article_info['articleContent'] . '</p>';
 
+    show_article_sharing_options();
+
+    show_article_comment_section($article_info['articleID']);
+
+    echo '</div>';
+}
+
+function time_ago($timestamp) {
+    $periods = array('day' => 86400, 'hour' => 3600, 'minute' => 60, 'second' => 1);
+    $timeago = '';
+
+    foreach($periods AS $period_alias => $seconds){
+        $num_of_periods_elapsed = floor($timestamp / $seconds);
+        $timestamp -= ($num_of_periods_elapsed * $seconds);
+
+        if ($num_of_periods_elapsed > 1) {
+            $timeago .= $num_of_periods_elapsed . ' ' . $period_alias . 's ';
+        }
+    }
+
+    return trim($timeago);
+}
+
+function show_article_not_found(): void {
+    echo '<h1 class=\'centered-text bright-text pixel-text\'> Article not found :( </h1>';
+}
+
+function show_article_sharing_options(): void {
+    // Purpose: Used to get current page URL for sharing articles.
+    include_once 'Current-Page-Info.php'; 
+    $url = get_current_page_info('url'); 
+    $use_addtoany_share = true;
+    
     if ($use_addtoany_share) {
         echo '<!-- AddToAny BEGIN -->';
         echo '<div class=\'share-buttons\'>';
@@ -41,12 +72,44 @@ function show_article_info(array $article_info): void {
         echo '  <script type=\'text/javascript\' src=\'/The Augmented Eye/JavaScript/copyToClipboard.js\'></script>';    
         echo '  <button class=\'submit-button\' id=\'share-button\' onclick=\'copyToClipboard(\'' . $url . '\')\'>Copy Link</button>';
     }
-
-    echo '</div>';
 }
 
-function show_article_not_found(): void {
-    echo '<h1 class=\'centered-text bright-text pixel-text\'> Article not found :( </h1>';
+function show_article_comment_section(int $article_id): void {
+    echo '<h2 class=\'centered-text\'> Comments: </h2>';
+
+    // Displays comment posting elements.
+    if (isset($_SESSION['loggedIn'])) {
+        echo '<form method=\'POST\'>';
+        echo '<fieldset>';
+        echo '<legend class=\'center\'><strong> Comment as: ' . $_SESSION['userName'] . '</strong></legend>';
+        echo '<textarea name=\'new_comment_text\'></textarea>';
+        echo '<input type=\'submit\' class=\'submit-button\' value=\'POST\' name=\'post_comment\'></input>';
+        echo '</fieldset>';
+        echo '</form>';
+    } else {
+        echo '<p class=\'centered-text\'> Login to be able to comment. </p>';
+        echo '<p class=\'centered-text\'><a class=\'dark-text\' href=\'/The Augmented Eye/Login\'> LOGIN </a></p>';
+    }
+
+    $post_comments = select_comments($article_id);
+
+    !empty($post_comments) ? $has_comments = true : $has_comments = false;
+
+    if (!$has_comments) {
+       echo '<p class=\'centered-text\'> This article has no comments, be the first to post one! </p>';
+    } else {
+        foreach ($post_comments as $comment) {
+            $poster_info = get_comment_poster_info($comment['comment_poster_id']);
+            echo '<fieldset>';
+            echo '<img class=\'pfp-preview comment\' src=\'/The Augmented Eye/PHP Scripts/Get-Picture?userID=' . $poster_info['userID'] . '\'>'; 
+            echo '<h3 align=left> &nbsp;By: <a href=\'/The Augmented Eye/Profile?profileID=' . $poster_info['userID'] . '\'>' . $poster_info['userName'] . ' ' . $poster_info["userSurname"] . '</a></h3>';
+            echo '<h4> Posted @ ' . $comment['comment_post_date'] . '<br> (' .  time_ago(time() - strtotime($comment['comment_post_date'])) . ' ago)</h4>'; 
+            echo '<br>';
+            echo '<p>' . $comment['comment_text'] . '</p>';
+            echo '<br>';
+            echo '</fieldset>';
+        }
+    }
 }
 
 function show_article_links(string $order_by_column, string $order_by_direction, int $row_limit): void {

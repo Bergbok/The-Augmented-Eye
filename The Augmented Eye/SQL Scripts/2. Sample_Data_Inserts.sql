@@ -6,12 +6,12 @@ Description: This file will insert sample data into the database.
 
 USE TheAugmentedEye;
 
-INSERT INTO Users(userPassword, userName, userSurname, userGender, userBirthday, userEmail, userContactNo, userSubscribedToNewsletter, userRegistrationDate)
-VALUES('awe','Kimberly','La Vallette','Female','2040-01-12','kimberly.lavallette@theaugmentedeye.com','0728941354',false,CURDATE()),
-	  ('awe','Lana','Smithee','Female','2040-01-12','lana.smithee@theaugmentedeye.com','0826845812',false,CURDATE()),
-      ('awe','Donovan','D. Dawson','Male','2020-01-12','donovan.d.dawson@theaugemnetedeye.com','0728884568',false,CURDATE()),
-	  ('awe','Albertus','Cilliers','Male','2003-06-09','albertus.cilliers@gmail.com','0844023335',true,CURDATE()),
-      ('admin','Admin','Istrator','Other','1969-06-09','admin','0101010101',false,CURDATE());
+INSERT INTO Users(userPassword, userName, userSurname, userGender, userBirthday, userEmail, userContactNo, userSubscribedToNewsletter, userRegistrationDate, userProfilePictureFilename)
+VALUES('awe','Kimberly','La Vallette','Female','2040-01-12','kimberly.lavallette@theaugmentedeye.com','0728941354',false,CURDATE(), '1.webp'),
+	  ('awe','Lana','Smithee','Female','2040-01-12','lana.smithee@theaugmentedeye.com','0826845812',false,CURDATE(), null),
+      ('awe','Donovan','D. Dawson','Male','2020-01-12','donovan.d.dawson@theaugemnetedeye.com','0728884568',false,CURDATE(), '3.webp'),
+	  ('awe','Albertus','Cilliers','Male','2003-06-09','albertus.cilliers@gmail.com','0844023335',true,CURDATE(), null), 
+      ('admin','Admin','Istrator','Other','1969-06-09','admin','0101010101',false,CURDATE(), null);
       
 INSERT INTO Admins(userID)
 VALUES(5);
@@ -244,4 +244,6 @@ Some experts say that private companies are no longer working at full capacity, 
 INSERT INTO Articles(articleAuthorID, articleTitle, articleContent, articlePublishDate)
 VALUES('2','QUINCY studies the possibility of allowing imports',@content,'1999-12-23 12:00:00');
 
-
+INSERT INTO comments(article_id, comment_poster_id, comment_text, comment_post_date)
+VALUES(17,3,'test',CURDATE()),
+	  (17,3,'test2',CURDATE());

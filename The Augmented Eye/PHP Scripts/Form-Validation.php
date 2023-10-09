@@ -110,6 +110,20 @@ function validate_article(): bool {
     return $is_valid_article;
 }
 
+function validate_comment(): bool {
+    $null_checks = [
+        'new_comment_text' => 'Please enter comment body'
+    ];
+
+    $is_valid_comment = validate_post_keys($null_checks);
+
+    if ($is_valid_comment) {
+        // Additional checks go here
+    }
+
+    return $is_valid_comment;
+}
+
 function validate_newsletter(): bool {
     $null_checks = [
         'newsletter_Subject' => 'Please enter a subject',
