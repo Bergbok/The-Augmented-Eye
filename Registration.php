@@ -23,17 +23,17 @@
                         <strong>Registration</strong>
                     </legend>
 
-                    <label for='name'>Name:</label>
+                    <label class='required' for='name'>Name:</label>
                     <input type='text' id='name' name='new_user_name'></input>
 
                     <br/><br/>
 
-                    <label for='surname'>Surname:</label>
+                    <label class='required' for='surname'>Surname:</label>
                     <input type='text' id='surname' name='new_user_surname'></input>
 
                     <br/><br/>
 
-                    <label for='gender'>Gender:</label>
+                    <label class='required' for='gender'>Gender:</label>
                     <select id='gender' name='new_user_gender'>
                         <option>Male</option>
                         <option>Female</option>
@@ -42,12 +42,12 @@
                     
                     <br/><br/>
 
-                    <label for='birthday'>Birthday:</label>
+                    <label class='required' for='birthday'>Birthday:</label>
                     <input type='date' id='birthday' name='new_user_birthday'></input>
 
                     <br/><br/>
 
-                    <label for='email'>Email:</label>
+                    <label class='required' for='email'>Email:</label>
                     <input type='text' id='email' name='new_user_email'></input>
 
                     <br/><br/>

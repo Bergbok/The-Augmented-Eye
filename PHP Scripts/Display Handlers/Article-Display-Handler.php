@@ -10,7 +10,7 @@
 include_once dirname(__DIR__) . '/Database-Handler.php'; 
 
 function show_article_info(array $article_info): void {
-    $author_name = get_author_name($article_info['article_author_id'],'full');
+    $author_name = get_article_author_name($article_info['article_author_id'],'full');
 
     echo '<title> ' . $article_info['article_title'] . ' </title>';
     echo '<div class=\'centered-column pixel-text\'>';
@@ -136,7 +136,7 @@ function show_article_comment_section(int $article_id): void {
     $where_clause = 'article_id = :article_id';
     $where_values = ['article_id' => $_GET['viewArticle']];
     $fetch_multiple_rows = true;
-    $order_by_column = 'comment_post_date';
+    $order_by_column = 'comment_post_datetime';
     $order_by_direction = 'DESC';
 
     $post_comments = select($columns, $table, $where_clause, $where_values, $fetch_multiple_rows, $order_by_column, $order_by_direction);
@@ -149,9 +149,9 @@ function show_article_comment_section(int $article_id): void {
         foreach ($post_comments as $comment) {
             $poster_info = get_comment_poster_info($comment['comment_poster_id']);
             echo '<fieldset>';
-            echo '<img class=\'pfp-preview comment\' src=\'/The Augmented Eye/PHP Scripts/Get-Picture?user_id=' . $poster_info['user_id'] . '\'>'; 
+            echo '<img class=\'pfp-preview comment\' src=\'/The Augmented Eye/PHP Scripts/Get-Profile-Picture?user_id=' . $poster_info['user_id'] . '\'>'; 
             echo '<h3 align=left> &nbsp;By: <a href=\'/The Augmented Eye/Profile?profileID=' . $poster_info['user_id'] . '\'>' . $poster_info['user_name'] . ' ' . $poster_info["user_surname"] . '</a></h3>';
-            echo '<h4> Posted @ ' . $comment['comment_post_date'] . '<br> (' .  time_ago(time() - strtotime($comment['comment_post_date'])) . ' ago)</h4>'; 
+            echo '<h4> Posted @ ' . $comment['comment_post_datetime'] . '<br> (' .  time_ago(time() - strtotime($comment['comment_post_datetime'])) . ' ago)</h4>'; 
             echo '<br>';
             echo '<p>' . $comment['comment_text'] . '</p>';
             echo '<br>';
@@ -205,7 +205,7 @@ function show_article_links(string $order_by_column, string $order_by_direction,
         if (isset($article_id, $article_title, $article_author_id)){
             echo '<a class=\'article-link\' href=\'/The Augmented Eye/Article?viewArticle=' . $article_id . '\'>' . $article_title . '</a>';
             if ($include_article_author_in_link) {
-                $article_author_name = get_author_name($article_id, 'full');
+                $article_author_name = get_article_author_name($article_id, 'full');
                 echo '<a class=\'no-decor-link\' style=\'font-size: 1.25vw\'> by </a>';
                 echo '<a class=\'article-link\' href=\'/The Augmented Eye/Profile?profileID=\'' . $article_author_id . '\'>' . $article_author_name . '</a>';
             }

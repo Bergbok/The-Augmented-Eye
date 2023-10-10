@@ -145,12 +145,16 @@ li.top-left {
     display: none;
 }
   
-.dropdown:hover .dropdown-items{
+.dropdown:hover .dropdown-items {
     display: block;
     position: absolute;
     width: 250px;
     top: 21px;
     left: -21px;
+}
+
+.full-width {
+    width: 100%;
 }
 
 .header {
@@ -193,6 +197,11 @@ li.top-left {
     width: 100px;
     height: 100px;
     border: 3px solid rgb(255, 255, 255);
+}
+
+.required::after {
+    content: ' *';
+    color: red;
 }
 
 .share-buttons {

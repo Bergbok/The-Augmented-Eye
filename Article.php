@@ -21,9 +21,9 @@
 
                 $columns = '*';
                 $table = 'articles';
-                $where_clause = 'article_id = :id';
+                $where_clause = 'article_id = :article_id';
                 $where_values = [
-                    'id' => $_GET['viewArticle']
+                    'article_id' => $_GET['viewArticle']
                 ];
             
                 $article_info = select($columns, $table, $where_clause, $where_values);
@@ -48,15 +48,15 @@
                     // Purpose: Used to insert comment into database.
                     include_once 'PHP Scripts/Database-Handler.php';
 
-                    $column_names = 'article_id, comment_poster_id, comment_text, comment_post_date';
+                    $column_names = 'article_id, comment_poster_id, comment_text, comment_post_datetime';
 
-                    $values_clause = ':article_id, :comment_poster_id, :comment_text, :comment_post_date';
+                    $values_clause = ':article_id, :comment_poster_id, :comment_text, :comment_post_datetime';
                     
                     $data = [
                         'article_id' => $_GET['viewArticle'],
                         'comment_poster_id' => $_SESSION['user_id'],
                         'comment_text' => nl2br($_POST['new_comment_text']),
-                        'comment_post_date' => date('Y-m-d H:i:s')
+                        'comment_post_datetime' => date('Y-m-d H:i:s')
                     ];
                     
                     if (insert('comments', $column_names, $values_clause, $data)) {

@@ -5,7 +5,7 @@
  -->
 
 <?php 
-    // header( 'refresh:3;url=Home' );
+    header( 'refresh:3;url=Home' );
     // Purpose: Displays header.
     include_once 'Header.php'; 
     // Purpose: Used to log out user.

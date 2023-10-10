@@ -79,8 +79,7 @@ function validate_registration(): bool {
         'new_user_surname' => 'Please enter your surname',
         'new_user_gender' => 'Please enter your gender',
         'new_user_birthday' => 'Please enter your birthday',
-        'new_user_email' => 'Please enter your e-mail',
-        'new_user_contact_num' => 'Please enter your contact number'
+        'new_user_email' => 'Please enter your e-mail'
     ];
 
     $is_valid_registration = validate_post_keys($null_checks);

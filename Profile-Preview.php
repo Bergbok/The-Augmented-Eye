@@ -10,7 +10,7 @@
             <!-- <img class='pfp-preview top-left' src='/The Augmented Eye/Images/pfp-placeholder.png'></img> -->
             <?php
                 if (isset($_SESSION['user_name']) && $_SESSION['user_name'] != null) {
-                    echo '<img class=\'pfp-preview top-left\' src=\'/The Augmented Eye/PHP Scripts/Get-Picture?user_id=' . $_SESSION['user_id'] . '\'>';
+                    echo '<img class=\'pfp-preview top-left\' src=\'/The Augmented Eye/PHP Scripts/Get-Profile-Picture?user_id=' . $_SESSION['user_id'] . '\'></img>';
                     echo '<li class=\'dropdown bright-text top-left\'>';
                     echo '  <p>Welcome back, ' . $_SESSION['user_name'] . '</p>';
                     echo '  <ul class=\'dropdown-items\'>';

@@ -55,6 +55,8 @@ function is_ftp_dir($ftp_connection, $dir): bool {
     }
 }
 
+/**#######################################################################*/
+
 function upload_profile_picture(string $where_clause, array $where_values): bool {
     $is_valid_upload = true;
 
@@ -108,8 +110,8 @@ function upload_profile_picture(string $where_clause, array $where_values): bool
                 echo '<p class=\'centered-text error-message\'> Could not upload file to: ' . $remote_filename . ' from: '. $local_filename  . '</p>';
                 $is_valid_upload = false;
             } else {
-                echo "File uploaded";
-                include 'Database-Handler.php';
+                echo '<p class=\'centered-text\'> Profile picture uploaded </p>';
+                include_once 'Database-Handler.php';
 
                 $set_clause = 'user_profile_picture_filename = :picture_name';
 
@@ -177,11 +179,93 @@ function get_profile_picture($user_id) {
     $connection = connect_to_ftp_server();
 
     ob_start();
-    $result = ftp_get($connection, "php://output", $picture_path, FTP_BINARY);
-    $binary = ob_get_contents();
+        $result = ftp_get($connection, "php://output", $picture_path, FTP_BINARY);
+        $binary = ob_get_contents();
     ob_end_clean();
 
     return $binary;
+}
+
+/**#######################################################################*/
+
+function get_gallery_image(string $gallery_id, string $image_name) {
+    $picture_path = '/Galleries/' . $gallery_id . '/' . $image_name;
+
+    $connection = connect_to_ftp_server();
+
+    ob_start();
+        $result = ftp_get($connection, "php://output", $picture_path, FTP_BINARY);
+        $binary = ob_get_contents();
+    ob_end_clean();
+
+    return $binary;
+}
+
+function get_gallery_image_list($dir = '/Galleries'): array {
+    $image_list = [];
+    $connection = connect_to_ftp_server();
+
+    foreach (ftp_mlsd($connection, $dir) as $files) {
+        array_push($image_list, $files['name']);
+    }
+
+    return $image_list;
+}
+
+function upload_gallery(array $file_list, string $save_dir): bool {
+    $supported_file_types = [
+        'image/jpeg',
+        'image/png',
+        'image/gif'
+    ];
+
+    for ($i = 0 ; $i < count($file_list['name']) ; $i++ ) {
+        $is_valid_upload = true;
+
+        if (!in_array($file_list['type'][$i], $supported_file_types)) {
+            echo '<p class=\'centered-text error-message\'> Filetype not supported, could not upload: ' . $file_list['name'][$i] . ' </p>';
+            $is_valid_upload = false;
+        }
+
+        if ($is_valid_upload) {
+            $connection = connect_to_ftp_server();
+    
+            if (is_bool($connection)) {
+                echo '<p class=\'centered-text error-message\'> Couldn\'t establish connection to FTP server. </p>';
+                $is_valid_upload = false;
+            } else {
+                if (!is_ftp_dir($connection, $save_dir)) {
+                    ftp_mkdir($connection, $save_dir);
+                }
+        
+                // $remote_filetype = substr($file_list['type'], strpos($file_list['type'], '/') + 1);
+                $remote_filename = '\\' . $save_dir . '\\' . $file_list['name'][$i]; //. '.' . $remote_filetype;
+                $local_filename = $file_list['tmp_name'][$i];
+        
+                $upload_status = ftp_put($connection, $remote_filename, $local_filename, FTP_BINARY);
+        
+                if (!$upload_status)  {
+                    echo '<p class=\'centered-text error-message\'> Could not upload file to: ' . $remote_filename . ' from: '. $local_filename  . '</p>';
+                    $is_valid_upload = false;
+                } else {
+                    echo '<p class\'centered-text\'>' . $file_list['name'][$i] . ' uploaded </p><br>';
+                    include_once 'Database-Handler.php';
+    
+                    $set_clause = 'user_profile_picture_filename = :picture_name';
+    
+                    $where_clause = 'user_id = :user_id';
+    
+                    $data = [
+                        'picture_name' => $user_info['user_id'] . '.' . $remote_filetype,
+                        'user_id' => $user_info['user_id']
+                    ];
+                    update('users', $set_clause, $where_clause, $data);
+                }
+            }
+        }
+    }
+
+    return $is_valid_upload;
 }
 
 // EOF

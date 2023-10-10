@@ -28,17 +28,16 @@
                         echo '<a class=\'dark-text\' href=\'/The Augmented Eye/Login\'> LOGIN </a>';
                         echo '</div>';
                     } else {
-                        echo '<div class=\'centered-text\'';
+                        echo '<div class=\'centered-text\'>';
                         echo '<label for=\'name\'>Title:</label>';
                         echo '<input type=\'text\' id=\'titleInput\' name=\'article_title\'></input>';
                         echo '<h3> Content: </h1>';
                         echo '<textarea name=\'article_text\' placeholder=\'Please ensure your article is at least 50 characters\'></textarea>';
-                        echo '</div>';
-
-                        echo '<p class=\'centered-text\'> Tags: </p>';
-                        echo '<div class=\'multiselect-help centered-text\'';
+                        echo '<p> Tags: </p>';
+                        echo '<div class=\'multiselect-help\'';
                         echo '<p> for windows: hold down the control (ctrl) button to select multiple option</p>';
                         echo '<p> for mac: hold down the command button to select multiple options </p>';
+                        echo '</div>';
                         echo '</div>';
                         echo '<select id=\'article_tags\' name=\'article_tags[]\' multiple style=\'width:100%;\'>';
 

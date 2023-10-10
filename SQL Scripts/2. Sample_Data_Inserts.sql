@@ -7,11 +7,11 @@ Description: This file will insert sample data into the database.
 USE the_augmented_eye;
 
 INSERT INTO users(user_password, user_name, user_surname, user_gender, user_birthday, user_email, user_contact_num, user_subscribed_to_newsletter, user_registration_datetime, user_profile_picture_filename)
-VALUES('awe','Kimberly','La Vallette','Female','2040-01-12','kimberly.lavallette@theaugmentedeye.com','0728941354',false,CURDATE(), '1.webp'),
-	  ('awe','Lana','Smithee','Female','2040-01-12','lana.smithee@theaugmentedeye.com','0826845812',false,CURDATE(), null),
-      ('awe','Donovan','D. Dawson','Male','2020-01-12','donovan.d.dawson@theaugemnetedeye.com','0728884568',false,CURDATE(), '3.webp'),
-	  ('awe','Albertus','Cilliers','Male','2003-06-09','albertus.cilliers@gmail.com','0844023335',true,CURDATE(), null), 
-      ('admin','Admin','Istrator','Other','1969-06-09','admin','0101010101',false,CURDATE(), null);
+VALUES('awe','Kimberly','La Vallette','Female','2040-01-12','kimberly.lavallette@theaugmentedeye.com','0728941354',false,NOW(), '1.webp'),
+	  ('awe','Lana','Smithee','Female','2040-01-12','lana.smithee@theaugmentedeye.com','0826845812',false,NOW(), null),
+      ('awe','Donovan','D. Dawson','Male','2020-01-12','donovan.d.dawson@theaugemnetedeye.com','0728884568',false,NOW(), '3.webp'),
+	  ('awe','Albertus','Cilliers','Male','2003-06-09','albertus.cilliers@gmail.com','0844023335',true,NOW(), null), 
+      ('admin','Admin','Istrator','Other','1969-06-09','admin','0101010101',false,NOW(), null);
       
 INSERT INTO admins(user_id)
 VALUES(5);
@@ -21,6 +21,9 @@ VALUES('Sports'),
 	  ('Business'),
       ('Entertainment'),
       ('Other');
+      
+INSERT INTO galleries(gallery_author_id, gallery_title, gallery_publish_datetime)
+VALUES(1,'gallery1',NOW());
 
 -- The following articles were obtained from the VA-11 HALL-A wiki at: https://va11halla.fandom.com/wiki/The_Augmented_Eye
 
@@ -250,6 +253,6 @@ Some experts say that private companies are no longer working at full capacity, 
 INSERT INTO articles(article_author_id, article_title, article_text, article_publish_datetime)
 VALUES('2','QUINCY studies the possibility of allowing imports',@content,'1999-12-23 12:00:00');
 
-INSERT INTO comments(article_id, comment_poster_id, comment_text, comment_post_date)
-VALUES(17,3,'test',CURDATE()),
-	  (17,3,'test2',CURDATE());
+INSERT INTO comments(article_id, comment_poster_id, comment_text, comment_post_datetime)
+VALUES(17,3,'test',NOW()),
+	  (17,3,'test2',NOW());

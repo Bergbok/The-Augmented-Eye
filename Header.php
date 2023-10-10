@@ -25,6 +25,7 @@
             <ul class='header-tabs'>
                 <li><a href='/The Augmented Eye/Home'>Home</a></li>
                 <li><a href='/The Augmented Eye/News'>News</a></li>
+                <li><a href='/The Augmented Eye/Galleries'>Galleries</a></li>
                 <li><a href='/The Augmented Eye/Contact-Us'>Contact</a></li>
                 <li><a href='/The Augmented Eye/About'>About</a></li>
             </ul> 

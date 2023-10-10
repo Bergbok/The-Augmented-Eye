@@ -64,7 +64,6 @@ function select(string $columns, string $table, string $where_clause = '', array
     $show_select_info = false;
 
     try{
-        
         $dbh = connect_to_db();
 
         $query_string = 'SELECT ' . $columns . ' FROM ' . $table;
@@ -111,11 +110,41 @@ function select(string $columns, string $table, string $where_clause = '', array
     }
 }
 
-function get_author_name(int $article_author_id, string $name_scope = 'full'): string {
+function get_article_author_name(int $article_author_id, string $name_scope = 'full'): string {
     $columns = 'user_name, user_surname';
     $table = 'users';
     $where_clause = 'user_id = :user_id';
     $where_values = ['user_id' => $article_author_id];
+
+    $user_info = select($columns, $table, $where_clause, $where_values);
+
+    switch ($name_scope) {
+        case 'first':
+        case 'firstname':
+            $author_name = $user_info['user_name'];
+            break;
+        case 'last':
+        case 'final':
+        case 'surname':
+        case 'lastname':
+            $author_name = $user_info['user_surname'];
+            break;
+        case 'full':
+            $author_name = $user_info['user_name'] . ' ' . $user_info['user_surname'];
+            break;
+        default:
+            $author_name = $user_info['user_name'] . ' ' . $user_info['user_surname'];
+            break;
+    }
+
+    return $author_name;
+}
+
+function get_gallery_author_name(int $gallery_author_id, string $name_scope = 'full'): string {
+    $columns = 'user_name, user_surname';
+    $table = 'users';
+    $where_clause = 'user_id = :user_id';
+    $where_values = ['user_id' => $gallery_author_id];
 
     $user_info = select($columns, $table, $where_clause, $where_values);
 
@@ -193,6 +222,18 @@ function increment_article_viewcount(int $article_id): bool {
     ];
 
     return update('articles', $set_clause, $where_clause, $data);
+}
+
+function increment_gallery_viewcount(int $gallery_id): bool {
+    $set_clause = 'gallery_view_count = gallery_view_count + 1';
+
+    $where_clause = 'gallery_id = :gallery_id';
+
+    $data = [
+        'gallery_id' => $gallery_id
+    ];
+
+    return update('galleries', $set_clause, $where_clause, $data);
 }
 
 // EOF

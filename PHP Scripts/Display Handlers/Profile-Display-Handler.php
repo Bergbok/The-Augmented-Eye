@@ -5,7 +5,7 @@ function show_profile_info(array $user_info): void {
 
     echo '<div class=\'centered-column centered-text pixel-text\'>';
     echo '<h1> ' . $user_info['user_name'] . ' ' . $user_info['user_surname'] . '\'s Profile </h1>';
-    echo '<img class=\'pfp-profile\' src=\'/The Augmented Eye/PHP Scripts/Get-Picture?user_id=' . $user_info['user_id'] . '\'></img>';
+    echo '<img class=\'pfp-profile\' src=\'/The Augmented Eye/PHP Scripts/Get-Profile-Picture?user_id=' . $user_info['user_id'] . '\'></img>';
     echo '<br><br>';
     echo '<table>';
     echo '  <tr>';
