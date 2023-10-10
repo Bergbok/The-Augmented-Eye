@@ -24,12 +24,12 @@
                     </legend>
 
                     <label for='email'>Email:</label>
-                    <input type='text' id='email' name='user_Email'></input>
+                    <input type='text' id='email' name='user_email'></input>
 
                     <br/><br/>
 
                     <label for='password'>Password:</label>
-                    <input type='password' id='password' name='user_Password'></input>
+                    <input type='password' id='password' name='user_password'></input>
 
                     <br/><br/>
 

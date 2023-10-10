@@ -18,7 +18,7 @@ include_once 'Database-Connection.php';
 //         $dbh = connect_to_db();
 
 //         //prepare the sql statement
-//         $stmt = $dbh->prepare('SELECT * FROM Users WHERE ' . $where_clause . ';');
+//         $stmt = $dbh->prepare('SELECT * FROM users WHERE ' . $where_clause . ';');
 //         $stmt -> execute($where_values);
 
 //         if ($show_select_info) {echo 'User found';}
@@ -39,10 +39,10 @@ include_once 'Database-Connection.php';
 //         $dbh = connect_to_db();
 
 //         //prepare the sql statement
-//         $stmt = $dbh->prepare('SELECT * FROM Users WHERE ' . $where_clause . ';');
+//         $stmt = $dbh->prepare('SELECT * FROM users WHERE ' . $where_clause . ';');
 //         $stmt -> execute($where_values);
 
-//        if ($show_select_info) {echo 'Users found';}
+//        if ($show_select_info) {echo 'users found';}
 
 //         return $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -104,73 +104,45 @@ function select(string $columns, string $table, string $where_clause = '', array
     }
 }
 
-function get_author_id(int $article_id): int {
-    $columns = 'articleAuthorID';
-    $table = 'Articles';
-    $where_clause = 'articleID = :article_id';
-    $where_values = [
-        'article_id' => $_GET['viewArticle']
-    ];
-
-    $article_info = select($columns, $table, $where_clause, $where_values);
-
-    $author_ID = $article_info['articleAuthorID'];
-
-    return $author_ID;
-}
-
-function get_author_name_from_article_id(int $article_id): string {
-    $columns = 'userName';
-    $table = 'Users';
-    $where_clause = 'userID = :user_id';
-    $where_values = ['user_id' => get_author_id($article_id)];
+function get_author_name(int $article_author_id, string $name_scope = 'full'): string {
+    $columns = 'user_name, user_surname';
+    $table = 'users';
+    $where_clause = 'user_id = :user_id';
+    $where_values = ['user_id' => $article_author_id];
 
     $user_info = select($columns, $table, $where_clause, $where_values);
-    $author_name = $user_info['userName'];
+
+    switch ($name_scope) {
+        case 'first':
+        case 'firstname':
+            $author_name = $user_info['user_name'];
+            break;
+        case 'last':
+        case 'final':
+        case 'surname':
+        case 'lastname':
+            $author_name = $user_info['user_surname'];
+            break;
+        case 'full':
+            $author_name = $user_info['user_name'] . ' ' . $user_info['user_surname'];
+            break;
+        default:
+            $author_name = $user_info['user_name'] . ' ' . $user_info['user_surname'];
+            break;
+    }
 
     return $author_name;
 }
 
-function get_author_surname_from_article_id(int $article_id): string {
-    $columns = 'userSurname';
-    $table = 'Users';
-    $where_clause = 'userID = :user_id';
-    $where_values = ['user_id' => get_author_id($article_id)];
-
-    $user_info = select($columns, $table, $where_clause, $where_values);
-    $author_surname = $user_info['userSurname'];
-    
-    return $author_surname;
-}
-
 function get_comment_poster_info(int $comment_poster_id) {
-    $columns = 'userID, userName, userSurname';
-    $table = 'Users';
-    $where_clause = 'userID = :user_id';
+    $columns = 'user_id, user_name, user_surname';
+    $table = 'users';
+    $where_clause = 'user_id = :user_id';
     $where_values = ['user_id' => $comment_poster_id];
 
     $comment_poster_info = select($columns, $table, $where_clause, $where_values);
 
     return $comment_poster_info;
-}
-
-function get_profile_picture_filename(int | null $user_id) {
-    $columns = 'userProfilePictureFilename';
-    $table = 'Users';
-    $where_clause = 'userID = :user_id';
-    $where_values = ['user_id' => $user_id];
-
-    $user_info = select($columns, $table, $where_clause, $where_values);
-
-    !empty($user_info) ? $user_exists = true : $user_exists = false;
-
-    if ($user_exists && $user_info['userProfilePictureFilename'] != null) {
-        $picture_filename = $user_info['userProfilePictureFilename'];
-    } else {
-        $picture_filename = 'pfp-placeholder.png';
-    }
-    
-    return $picture_filename;
 }
 
 // EOF

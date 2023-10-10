@@ -24,17 +24,17 @@
                     </legend>
 
                     <label for='name'>Name:</label>
-                    <input type='text' id='name' name='newuser_Name'></input>
+                    <input type='text' id='name' name='new_user_name'></input>
 
                     <br/><br/>
 
                     <label for='surname'>Surname:</label>
-                    <input type='text' id='surname' name='newuser_Surname'></input>
+                    <input type='text' id='surname' name='new_user_surname'></input>
 
                     <br/><br/>
 
                     <label for='gender'>Gender:</label>
-                    <select id='gender' name='newuser_Gender'>
+                    <select id='gender' name='new_user_gender'>
                         <option>Male</option>
                         <option>Female</option>
                         <option>Other</option>
@@ -43,27 +43,27 @@
                     <br/><br/>
 
                     <label for='birthday'>Birthday:</label>
-                    <input type='date' id='birthday' name='newuser_Birthday'></input>
+                    <input type='date' id='birthday' name='new_user_birthday'></input>
 
                     <br/><br/>
 
                     <label for='email'>Email:</label>
-                    <input type='text' id='email' name='newuser_Email'></input>
+                    <input type='text' id='email' name='new_user_email'></input>
 
                     <br/><br/>
 
                     <label for='contact'>Contact Number:</label>
-                    <input type='number' id='contact' name='newuser_Contact'></input>
+                    <input type='number' id='contact' name='new_user_contact_num'></input>
 
                     <br/><br/>
 
-                    <!-- Sets newuser_ReceiveNewsletter to No by default -->
+                    <!-- Sets new_user_subscribed_to_newsletter to No by default -->
                     <?php
-                        // $_POST['newuser_ReceiveNewsletter'] = 'No';
+                        // $_POST['new_user_subscribed_to_newsletter'] = 'No';
                     ?>
 
                     <label for='newsletter' id='newsletter'>Receive newsletters via e-mail? </label>
-                    <input type='checkbox' id='newsletter_checkbox' name='newuser_ReceiveNewsletter' value='Yes'></input>
+                    <input type='checkbox' id='newsletter_checkbox' name='new_user_subscribed_to_newsletter' value='Yes'></input>
 
                     <br/><br/>
 
@@ -87,23 +87,23 @@
                             // Purpose: Used to insert new user into database.
                             include_once 'PHP Scripts/Database-Inserts.php';
 
-                            $column_names = 'userPassword, userName, userSurname, userGender, userBirthday, userEmail, userContactNo, userSubscribedToNewsletter, userRegistrationDate';
+                            $column_names = 'user_password, user_name, user_surname, user_gender, user_birthday, user_email, user_contact_num, user_subscribed_to_newsletter, user_registration_datetime';
 
-                            $values_clause = ':new_user_password, :newuser_Name, :newuser_Surname, :newuser_Gender, :newuser_Birthday, :newuser_Email, :newuser_Contact, :newuser_ReceiveNewsletter, :newuser_RegistrationDate';
+                            $values_clause = ':new_user_password, :new_user_name, :new_user_surname, :new_user_gender, :new_user_birthday, :new_user_email, :new_user_contact_num, :new_user_subscribed_to_newsletter, :newuser_RegistrationDate';
                             
                             $data = [
                                 'new_user_password' => generate_password(30),
-                                'newuser_Name' => $_POST['newuser_Name'],
-                                'newuser_Surname' => $_POST['newuser_Surname'],
-                                'newuser_Gender' => $_POST['newuser_Gender'],
-                                'newuser_Birthday' => $_POST['newuser_Birthday'],
-                                'newuser_Email' => $_POST['newuser_Email'],
-                                'newuser_Contact' => $_POST['newuser_Contact'],
-                                'newuser_ReceiveNewsletter' => $_POST['newuser_ReceiveNewsletter'] ?? 'No',
+                                'new_user_name' => $_POST['new_user_name'],
+                                'new_user_surname' => $_POST['new_user_surname'],
+                                'new_user_gender' => $_POST['new_user_gender'],
+                                'new_user_birthday' => $_POST['new_user_birthday'],
+                                'new_user_email' => $_POST['new_user_email'],
+                                'new_user_contact_num' => $_POST['new_user_contact_num'],
+                                'new_user_subscribed_to_newsletter' => $_POST['new_user_subscribed_to_newsletter'] ?? 'No',
                                 'newuser_RegistrationDate' => date('Y-m-d H:i:s')
                             ];
 
-                            if (insert('Users', $column_names, $values_clause, $data)) {
+                            if (insert('users', $column_names, $values_clause, $data)) {
                                 // Purpose: Used to email password to user upon successful registration.
                                 include_once 'PHP Scripts/Email-Handler.php';
 
@@ -123,7 +123,7 @@
                                     // Purpose: Used to upload profile picture to FTP server.
                                     include_once 'PHP Scripts/FTP-Handler.php';
         
-                                    upload_profile_picture_from_registration($_POST['newuser_Email']);
+                                    upload_profile_picture_from_registration($_POST['new_user_email']);
                                 }
                             } else {
                                 echo '<p> Couldn\'t create account </p>';

@@ -21,11 +21,11 @@
                 <fieldset>
                     <div class='toolbar'>
                         <div class='limiter'>
-                            <label for='row-limit-articles-combobox'> Show: </label>
-                            <select id='row-limit-articles-combobox' name='row-limit'>
+                            <label for='row_limit_articles_combobox'> Show: </label>
+                            <select id='row_limit_articles_combobox' name='row_limit'>
                                 <?php
-                                    if (isset($_GET['row-limit'])) {
-                                        echo '<option disabled selected value=' . $_GET['row-limit'] . '>' . $_GET['row-limit'] . '</option>';
+                                    if (isset($_GET['row_limit'])) {
+                                        echo '<option disabled selected value=' . $_GET['row_limit'] . '>' . $_GET['row_limit'] . '</option>';
                                     } else {
                                         echo '<option disabled selected>LIMIT AMOUNT OF ARTICLES HERE</option>';
                                     }
@@ -39,22 +39,22 @@
                         </div>
                         <br>
                         <div class='sorter'>
-                            <label for='order-by-combobox'> Sort: </label>
-                            <select id='order-by-combobox' name='order-by'> 
+                            <label for='order_by_combobox'> Sort: </label>
+                            <select id='order_by_combobox' name='order_by'> 
                                 <?php
-                                    if (isset($_GET['order-by'])) {
-                                        switch ($_GET['order-by']) {
-                                            case 'articleTitle':
-                                                echo '<option disabled selected value=\'articleTitle\'> By Title </option>';
+                                    if (isset($_GET['order_by'])) {
+                                        switch ($_GET['order_by']) {
+                                            case 'article_title':
+                                                echo '<option disabled selected value=\'article_title\'> By Title </option>';
                                                 break;
-                                            case 'articlePublishDate':
-                                                echo '<option disabled selected value=\'articlePublishDate\'> By Date </option>';
+                                            case 'article_publish_datetime':
+                                                echo '<option disabled selected value=\'article_publish_datetime\'> By Date </option>';
                                                 break;
-                                            case 'articleViews':
-                                                echo '<option disabled selected value=\'articleViews\'> By Views </option>';
+                                            case 'article_view_count':
+                                                echo '<option disabled selected value=\'article_view_count\'> By Views </option>';
                                                 break;
                                             default:
-                                                unset($_GET['order-by']);
+                                                unset($_GET['order_by']);
                                                 echo '<option disabled selected> SORT ARTICLES HERE </option>';
                                                 break;
                                         }
@@ -62,18 +62,18 @@
                                         echo '<option disabled selected> SORT ARTICLES HERE </option>';
                                     }
                                 ?>
-                                <option value='articleTitle'> By Title </option> 
-                                <option value='articlePublishDate'> By Date </option> 
-                                <option value='articleViews'> By Views </option> 
-                                <!-- <option value='articleAuthorID'> By Author </option>  -->
+                                <option value='article_title'> By Title </option> 
+                                <option value='article_publish_datetime'> By Date </option> 
+                                <option value='article_view_count'> By Views </option> 
+                                <!-- <option value='article_author_id'> By Author </option>  -->
                             </select>
                             <br>
                             <br>
-                            <label for='order-by-direction-combobox'> Sort Direction: </label>
-                            <select id='order-by-direction-combobox' name='order-by-direction'> 
+                            <label for='order_by_direction_combobox'> Sort Direction: </label>
+                            <select id='order_by_direction_combobox' name='order_by_direction'> 
                                 <?php
-                                    if (isset($_GET['order-by-direction'])) {
-                                        switch ($_GET['order-by-direction']) {
+                                    if (isset($_GET['order_by_direction'])) {
+                                        switch ($_GET['order_by_direction']) {
                                             case 'ASC':
                                                 echo '<option disabled selected value=\'ASC\'> Ascending </option>';
                                                 break;
@@ -81,7 +81,7 @@
                                                 echo '<option disabled selected value=\'DESC\'> Descending </option>';
                                                 break;
                                             default:
-                                                unset($_GET['order-by-direction']);
+                                                unset($_GET['order_by_direction']);
                                                 echo '<option disabled selected>CHANGE SORT DIRECTION HERE</option>';
                                                 break;
                                         }
@@ -104,9 +104,9 @@
 
                 <div id='article-list' class='centered-text'>
                     <?php
-                        isset($_GET['order-by'])           ? $order_by_column = $_GET['order-by']              : $order_by_column = 'articlePublishDate';
-                        isset($_GET['order-by-direction']) ? $order_by_direction = $_GET['order-by-direction'] : $order_by_direction = 'DESC';
-                        isset($_GET['row-limit'])          ? $row_limit = $_GET['row-limit']                   : $row_limit = 50;
+                        isset($_GET['order_by'])           ? $order_by_column = $_GET['order_by']              : $order_by_column = 'article_publish_datetime';
+                        isset($_GET['order_by_direction']) ? $order_by_direction = $_GET['order_by_direction'] : $order_by_direction = 'DESC';
+                        isset($_GET['row_limit'])          ? $row_limit = $_GET['row_limit']                   : $row_limit = 50;
 
                         // Purpose: Used to display article links.
                         include_once 'PHP Scripts/Article-Display-Handler.php'; 

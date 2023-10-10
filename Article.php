@@ -20,8 +20,8 @@
                 include_once 'PHP Scripts/Database-Selects.php'; 
 
                 $columns = '*';
-                $table = 'Articles';
-                $where_clause = 'articleID = :id';
+                $table = 'articles';
+                $where_clause = 'article_id = :id';
                 $where_values = [
                     'id' => $_GET['viewArticle']
                 ];
@@ -54,7 +54,7 @@
                     
                     $data = [
                         'article_id' => $_GET['viewArticle'],
-                        'comment_poster_id' => $_SESSION['userID'],
+                        'comment_poster_id' => $_SESSION['user_id'],
                         'comment_text' => nl2br($_POST['new_comment_text']),
                         'comment_post_date' => date('Y-m-d H:i:s')
                     ];

@@ -4,43 +4,45 @@ Author: Albertus Cilliers
 Description: This file will create the database and tables with the necessary constraints.
 =============================================================*/
 
-DROP DATABASE IF EXISTS TheAugmentedEye;
-CREATE DATABASE TheAugmentedEye;
+DROP DATABASE IF EXISTS the_augmented_eye;
+CREATE DATABASE the_augmented_eye;
 
-USE TheAugmentedEye;
+USE the_augmented_eye;
 
-CREATE TABLE Users
+CREATE TABLE users
 (
-	userID INT NOT NULL AUTO_INCREMENT,
-    userPassword VARCHAR(30) NOT NULL,
-	userName VARCHAR(30) NOT NULL,
-	userSurname VARCHAR(30) NOT NULL,
-	userGender VARCHAR(30) NOT NULL,
-    userBirthday DATE NOT NULL,
-    userEmail VARCHAR(100) NOT NULL,
-    userContactNo VARCHAR(10) NOT NULL,
-    userSubscribedToNewsletter BOOL NOT NULL,
-    userRegistrationDate DATETIME NOT NULL,    
-    userProfilePictureFilename VARCHAR(100),
-	PRIMARY KEY (userID)
+	user_id INT NOT NULL AUTO_INCREMENT,
+    user_password VARCHAR(30) NOT NULL,
+	user_name VARCHAR(30) NOT NULL,
+	user_surname VARCHAR(30) NOT NULL,
+	user_gender VARCHAR(30) NOT NULL,
+    user_birthday DATE NOT NULL,
+    user_email VARCHAR(100) NOT NULL,
+    user_contact_num VARCHAR(10) NOT NULL,
+    user_subscribed_to_newsletter BOOL NOT NULL,
+    user_registration_datetime DATETIME NOT NULL,    
+    user_profile_picture_filename VARCHAR(100),
+	PRIMARY KEY (user_id)
 );
 
-CREATE TABLE Admins
+CREATE TABLE admins
 (
-	userID INT NOT NULL,
-    FOREIGN KEY (userID) REFERENCES Users(userID)
+	admin_id INT NOT NULL AUTO_INCREMENT,
+	user_id INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    PRIMARY KEY (admin_id)
 );
 
-CREATE TABLE Articles
+CREATE TABLE articles
 (
-	articleID INT NOT NULL AUTO_INCREMENT,
-    articleAuthorID INT NOT NULL,
-	articleTitle VARCHAR(150) NOT NULL,
-    articleContent TEXT NOT NULL,
-    articlePublishDate DATETIME NOT NULL,
-    articleViews INT NOT NULL DEFAULT 0, 
-    FOREIGN KEY (articleAuthorID) REFERENCES Users(userID),
-	PRIMARY KEY (articleID)
+	article_id INT NOT NULL AUTO_INCREMENT,
+    article_author_id INT NOT NULL,
+	article_title VARCHAR(150) NOT NULL,
+    article_text TEXT NOT NULL,
+    article_publish_datetime DATETIME NOT NULL,
+    article_view_count INT NOT NULL DEFAULT 0, 
+    FOREIGN KEY (article_author_id) REFERENCES users(user_id),
+	PRIMARY KEY (article_id)
 );
 
 CREATE TABLE comments
@@ -50,55 +52,7 @@ CREATE TABLE comments
     comment_poster_id INT NOT NULL,
     comment_text TEXT,
     comment_post_date DATETIME NOT NULL,
-    FOREIGN KEY (comment_poster_id) REFERENCES Users(userID),
-    FOREIGN KEY (article_id) REFERENCES Articles(articleID),
+    FOREIGN KEY (comment_poster_id) REFERENCES users(user_id),
+    FOREIGN KEY (article_id) REFERENCES articles(article_id),
     PRIMARY KEY (comment_id)
 );
-
--- CREATE TABLE Manufacturers
--- (
--- 	manufacturerID INT NOT NULL AUTO_INCREMENT,
--- 	manufacturerName VARCHAR(30) NOT NULL,
--- 	manufacturerContactNo VARCHAR(10) NOT NULL,
--- 	manufacturerEmail VARCHAR(30) NOT NULL,
--- 	PRIMARY KEY (manufacturerID)
--- );
-
--- CREATE TABLE Manufacturers
--- (
--- 	manufacturerID INT NOT NULL AUTO_INCREMENT,
--- 	manufacturerName VARCHAR(30) NOT NULL,
--- 	manufacturerContactNo VARCHAR(10) NOT NULL,
--- 	manufacturerEmail VARCHAR(30) NOT NULL,
--- 	PRIMARY KEY (manufacturerID)
--- );
-
--- CREATE TABLE Food
--- (
--- 	foodID INT NOT NULL AUTO_INCREMENT,
--- 	foodType VARCHAR(30) NOT NULL,
--- 	foodExpiryDate DATE NOT NULL,
--- 	manufacturerID INT NOT NULL,
--- 	PRIMARY KEY (foodID),
--- 	FOREIGN KEY (manufacturerID) REFERENCES Manufacturers(manufacturerID) ON DELETE CASCADE
--- );
-
--- CREATE TABLE Pets
--- (
--- 	petID INT NOT NULL AUTO_INCREMENT,
--- 	petName VARCHAR(30) DEFAULT 'No Name',
--- 	categoryID INT NOT NULL,
--- 	PRIMARY KEY (petID),
--- 	FOREIGN KEY (categoryID) REFERENCES Categories(categoryID)
--- );
-
--- CREATE TABLE FoodAllocation
--- (
--- 	foodAllocationQuantity DOUBLE NOT NULL,
--- 	foodAllocationMeasurement VARCHAR(30) NOT NULL,
--- 	categoryID INT NOT NULL,
--- 	foodID INT NOT NULL,
--- 	PRIMARY KEY(categoryID, foodID),
--- 	CONSTRAINT FK_categoryID FOREIGN KEY (categoryID) REFERENCES Categories(categoryID),
--- 	CONSTRAINT FK_foodID FOREIGN KEY (foodID) REFERENCES Food(foodID) ON DELETE CASCADE
--- );

@@ -77,8 +77,8 @@ function upload_profile_picture(string $where_clause, array $where_values): bool
     if ($is_valid_upload) {
         include_once 'Database-Selects.php';
 
-        $columns = 'userID';
-        $table = 'Users';
+        $columns = 'user_id';
+        $table = 'users';
     
         $user_info = select($columns, $table, $where_clause, $where_values);
 
@@ -104,7 +104,7 @@ function upload_profile_picture(string $where_clause, array $where_values): bool
             }
     
             $remote_filetype = substr($_FILES['new_profile_picture']['type'], strpos($_FILES['new_profile_picture']['type'], '/') + 1);
-            $remote_filename = '\Profile Pictures\\' . $user_info['userID'] . '.' . $remote_filetype;
+            $remote_filename = '\Profile Pictures\\' . $user_info['user_id'] . '.' . $remote_filetype;
             $local_filename = $_FILES['new_profile_picture']['tmp_name'];
     
             $upload_status = ftp_put($connection, $remote_filename, $local_filename, FTP_BINARY);
@@ -116,15 +116,15 @@ function upload_profile_picture(string $where_clause, array $where_values): bool
                 echo "File uploaded";
                 include 'Database-Updates.php';
 
-                $set_clause = 'userProfilePictureFilename = :picture_name';
+                $set_clause = 'user_profile_picture_filename = :picture_name';
 
-                $where_clause = 'userID = :user_id';
+                $where_clause = 'user_id = :user_id';
 
                 $data = [
-                    'picture_name' => $user_info['userID'] . '.' . $remote_filetype,
-                    'user_id' => $user_info['userID']
+                    'picture_name' => $user_info['user_id'] . '.' . $remote_filetype,
+                    'user_id' => $user_info['user_id']
                 ];
-                update('Users', $set_clause, $where_clause, $data);
+                update('users', $set_clause, $where_clause, $data);
             }
         }
     }
@@ -135,9 +135,9 @@ function upload_profile_picture(string $where_clause, array $where_values): bool
 }
 
 function update_profile_picture(): bool {
-    $where_clause = 'userID = :user_id';
+    $where_clause = 'user_id = :user_id';
     $where_values = [
-        'user_id' => $_SESSION['userID']
+        'user_id' => $_SESSION['user_id']
     ];
 
     return upload_profile_picture($where_clause, $where_values);
@@ -151,7 +151,7 @@ function upload_profile_picture_from_registration($email) {
     // echo 'Error: ' . $_FILES['newuser_profile_picture']['error'] .'<br>';
     // echo 'Temp Name: ' . $_FILES['newuser_profile_picture']['tmp_name'] .'<br>';
 
-    $where_clause = 'userEmail = :email';
+    $where_clause = 'user_email = :email';
     $where_values = [
         'email' => $email
     ];
@@ -171,7 +171,7 @@ function upload_profile_picture_from_registration($email) {
 
     // include_once 'Database-Selects.php';
 
-    // $where_clause = 'userEmail = :email';
+    // $where_clause = 'user_email = :email';
     // $where_values = [
     //     'email' => $email
     // ];
@@ -192,7 +192,7 @@ function upload_profile_picture_from_registration($email) {
     // }
 
     // $remote_filetype = substr($_FILES['newuser_profile_picture']['type'], strpos($_FILES['newuser_profile_picture']['type'], '/') + 1);
-    // $remote_filename = '\Profile Pictures\\' . $user_info['userID'] . '.' . $remote_filetype;
+    // $remote_filename = '\Profile Pictures\\' . $user_info['user_id'] . '.' . $remote_filetype;
     // $local_filename = $_FILES['newuser_profile_picture']['tmp_name'];
 
     // $upload_status = ftp_put($connection, $remote_filename, $local_filename, FTP_BINARY);
@@ -201,8 +201,8 @@ function upload_profile_picture_from_registration($email) {
     //     echo "File uploaded";
     //     include 'Database-Updates.php';
     //     $data = [
-    //         'picture_name' => $user_info['userID'] . '.' . $remote_filetype,
-    //         'user_id' => $user_info['userID']
+    //         'picture_name' => $user_info['user_id'] . '.' . $remote_filetype,
+    //         'user_id' => $user_info['user_id']
     //     ];
     //     update_user_profile_picture_filename($data);
     // }else{
@@ -215,9 +215,22 @@ function upload_profile_picture_from_registration($email) {
 function get_profile_picture($user_id) {
     include_once 'Database-Selects.php';
 
-    $picture_name = get_profile_picture_filename($user_id);
+    $columns = 'user_profile_picture_filename';
+    $table = 'users';
+    $where_clause = 'user_id = :user_id';
+    $where_values = ['user_id' => $user_id];
 
-    $picture_path = 'Profile Pictures/' . $picture_name;
+    $user_info = select($columns, $table, $where_clause, $where_values);
+
+    !empty($user_info) ? $user_exists = true : $user_exists = false;
+
+    if ($user_exists && $user_info['user_profile_picture_filename'] != null) {
+        $picture_filename = $user_info['user_profile_picture_filename'];
+    } else {
+        $picture_filename = 'pfp-placeholder.png';
+    }
+
+    $picture_path = 'Profile Pictures/' . $picture_filename;
 
     $connection = connect_to_ftp_server();
 

@@ -30,9 +30,9 @@
                         echo '<fieldset>';
                         echo '  <legend class=\'center\'>Send Newsletter</legend>';
                         echo '  <label for=\'subject\'>Title:</label>';
-                        echo '  <input type=\'text\' id=\'subject\' name=\'newsletter_Subject\'></input>';
+                        echo '  <input type=\'text\' id=\'subject\' name=\'newsletter_subject\'></input>';
                         echo '  <h3> Email Body: </h1>';
-                        echo '  <textarea name=\'newsletter_Body\'></textarea>';
+                        echo '  <textarea name=\'newsletter_body\'></textarea>';
                         echo '  <br><br>';
                         echo '  <input class=\'submit-button\' type=\'submit\' value=\'Send\' name=\'Send\'></input>';
                         echo '</fieldset>';

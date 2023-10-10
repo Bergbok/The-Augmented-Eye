@@ -41,15 +41,15 @@ function update(string $table, string $set_clause, string $where_clause, array $
 }
 
 function increment_article_viewcount(int $article_id): bool {
-    $set_clause = 'articleViews = articleViews + 1';
+    $set_clause = 'article_view_count = article_view_count + 1';
 
-    $where_clause = 'articleID = :articleID';
+    $where_clause = 'article_id = :article_id';
 
     $data = [
-        'articleID' => $article_id
+        'article_id' => $article_id
     ];
 
-    return update('Articles', $set_clause, $where_clause, $data);
+    return update('articles', $set_clause, $where_clause, $data);
 }
 
 // EOF

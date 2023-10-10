@@ -6,8 +6,8 @@ session_start();
 
 header('Content-Type: image');
 
-if (isset($_GET['userID'])) {
-    echo get_profile_picture($_GET['userID']);
+if (isset($_GET['user_id'])) {
+    echo get_profile_picture($_GET['user_id']);
 } else {
     echo get_profile_picture(-1);
 }

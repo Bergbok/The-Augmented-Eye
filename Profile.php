@@ -17,8 +17,8 @@
                 include_once 'PHP Scripts/Database-Selects.php'; 
 
                 $columns = '*';
-                $table = 'Users';
-                $where_clause = 'userID = :user_id';
+                $table = 'users';
+                $where_clause = 'user_id = :user_id';
                 $where_values = ['user_id' => $_GET['profileID']];
             
                 $user_info = select($columns, $table, $where_clause, $where_values);
@@ -35,19 +35,19 @@
             }
 
             function show_profile_info(array $user_info): void {
-                echo '<title> ' . $user_info['userName'] . ' ' . $user_info['userSurname'] . '\'s Profile </title>';
+                echo '<title> ' . $user_info['user_name'] . ' ' . $user_info['user_surname'] . '\'s Profile </title>';
                 // echo '<div class=\'centered-column centered-text pixel-text\'>';
                 // echo '  <form type=\'POST\'>';
-                // echo '      <h1> ' . $user_info['userName'] . ' ' . $user_info['userSurname'] . '\'s Profile </h1>';
-                // echo '      <p> Date Joined: ' . $user_info['userRegistrationDate'] . ' </p>';
+                // echo '      <h1> ' . $user_info['user_name'] . ' ' . $user_info['user_surname'] . '\'s Profile </h1>';
+                // echo '      <p> Date Joined: ' . $user_info['user_registration_datetime'] . ' </p>';
                 // echo '      <br>';
-                // echo '      <p> Birthday: ' . $user_info['userBirthday'] . ' </p>';
-                // echo '      <p> Gender: ' . $user_info['userGender'] . ' </p>';
+                // echo '      <p> Birthday: ' . $user_info['user_birthday'] . ' </p>';
+                // echo '      <p> Gender: ' . $user_info['user_gender'] . ' </p>';
                 // echo '      <br>';
-                // echo '      <p> Contact Number: <a href=\'tel: ' . $user_info['userContactNo'] . '\'>' . $user_info['userContactNo'] . '</a> </p>';
-                // echo '      <p> Email: <a href=\'mailto: ' . $user_info['userEmail'] . '\'>' . $user_info['userEmail'] . '</a> </p>';
+                // echo '      <p> Contact Number: <a href=\'tel: ' . $user_info['user_contact_num'] . '\'>' . $user_info['user_contact_num'] . '</a> </p>';
+                // echo '      <p> Email: <a href=\'mailto: ' . $user_info['user_email'] . '\'>' . $user_info['user_email'] . '</a> </p>';
                 // echo '      <br>';
-                // if ($user_info['userSubscribedToNewsletter']) {
+                // if ($user_info['user_subscribed_to_newsletter']) {
                 //     echo '  <p> This user is subscribed to the newsletter 💌 </p>';
                 // } else {
                 //     echo '  <p> This user isn\'t subscribed to the newsletter :( </p>';
@@ -58,7 +58,7 @@
                 // include_once 'PHP Scripts/Login-Handler.php'; 
 
                 // if (is_logged_in()) {
-                //     if ($_GET['profileID'] == $_SESSION['userID']) {
+                //     if ($_GET['profileID'] == $_SESSION['user_id']) {
                 //         echo '<div class=\'article-link\'>';
                 //         echo '  <a class=\'dark-text\' href=\'/The Augmented Eye/Change-Password\'> Change Password </a>';
                 //         echo '  <br><br>';
@@ -69,29 +69,29 @@
                 // echo '  </form>';
                 // echo '</div>';
                 echo '<div class=\'centered-column centered-text pixel-text\'>';
-                echo '<h1> ' . $user_info['userName'] . ' ' . $user_info['userSurname'] . '\'s Profile </h1>';
-                echo '<img class=\'pfp-profile\' src=\'/The Augmented Eye/PHP Scripts/Get-Picture?userID=' . $user_info['userID'] . '\'></img>';
+                echo '<h1> ' . $user_info['user_name'] . ' ' . $user_info['user_surname'] . '\'s Profile </h1>';
+                echo '<img class=\'pfp-profile\' src=\'/The Augmented Eye/PHP Scripts/Get-Picture?user_id=' . $user_info['user_id'] . '\'></img>';
                 echo '<br><br>';
                 echo '<table>';
                 echo '  <tr>';
                 echo '      <td class=\'right-aligned-text\'><b>Gender:<b></td>';
-                echo '      <td>' . $user_info['userGender'] . '</td>';
+                echo '      <td>' . $user_info['user_gender'] . '</td>';
                 echo '  </tr>';
                 echo '  <tr>';
                 echo '      <td class=\'right-aligned-text\'><b>Birthday:<b></td>';
-                echo '      <td>' . $user_info['userBirthday'] . '</td>';
+                echo '      <td>' . $user_info['user_birthday'] . '</td>';
                 echo '  </tr>';
                 echo '  <tr>';
                 echo '      <td class=\'right-aligned-text\'><b>Email:<b></td>';
-                echo '      <td>' . $user_info['userEmail'] . '</td>';
+                echo '      <td>' . $user_info['user_email'] . '</td>';
                 echo '  </tr>';
                 echo '  <tr>';
                 echo '      <td class=\'right-aligned-text\'><b>Contact Number:<b></td>';
-                echo '      <td>' . $user_info['userContactNo'] . '</td>';
+                echo '      <td>' . $user_info['user_contact_num'] . '</td>';
                 echo '  </tr>';
                 echo '  <tr>';
                 echo '      <td class=\'right-aligned-text\'><b>Date Joined:<b></td>';
-                echo '      <td>' . $user_info['userRegistrationDate'] . '</td>';
+                echo '      <td>' . $user_info['user_registration_datetime'] . '</td>';
                 echo '  </tr>';
                 echo '</table>';
 
@@ -129,7 +129,7 @@
                         // Purpose: Used to update the password.
                         include_once 'PHP Scripts/Database-Updates.php';
 
-                        if (update('Users', 'userPassword = :new_password', 'userID = :userID', ['new_password' => $_POST['new_password'], 'userID' => $_SESSION['userID']])) {
+                        if (update('users', 'user_password = :new_password', 'user_id = :user_id', ['new_password' => $_POST['new_password'], 'user_id' => $_SESSION['user_id']])) {
                             echo '<p> Successfully updated password! </p>';
                         } else {
                             echo '<p class=\'error-message\'> Couldn\'t update password </p>';
@@ -163,7 +163,7 @@
                 include_once 'PHP Scripts/Login-Handler.php'; 
 
                 if (is_logged_in()) {
-                    if ($_GET['profileID'] == $_SESSION['userID']) {
+                    if ($_GET['profileID'] == $_SESSION['user_id']) {
                         echo '<div class=\'article-link\'>';
                         echo '  <a class=\'dark-text\' href=\'/The Augmented Eye/Change-Password\'> Change Password </a>';
                         echo '  <br><br>';

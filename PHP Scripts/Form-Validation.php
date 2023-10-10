@@ -59,8 +59,8 @@ function validate_post_keys($null_checks): bool {
 
 function validate_login(): bool {
     $null_checks = [
-        'user_Email' => 'Please enter your email',
-        'user_Password' => 'Please enter your password'
+        'user_email' => 'Please enter your email',
+        'user_password' => 'Please enter your password'
     ];
 
     $is_valid_login = validate_post_keys($null_checks);
@@ -75,12 +75,12 @@ function validate_login(): bool {
 //Return true if valid, false if invalid
 function validate_registration(): bool {
     $null_checks = [
-        'newuser_Name' => 'Please enter your name',
-        'newuser_Surname' => 'Please enter your surname',
-        'newuser_Gender' => 'Please enter your gender',
-        'newuser_Birthday' => 'Please enter your birthday',
-        'newuser_Email' => 'Please enter your e-mail',
-        'newuser_Contact' => 'Please enter your contact number'
+        'new_user_name' => 'Please enter your name',
+        'new_user_surname' => 'Please enter your surname',
+        'new_user_gender' => 'Please enter your gender',
+        'new_user_birthday' => 'Please enter your birthday',
+        'new_user_email' => 'Please enter your e-mail',
+        'new_user_contact_num' => 'Please enter your contact number'
     ];
 
     $is_valid_registration = validate_post_keys($null_checks);
@@ -94,16 +94,16 @@ function validate_registration(): bool {
 
 function validate_article(): bool {
     $null_checks = [
-        'article_Title' => 'Please enter a title',
-        'article_Content' => 'Please enter article text'
+        'article_title' => 'Please enter a title',
+        'article_text' => 'Please enter article text'
     ];
 
     $is_valid_article = validate_post_keys($null_checks);
 
     if ($is_valid_article) {
-        if (strlen($_POST['article_Content']) < 50) {
+        if (strlen($_POST['article_text']) < 50) {
             $is_valid_article = false;
-            echo '<p class=\'error-message\'> Provided article text is only '.strlen($_POST['article_Content']).' characters long, please ensure that you enter at least 50 characters</p>';
+            echo '<p class=\'error-message\'> Provided article text is only '.strlen($_POST['article_text']).' characters long, please ensure that you enter at least 50 characters</p>';
         }
     }
 
@@ -126,8 +126,8 @@ function validate_comment(): bool {
 
 function validate_newsletter(): bool {
     $null_checks = [
-        'newsletter_Subject' => 'Please enter a subject',
-        'newsletter_Body' => 'Please enter article text'
+        'newsletter_subject' => 'Please enter a subject',
+        'newsletter_body' => 'Please enter article text'
     ];
 
     $is_valid_newsletter = validate_post_keys($null_checks);

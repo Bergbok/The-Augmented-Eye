@@ -23,14 +23,14 @@
                 <p > It's open source and available on Github <a href='https://github.com/Bergbok/The-Augmented-Eye'> here </a> </p>
             </div>
             <fieldset id='newest-article-preview'>
-                <h2> Newest Articles </h2>
+                <h2> Newest articles </h2>
                 <hr>
                 <br>
                 <div id='article-list'>
                     <?php
                         // Purpose: Used to display a preview of the 3 newest articles.
                         include_once 'PHP Scripts/Article-Display-Handler.php';
-                        show_article_links('articlePublishDate','DESC',3);
+                        show_article_links('article_publish_datetime','DESC',3);
                         echo '<h2><a class=\'dark-text\' href=\'/The Augmented Eye/News\'> View More Here </a></h2>';
                         echo '<br>';
                     ?>

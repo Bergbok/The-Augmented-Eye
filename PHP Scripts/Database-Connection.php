@@ -20,7 +20,7 @@ function connect_to_db(): PDO {
     $db_hostname = 'localhost';
     $db_username = 'username';
     $db_password = 'password';
-    $db_name = 'TheAugmentedEye';
+    $db_name = 'the_augmented_eye';
 
     $dsn = 'mysql:host=' . $db_hostname . ';dbname=' . $db_name;
     $dbh = new PDO($dsn,$db_username,$db_password);

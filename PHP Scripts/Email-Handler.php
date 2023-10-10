@@ -18,16 +18,16 @@ function send_password(): bool {
     include_once 'Database-Selects.php';
 
     $columns = '*';
-    $table = 'Users';
-    $where_clause = 'userName = :name AND userSurname = :surname AND userGender = :gender AND userBirthday = :birthday AND userEmail = :email AND userContactNo = :contactNo and userSubscribedToNewsletter = :subscribedToNewsletter';
+    $table = 'users';
+    $where_clause = 'user_name = :name AND user_surname = :surname AND user_gender = :gender AND user_birthday = :birthday AND user_email = :email AND user_contact_num = :contactNo and user_subscribed_to_newsletter = :subscribedToNewsletter';
     $where_values = [
-        'name' => $_POST['newuser_Name'],
-        'surname' => $_POST['newuser_Surname'],
-        'gender' => $_POST['newuser_Gender'],
-        'birthday' => $_POST['newuser_Birthday'],
-        'email' => $_POST['newuser_Email'],
-        'contactNo' => $_POST['newuser_Contact'],
-        'subscribedToNewsletter' => $_POST['newuser_ReceiveNewsletter'] ?? 0,
+        'name' => $_POST['new_user_name'],
+        'surname' => $_POST['new_user_surname'],
+        'gender' => $_POST['new_user_gender'],
+        'birthday' => $_POST['new_user_birthday'],
+        'email' => $_POST['new_user_email'],
+        'contactNo' => $_POST['new_user_contact_num'],
+        'subscribedToNewsletter' => $_POST['new_user_subscribed_to_newsletter'] ?? 0,
     ];
 
     $user_info = select($columns, $table, $where_clause, $where_values);
@@ -42,11 +42,11 @@ function send_password(): bool {
 
         $headers ='from:' . $from;
 
-        $to = $_POST['newuser_Email'];
+        $to = $_POST['new_user_email'];
 
         $subject = 'The Augemented Eye Password';
 
-        $message = 'Your password is: '.$user_info['userPassword'];
+        $message = 'Your password is: '.$user_info['user_password'];
 
         $message =  str_replace('\n.', '\n..', $message);
 
@@ -64,7 +64,7 @@ function send_password(): bool {
             if ($show_email_errors) { echo '<p class=\'error-message\'> Error sending email </p><br>'; }
             return false;
         } else {
-            if ($show_successfull_emails) { echo '<p> Password sent to: ' . $_POST['newuser_Email'] . '</p>'; }
+            if ($show_successfull_emails) { echo '<p> Password sent to: ' . $_POST['new_user_email'] . '</p>'; }
             return true;
         }
     }
@@ -91,9 +91,9 @@ function send_newsletter(): bool {
 
                 $to = $recipient_email;
 
-                $subject = $_POST['newsletter_Subject'];
+                $subject = $_POST['newsletter_subject'];
 
-                $message =  str_replace('\n.', '\n..', $_POST['newsletter_Body']);
+                $message =  str_replace('\n.', '\n..', $_POST['newsletter_body']);
 
                 if ($show_email_info) {
                     echo '<hr>';
@@ -124,9 +124,9 @@ function get_to_emails(): array {
 
     $recipient_emails = [];
 
-    $columns = 'userEmail';
-    $table = 'Users';
-    $where_clause = 'userSubscribedToNewsletter = 1';
+    $columns = 'user_email';
+    $table = 'users';
+    $where_clause = 'user_subscribed_to_newsletter = 1';
     $fetch_multiple_rows = true;
 
     $subscribers = select($columns, $table, $where_clause, [], $fetch_multiple_rows);

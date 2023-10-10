@@ -11,11 +11,11 @@ include_once 'Database-Selects.php';
 
 function login(): bool {
     $columns = '*';
-    $table = 'Users';
-    $where_clause = 'userEmail = :email AND userPassword = :password';
+    $table = 'users';
+    $where_clause = 'user_email = :email AND user_password = :password';
     $where_values = [
-        'email' => $_POST['user_Email'],
-        'password' => $_POST['user_Password'],
+        'email' => $_POST['user_email'],
+        'password' => $_POST['user_password'],
     ];
 
     $user_info = select($columns, $table, $where_clause, $where_values);
@@ -26,17 +26,17 @@ function login(): bool {
     if ($user_exists) {
         //print_r($user_info);
 
-        $_SESSION['loggedIn'] = true;
-        $_SESSION['loggedInSince'] = date('d-m-y h:i:s');
-        $_SESSION['userID'] = $user_info['userID'];
-        $_SESSION['userName'] = $user_info['userName'];
-        $_SESSION['userSurname'] = $user_info['userSurname'];
-        $_SESSION['userGender'] = $user_info['userGender'];
-        $_SESSION['userBirthday'] = $user_info['userBirthday'];
-        $_SESSION['userEmail'] = $user_info['userEmail'];
-        $_SESSION['userContactNo'] = $user_info['userContactNo'];
-        $_SESSION['userSubscribedToNewsletter'] = $user_info['userSubscribedToNewsletter'];
-        $_SESSION['userProfilePictureFilename'] = $user_info['userProfilePictureFilename'];
+        $_SESSION['logged_in'] = true;
+        $_SESSION['logged_in_since'] = date('d-m-y h:i:s');
+        $_SESSION['user_id'] = $user_info['user_id'];
+        $_SESSION['user_name'] = $user_info['user_name'];
+        $_SESSION['user_surname'] = $user_info['user_surname'];
+        $_SESSION['user_gender'] = $user_info['user_gender'];
+        $_SESSION['user_birthday'] = $user_info['user_birthday'];
+        $_SESSION['user_email'] = $user_info['user_email'];
+        $_SESSION['user_contact_num'] = $user_info['user_contact_num'];
+        $_SESSION['user_subscribed_to_newsletter'] = $user_info['user_subscribed_to_newsletter'];
+        $_SESSION['user_profile_picture_filename'] = $user_info['user_profile_picture_filename'];
         // $_SESSION[''] = $user_info[''];
         return true;
     } else {
@@ -50,16 +50,16 @@ function logout(): void {
 }
 
 function is_logged_in(): bool {
-    (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) ? $is_logged_in=true : $is_logged_in=false;
+    (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) ? $is_logged_in=true : $is_logged_in=false;
     return $is_logged_in;
 }
 
 function is_admin(): bool {
-    if (isset($_SESSION['userID'])) {
-        $columns = 'userID';
-        $table = 'Admins';
-        $where_clause = 'userID = :user_id';
-        $where_values = ['user_id' => $_SESSION['userID']];
+    if (isset($_SESSION['user_id'])) {
+        $columns = 'user_id';
+        $table = 'admins';
+        $where_clause = 'user_id = :user_id';
+        $where_values = ['user_id' => $_SESSION['user_id']];
 
         if (!is_bool(select($columns, $table, $where_clause, $where_values))) {
             !empty(select($columns, $table, $where_clause, $where_values)) ? $is_admin=true : $is_admin=false;
