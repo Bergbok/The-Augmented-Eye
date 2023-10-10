@@ -14,13 +14,17 @@ function show_article_info(array $article_info): void {
 
     echo '<title> ' . $article_info['article_title'] . ' </title>';
     echo '<div class=\'centered-column pixel-text\'>';
-    echo '  <div class=\'article-header\'>';
-    echo '      <h1 align=left>' . $article_info['article_title'] . '</h1>';
-    echo '      <h2 align=left> By: <a href=\'/The Augmented Eye/Profile?profileID=' . $article_info['article_author_id'] . '\'>' . $author_name . '</a></h2>';
-    echo '      <h3 align=left> Published @ ' . $article_info['article_publish_datetime'] . ' (UTC)</h3>';
-    echo '      <h4 align=left> Views: ' . $article_info['article_view_count'] . '</h4>';
-    echo '  </div>';
-    echo '  <p class=\'article-text\'>' . $article_info['article_text'] . '</p>';
+    echo '  <article>';
+    echo '      <div class=\'article-header\'>';
+    echo '          <h1 align=left>' . $article_info['article_title'] . '</h1>';
+    echo '          <h2 align=left> By: <a href=\'/The Augmented Eye/Profile?profileID=' . $article_info['article_author_id'] . '\'>' . $author_name . '</a></h2>';
+    echo '          <h3 align=left> Published @ ' . $article_info['article_publish_datetime'] . '</h3>';
+    echo '          <h4 align=left> Views: ' . $article_info['article_view_count'] . '</h4>';
+    echo '      </div>';
+    echo '      <p class=\'article-text\'>' . $article_info['article_text'] . '</p>';
+    echo '  </article>';
+
+    show_article_tags($article_info['article_id']);
 
     show_article_sharing_options();
 
@@ -47,6 +51,38 @@ function time_ago($timestamp) {
 
 function show_article_not_found(): void {
     echo '<h1 class=\'centered-text bright-text pixel-text\'> Article not found :( </h1>';
+}
+
+function show_article_tags(string $article_id): void {
+    $columns = 'tag_id';
+    $table = 'article_tags';
+    $where_clause = 'article_id = :article_id';
+    $where_values = ['article_id' => $article_id];
+    $fetch_multiple_rows = true;
+
+    $tag_ids = select($columns, $table, $where_clause, $where_values, $fetch_multiple_rows);
+
+    $tag_names = null;
+
+    foreach ($tag_ids as $rows) {
+        foreach ($rows as $column_name => $tag_id) {
+            $columns = 'tag_name';
+            $table = 'tags';
+            $where_clause = 'tag_id = :tag_id';
+            $where_values = ['tag_id' => $tag_id];
+            $fetch_multiple_rows = true;
+        
+            $tag_id_names = select($columns, $table, $where_clause, $where_values, $fetch_multiple_rows);
+
+            foreach ($tag_id_names as $rows) {
+                $tag_names .= '<a href=\'News?tag=' . $rows['tag_name'] . '\'>' . $rows['tag_name'] . '</a>, ';
+            }
+        }
+    }
+
+    if ($tag_names != null) {
+        echo '<p class=\'left-aligned-text\'> Tags: ' . rtrim($tag_names, ', ') . '</p>';   
+    }
 }
 
 function show_article_sharing_options(): void {

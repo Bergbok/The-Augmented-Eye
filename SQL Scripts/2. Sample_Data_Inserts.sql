@@ -16,6 +16,12 @@ VALUES('awe','Kimberly','La Vallette','Female','2040-01-12','kimberly.lavallette
 INSERT INTO admins(user_id)
 VALUES(5);
 
+INSERT INTO tags(tag_name)
+VALUES('Sports'),
+	  ('Business'),
+      ('Entertainment'),
+      ('Other');
+
 -- The following articles were obtained from the VA-11 HALL-A wiki at: https://va11halla.fandom.com/wiki/The_Augmented_Eye
 
 -- Day 1 articles

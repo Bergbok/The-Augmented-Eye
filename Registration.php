@@ -62,8 +62,8 @@
                         // $_POST['new_user_subscribed_to_newsletter'] = 'No';
                     ?>
 
-                    <label for='newsletter' id='newsletter'>Receive newsletters via e-mail? </label>
-                    <input type='checkbox' id='newsletter_checkbox' name='new_user_subscribed_to_newsletter' value='Yes'></input>
+                    <label for='newsletter' class='checkbox-label'>Receive newsletters via e-mail? </label>
+                    <input type='checkbox' class='checkbox' name='new_user_subscribed_to_newsletter' value='Yes'></input>
 
                     <br/><br/>
 

@@ -65,7 +65,11 @@ Description: Most of the time spent on this project was spent tinkering in this 
     }
 
     .justified-text {
-        text-align: center;
+        text-align: justify;
+    }
+
+    .left-aligned-text {
+        text-align: left;
     }
 
     .right-aligned-text {
@@ -169,6 +173,10 @@ li.top-left {
   
 .header li a:hover {
     background-color: var(--hover-color);
+}
+
+.multiselect-help {
+    font-size: 12px;
 }
 
 .pfp-preview {
@@ -338,11 +346,12 @@ textarea {
     -webkit-text-stroke: 1px black;
 }
 
-#newsletter {
+.checkbox-label {
+    display: inline-block;
     width: 80%;
 }
 
-#newsletter_checkbox {
+.checkbox {
     width: 10%;
 }
 /* ----------- */
