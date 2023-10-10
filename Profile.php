@@ -12,10 +12,10 @@
 <html>
     <body>
         <?php
-            include_once 'PHP Scripts/Profile-Display-Handler.php';
+            include_once 'PHP Scripts/Display Handlers/Profile-Display-Handler.php';
             if (isset($_GET['profileID'])) {
                 // Purpose: Used to select user information for display on profile.
-                include_once 'PHP Scripts/Database-Selects.php'; 
+                include_once 'PHP Scripts/Database-Handler.php'; 
 
                 $columns = '*';
                 $table = 'users';

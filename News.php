@@ -109,7 +109,7 @@
                         isset($_GET['row_limit'])          ? $row_limit = $_GET['row_limit']                   : $row_limit = 50;
 
                         // Purpose: Used to display article links.
-                        include_once 'PHP Scripts/Article-Display-Handler.php'; 
+                        include_once 'PHP Scripts/Display Handlers/Article-Display-Handler.php'; 
 
                         show_article_links($order_by_column, $order_by_direction, $row_limit);
                     ?>

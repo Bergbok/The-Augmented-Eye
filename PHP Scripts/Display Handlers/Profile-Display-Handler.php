@@ -46,7 +46,7 @@ function show_user_options(): void {
     // echo '</form>';
 
     // Purpose: Used to check if profile belongs to currently logged in user.
-    include_once 'PHP Scripts/Login-Handler.php'; 
+    include_once dirname(__DIR__) . '/Login-Handler.php'; 
 
     if (is_logged_in()) {
         if ($_GET['profileID'] == $_SESSION['user_id']) {
@@ -64,11 +64,11 @@ function show_user_options(): void {
         
             if (isset($_REQUEST['change_password'])) {
                 // Purpose: Used to validate new password.
-                include_once 'PHP Scripts/Form-Validation.php';
+                include_once dirname(__DIR__) . '/Form-Validation.php';
 
                 if (validate_password_change()) {
                     // Purpose: Used to update the password.
-                    include_once 'PHP Scripts/Database-Updates.php';
+                    include_once dirname(__DIR__) . '/Database-Handler.php';
         
                     if (update('users', 'user_password = :new_password', 'user_id = :user_id', ['new_password' => $_POST['new_password'], 'user_id' => $_SESSION['user_id']])) {
                         echo '<p> Successfully updated password! </p>';
@@ -90,7 +90,7 @@ function show_user_options(): void {
             if (isset($_REQUEST['change_profile_picture'])) {
                 if (isset($_FILES['new_profile_picture']) && $_FILES['new_profile_picture']['error'] == 0) {
                     // Purpose: Used to update users profile picture.
-                    include_once 'PHP Scripts/FTP-Handler.php';
+                    include_once dirname(__DIR__) . '/FTP-Handler.php';
         
                     if (update_profile_picture()) {
                         echo '<p> Successfully updated profile picture! </p>';

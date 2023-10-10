@@ -85,7 +85,7 @@
                             // Purpose: Used to generate passwords for new users.
                             include_once 'PHP Scripts/Password-Generator.php';
                             // Purpose: Used to insert new user into database.
-                            include_once 'PHP Scripts/Database-Inserts.php';
+                            include_once 'PHP Scripts/Database-Handler.php';
 
                             $column_names = 'user_password, user_name, user_surname, user_gender, user_birthday, user_email, user_contact_num, user_subscribed_to_newsletter, user_registration_datetime';
 

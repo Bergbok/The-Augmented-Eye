@@ -42,7 +42,7 @@
                         echo '</div>';
                         echo '<select id=\'article_tags\' name=\'article_tags[]\' multiple style=\'width:100%;\'>';
 
-                        include_once('PHP Scripts/Database-Selects.php');
+                        include_once('PHP Scripts/Database-Handler.php');
 
                         $columns = 'tag_id, tag_name';
                         $table = 'tags';
@@ -65,7 +65,7 @@
 
                             if (validate_article()) {
                                 // Purpose: Used to insert article into database.
-                                include_once('PHP Scripts/Database-Inserts.php');
+                                include_once('PHP Scripts/Database-Handler.php');
 
                                 $column_names = 'article_author_id, article_title, article_text, article_publish_datetime';
 

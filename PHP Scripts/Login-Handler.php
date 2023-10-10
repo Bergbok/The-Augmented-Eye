@@ -7,7 +7,7 @@
  */
 
 // Purpose: Used to get user info from database.
-include_once 'Database-Selects.php';
+include_once 'Database-Handler.php';
 
 function login(): bool {
     $columns = '*';

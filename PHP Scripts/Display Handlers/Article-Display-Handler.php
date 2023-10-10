@@ -6,10 +6,10 @@
  * Description: Handles displaying article links & pages.
  */
 
-function show_article_info(array $article_info): void {
-    // Purpose: Used to select author info & comments.
-    include_once 'Database-Selects.php'; 
+// Purpose: Used to select articles.
+include_once dirname(__DIR__) . '/Database-Handler.php'; 
 
+function show_article_info(array $article_info): void {
     $author_name = get_author_name($article_info['article_author_id'],'full');
 
     echo '<title> ' . $article_info['article_title'] . ' </title>';
@@ -26,7 +26,12 @@ function show_article_info(array $article_info): void {
 
     show_article_tags($article_info['article_id']);
 
+    echo '<hr>';
+    echo '<br>';
+
     show_article_sharing_options();
+
+    echo '<br>';
 
     show_article_comment_section($article_info['article_id']);
 
@@ -87,7 +92,7 @@ function show_article_tags(string $article_id): void {
 
 function show_article_sharing_options(): void {
     // Purpose: Used to get current page URL for sharing articles.
-    include_once 'Current-Page-Info.php'; 
+    include_once dirname(__DIR__) . '/Current-Page-Info.php'; 
     $url = get_current_page_info('url'); 
     $use_addtoany_share = true;
     
@@ -158,9 +163,6 @@ function show_article_comment_section(int $article_id): void {
 function show_article_links(string $order_by_column, string $order_by_direction, int $row_limit): void {
     $include_article_author_in_link = false;
     $show_select_info = false;
-
-    // Purpose: Used to select articles.
-    include_once 'Database-Selects.php'; 
 
     $columns = '*';
     $table = 'articles';

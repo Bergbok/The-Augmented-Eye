@@ -7,7 +7,7 @@
  */
 
 // Purpose: Used to get current page.
-include_once 'Current-Page-Info.php'; 
+include_once dirname(__DIR__) . '/Current-Page-Info.php'; 
 
 $page = get_current_page_info('page');
 

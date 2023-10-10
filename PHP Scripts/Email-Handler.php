@@ -9,13 +9,13 @@
 // Insert the email you have set as auth_username in sendmail.ini and sendmail_from in php.ini
 $from = 'albertus.cilliers@gmail.com'; 
 
+// Purpose: Used to get emails & passwords.
+include_once 'PHP Scripts/Database-Handler.php';
+
 function send_password(): bool {
     $show_email_info = false;
     $show_email_errors = false;
     $show_successfull_emails = false;
-
-    // Purpose: Used to get users password.
-    include_once 'Database-Selects.php';
 
     $columns = '*';
     $table = 'users';
@@ -118,9 +118,6 @@ function send_newsletter(): bool {
 
 function get_to_emails(): array {
     $show_email_info = true;
-
-    // Purpose: Used to get newsletter subscriber emails.
-    include_once 'PHP Scripts/Database-Selects.php';
 
     $recipient_emails = [];
 

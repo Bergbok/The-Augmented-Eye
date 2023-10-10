@@ -13,11 +13,11 @@
     <body>
         <?php
             // Purpose: Used to display article.
-            include_once 'PHP Scripts/Article-Display-Handler.php'; 
+            include_once 'PHP Scripts/Display Handlers/Article-Display-Handler.php'; 
 
             if (isset($_GET['viewArticle'])) {
                 // Purpose: Used to get article info.
-                include_once 'PHP Scripts/Database-Selects.php'; 
+                include_once 'PHP Scripts/Database-Handler.php'; 
 
                 $columns = '*';
                 $table = 'articles';
@@ -33,7 +33,7 @@
                 if ($article_exists) {
                     show_article_info($article_info);
                     // Purpose: Used to increment the article view count.
-                    include_once 'PHP Scripts/Database-Updates.php'; 
+                    include_once 'PHP Scripts/Database-Handler.php'; 
                     increment_article_viewcount($_GET['viewArticle']);
                 } else {
                     show_article_not_found();
@@ -46,7 +46,7 @@
                 include_once 'PHP Scripts/Form-Validation.php'; 
                 if (validate_comment()) {
                     // Purpose: Used to insert comment into database.
-                    include_once 'PHP Scripts/Database-Inserts.php';
+                    include_once 'PHP Scripts/Database-Handler.php';
 
                     $column_names = 'article_id, comment_poster_id, comment_text, comment_post_date';
 
