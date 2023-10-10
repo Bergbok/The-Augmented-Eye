@@ -1,7 +1,7 @@
 <!-- 
     Filename: Login.php
     Author: Albertus Cilliers   
-    Description: Lets the user login, and contains a redirect to Registration.php incase they don't have an account.
+    Description: Lets the user login, and contains a redirect to Registration incase they don't have an account.
  -->
 
 <?php 

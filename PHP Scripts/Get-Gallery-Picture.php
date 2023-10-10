@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Filename: Get-Gallery-Picture.php
+ * Author: Albertus Cilliers
+ * Description: Displays gallery images if referenced as <img src='Get-Gallery-Picture'>
+ */ 
+
 include_once 'FTP-Handler.php';
 
 session_start();

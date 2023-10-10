@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * Filename: Profile-Display-Handler.php
+ * Author: Albertus Cilliers
+ * Description: Handles displaying profile information
+ */
+
+/**
+ * Displays profile
+ * @param array $user_info Array of user row selected from the database
+ * 
+ * @return void
+ */
 function show_profile_info(array $user_info): void {
     echo '<title> ' . $user_info['user_name'] . ' ' . $user_info['user_surname'] . '\'s Profile </title>';
 
@@ -30,11 +42,15 @@ function show_profile_info(array $user_info): void {
     echo '  </tr>';
     echo '</table>';
 
-    show_user_options();
+    show_user_settings();
     
 }
 
-function show_user_options(): void {
+/** 
+ * Shows user settings if the profile belongs to the currently logged in user
+ * @return void
+ */
+function show_user_settings(): void {
     // echo '<form method=\'POST\'>';
     // echo '<fieldset>';
     // echo '<legend class=\'center\'><strong>Change Gender</strong></legend>';                        
@@ -105,6 +121,10 @@ function show_user_options(): void {
     echo '</div>';
 }
 
+/**
+ * Displays a message if no user is found for provided user ID.
+ * @return void
+ */
 function show_profile_not_found(): void {
     echo '<h1 class=\'centered-text bright-text pixel-text\'> User not found :( </h1>';
 }

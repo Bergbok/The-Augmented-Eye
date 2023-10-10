@@ -68,16 +68,16 @@
 
                                 $column_names = 'article_author_id, article_title, article_text, article_publish_datetime';
 
-                                $values_clause = ':article_author_id, :article_title, :article_text, :article_publish_datetime';
+                                $prepared_statement = ':article_author_id, :article_title, :article_text, :article_publish_datetime';
                                 
-                                $data = [
+                                $values = [
                                     'article_author_id' => $_SESSION['user_id'],
                                     'article_title' => $_POST['article_title'],
                                     'article_text' => nl2br($_POST['article_text']),
                                     'article_publish_datetime' => date('Y-m-d H:i:s')
                                 ];
 
-                                if (insert('articles', $column_names, $values_clause, $data)) {
+                                if (insert('articles', $column_names, $prepared_statement, $values)) {
                                     echo '<p class=\'centered-text\'> Successfully submitted article. </p>';
                                     if (isset($_POST['article_tags'])) {
                                         // Will probably insert tags for the wrong article if the user has posted 2 identical articles.
@@ -95,15 +95,15 @@
 
                                         $article_id = select($column_names, $table, $where_clause, $where_values, $fetch_multiple_rows, $order_by_column, $order_by_direction);
                                         $column_names = 'article_id, tag_id';
-                                        $values_clause = ':article_id, :tag_id';
+                                        $prepared_statement = ':article_id, :tag_id';
 
                                         foreach ($_POST['article_tags'] as $tag_id) {
-                                            $data = [
+                                            $values = [
                                                 'article_id' => $article_id['article_id'],
                                                 'tag_id' => $tag_id,
                                             ];
     
-                                            insert('article_tags', $column_names, $values_clause, $data);
+                                            insert('article_tags', $column_names, $prepared_statement, $values);
                                         }
                                     }
                                 } else {

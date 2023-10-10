@@ -34,7 +34,7 @@
                     show_article_info($article_info);
                     // Purpose: Used to increment the article view count.
                     include_once 'PHP Scripts/Database-Handler.php'; 
-                    increment_article_viewcount($_GET['viewArticle']);
+                    increment_article_view_count($_GET['viewArticle']);
                 } else {
                     show_article_not_found();
                 } 
@@ -50,16 +50,16 @@
 
                     $column_names = 'article_id, comment_poster_id, comment_text, comment_post_datetime';
 
-                    $values_clause = ':article_id, :comment_poster_id, :comment_text, :comment_post_datetime';
+                    $prepared_statement = ':article_id, :comment_poster_id, :comment_text, :comment_post_datetime';
                     
-                    $data = [
+                    $values = [
                         'article_id' => $_GET['viewArticle'],
                         'comment_poster_id' => $_SESSION['user_id'],
                         'comment_text' => nl2br($_POST['new_comment_text']),
                         'comment_post_datetime' => date('Y-m-d H:i:s')
                     ];
                     
-                    if (insert('comments', $column_names, $values_clause, $data)) {
+                    if (insert('comments', $column_names, $prepared_statement, $values)) {
                         sleep(2);
                         include_once 'PHP Scripts/Current-Page-Info.php';
                         header('Location: ' . get_current_page_info('url'));

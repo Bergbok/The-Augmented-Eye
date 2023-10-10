@@ -1,11 +1,17 @@
 <?php
 
 /**
- * Filename: About.php
+ * Filename: Current-Page-Info.php
  * Author: Albertus Cilliers  
  * Description: Used to get information about the page the user is currently on.
  */
 
+/**
+ * Gets information about the page the user is currently on.
+ * @param string $value Valid values: uri, url, page, query-string
+ * 
+ * @return string
+ */
 function get_current_page_info(string $value): string {
     //If called from within a function, the return() statement immediately ends execution of the current function, thus break; isn't needed.
     switch ($value) {

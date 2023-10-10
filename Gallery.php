@@ -1,10 +1,10 @@
 <!-- 
-    Filename: gallery.php
+    Filename: Gallery.php
     Author: Albertus Cilliers   
-    Description: Shows gallery information (title, author, publish date, viewcount, body & sharing options) 
+    Description: Shows gallery information (title, author, publish date, viewcount, body & images)
  -->
 
- <?php 
+<?php 
     // Purpose: Displays header.
     include_once 'Header.php'; 
 ?>
@@ -34,7 +34,7 @@
                     show_gallery_info($gallery_info);
                     // Purpose: Used to increment the gallery view count.
                     include_once 'PHP Scripts/Database-Handler.php'; 
-                    increment_gallery_viewcount($_GET['viewGallery']);
+                    increment_gallery_view_count($_GET['viewGallery']);
                 } else {
                     show_gallery_not_found();
                 } 

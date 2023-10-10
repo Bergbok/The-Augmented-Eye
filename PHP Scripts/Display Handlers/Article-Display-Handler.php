@@ -3,12 +3,18 @@
 /**
  * Filename: About.php
  * Author: Albertus Cilliers  
- * Description: Handles displaying article links & pages.
+ * Description: Handles displaying article pages & links.
  */
 
 // Purpose: Used to select articles.
 include_once dirname(__DIR__) . '/Database-Handler.php'; 
 
+/**
+ * Displays article
+ * @param array $article_info Array of article row selected from the database
+ * 
+ * @return void
+ */
 function show_article_info(array $article_info): void {
     $author_name = get_article_author_name($article_info['article_author_id'],'full');
 
@@ -38,26 +44,20 @@ function show_article_info(array $article_info): void {
     echo '</div>';
 }
 
-function time_ago($timestamp) {
-    $periods = array('day' => 86400, 'hour' => 3600, 'minute' => 60, 'second' => 1);
-    $timeago = '';
-
-    foreach($periods AS $period_alias => $seconds){
-        $num_of_periods_elapsed = floor($timestamp / $seconds);
-        $timestamp -= ($num_of_periods_elapsed * $seconds);
-
-        if ($num_of_periods_elapsed > 1) {
-            $timeago .= $num_of_periods_elapsed . ' ' . $period_alias . 's ';
-        }
-    }
-
-    return trim($timeago);
-}
-
+/**
+ * Displays a message if no articles are found for provided article ID.
+ * @return void
+ */
 function show_article_not_found(): void {
     echo '<h1 class=\'centered-text bright-text pixel-text\'> Article not found :( </h1>';
 }
 
+/**
+ * Displays tags of article
+ * @param string $article_id 
+ * 
+ * @return void
+ */
 function show_article_tags(string $article_id): void {
     $columns = 'tag_id';
     $table = 'article_tags';
@@ -90,6 +90,10 @@ function show_article_tags(string $article_id): void {
     }
 }
 
+/**
+ * Displays buttons for sharing article links.
+ * @return void
+ */
 function show_article_sharing_options(): void {
     // Purpose: Used to get current page URL for sharing articles.
     include_once dirname(__DIR__) . '/Current-Page-Info.php'; 
@@ -114,6 +118,12 @@ function show_article_sharing_options(): void {
     }
 }
 
+/**
+ * Displays article comment section
+ * @param int $article_id
+ * 
+ * @return void
+ */
 function show_article_comment_section(int $article_id): void {
     echo '<h2 class=\'centered-text\'> Comments: </h2>';
 
@@ -160,6 +170,36 @@ function show_article_comment_section(int $article_id): void {
     }
 }
 
+/**
+ * Displays human readble time
+ * @param int $timestamp Time in seconds
+ * 
+ * @return string Returns string in format of X day(s) X hour(s) X minute(s) X second(s)
+ */
+function time_ago(int $timestamp): string {
+    $periods = array('day' => 86400, 'hour' => 3600, 'minute' => 60, 'second' => 1);
+    $timeago = '';
+
+    foreach($periods as $period_alias => $seconds){
+        $num_of_periods_elapsed = floor($timestamp / $seconds);
+        $timestamp -= ($num_of_periods_elapsed * $seconds);
+
+        if ($num_of_periods_elapsed > 1) {
+            $timeago .= $num_of_periods_elapsed . ' ' . $period_alias . 's ';
+        }
+    }
+
+    return trim($timeago);
+}
+
+/**
+ * Shows links for articles based on sorting order
+ * @param string $order_by_column What column in the articles table to sort based off (valid values: article_id, article_author_id, article_title, article_text, article_publish_datetime, article_view_count)
+ * @param string $order_by_direction What direction to sort (ASC or DESC)
+ * @param int $row_limit Max amount of rows to retrieve
+ * 
+ * @return void
+ */
 function show_article_links(string $order_by_column, string $order_by_direction, int $row_limit): void {
     $include_article_author_in_link = false;
     $show_select_info = false;

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Filename: About.php
+ * Filename: Email-Handler.php
  * Author: Albertus Cilliers  
  * Description: Handles sending emails.
  */
@@ -12,6 +12,10 @@ $from = 'albertus.cilliers@gmail.com';
 // Purpose: Used to get emails & passwords.
 include_once 'PHP Scripts/Database-Handler.php';
 
+/**
+ * Send users password to them upon registration.
+ * @return bool Returns true on success or false on failure.
+ */
 function send_password(): bool {
     $show_email_info = false;
     $show_email_errors = false;
@@ -70,12 +74,16 @@ function send_password(): bool {
     }
 }
 
+/**
+ * Sends newsletter to newsletter subscribers.
+ * @return bool Returns true on success or false on failure.
+ */
 function send_newsletter(): bool {
     $show_email_info = false;
     $show_email_errors = true;
     $show_successfull_emails = true;
 
-    $subscribers = get_to_emails();
+    $subscribers = get_newsletter_subscriber_emails();
 
     !empty($subscribers) ? $newsletter_has_subscribers = true : $newsletter_has_subscribers = false;
 
@@ -112,11 +120,16 @@ function send_newsletter(): bool {
                 }   
             }
         }
+
         return true;
     }
 }
 
-function get_to_emails(): array {
+/**
+ * Gets newsletter subscriber emails
+ * @return array Array of emails
+ */
+function get_newsletter_subscriber_emails(): array {
     $show_email_info = true;
 
     $recipient_emails = [];

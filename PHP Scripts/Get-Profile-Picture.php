@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Filename: Get-Profile-Picture.php
+ * Author: Albertus Cilliers
+ * Description: Displays profile pictures if referenced as <img src='Get-Profile-Picture'>
+ */ 
+
 include_once 'FTP-Handler.php';
 
 session_start();

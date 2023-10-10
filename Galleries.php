@@ -1,10 +1,10 @@
 <!-- 
-    Filename: News.php
+    Filename: Galleries.php
     Author: Albertus Cilliers   
-    Description: Displays article links based on sorting/filtering options.
+    Description: Displays gallery links based on sorting/filtering options.
  -->
 
- <?php 
+<?php 
     // Purpose: Displays header.
     include_once 'Header.php'; 
 ?>
@@ -65,7 +65,6 @@
                                 <option value='gallery_title'> By Title </option> 
                                 <option value='gallery_publish_datetime'> By Date </option> 
                                 <option value='gallery_view_count'> By Views </option> 
-                                <!-- <option value='article_author_id'> By Author </option>  -->
                             </select>
                             <br>
                             <br>

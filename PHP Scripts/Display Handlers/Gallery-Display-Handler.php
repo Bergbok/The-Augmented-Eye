@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Filename: About.php
+ * Filename: Gallery-Display-Handler.php
  * Author: Albertus Cilliers  
- * Description: Handles displaying article links & pages.
+ * Description: Handles displaying gallery information
  */
 
 // Purpose: Used to select articles.
@@ -11,6 +11,12 @@ include_once dirname(__DIR__) . '/Database-Handler.php';
 // Purpose: Used to get gallery images.
 include_once dirname(__DIR__) . '/FTP-Handler.php'; 
 
+/**
+ * Displays gallery information
+ * @param array $gallery_info Array of gallery row from database
+ * 
+ * @return void
+ */
 function show_gallery_info(array $gallery_info): void {
     $author_name = get_gallery_author_name($gallery_info['gallery_author_id'],'full');
 
@@ -28,10 +34,20 @@ function show_gallery_info(array $gallery_info): void {
     show_gallery_images($gallery_info);
 }
 
+/**
+ * Displays a message if no gallery are found for provided article ID.
+ * @return void
+ */
 function show_gallery_not_found(): void {
     echo '<h1 class=\'centered-text bright-text pixel-text\'> Gallery not found :( </h1>';
 }
 
+/**
+ * Displays gallery images
+ * @param array $gallery_info
+ * 
+ * @return void
+ */
 function show_gallery_images(array $gallery_info): void {
     $gallery_id = $gallery_info['gallery_id'];
 
@@ -48,6 +64,14 @@ function show_gallery_images(array $gallery_info): void {
     echo '</div>';
 }
 
+/**
+ * Shows links for galleries based on sorting order
+ * @param string $order_by_column What column in the articles table to sort based off (valid values: gallery_id, gallery_author_id, gallery_title, gallery_publish_datetime, gallery_view_count)
+ * @param string $order_by_direction What direction to sort (ASC or DESC)
+ * @param int $row_limit Max amount of rows to retrieve
+ * 
+ * @return void
+ */
 function show_gallery_links(string $order_by_column, string $order_by_direction, int $row_limit): void {
     $include_article_author_in_link = false;
     $show_select_info = false;
