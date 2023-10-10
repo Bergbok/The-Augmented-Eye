@@ -215,9 +215,22 @@ function upload_profile_picture_from_registration($email) {
 function get_profile_picture($user_id) {
     include_once 'Database-Selects.php';
 
-    $picture_name = get_profile_picture_filename($user_id);
+    $columns = 'userProfilePictureFilename';
+    $table = 'Users';
+    $where_clause = 'userID = :user_id';
+    $where_values = ['user_id' => $user_id];
 
-    $picture_path = 'Profile Pictures/' . $picture_name;
+    $user_info = select($columns, $table, $where_clause, $where_values);
+
+    !empty($user_info) ? $user_exists = true : $user_exists = false;
+
+    if ($user_exists && $user_info['userProfilePictureFilename'] != null) {
+        $picture_filename = $user_info['userProfilePictureFilename'];
+    } else {
+        $picture_filename = 'pfp-placeholder.png';
+    }
+
+    $picture_path = 'Profile Pictures/' . $picture_filename;
 
     $connection = connect_to_ftp_server();
 

@@ -104,43 +104,34 @@ function select(string $columns, string $table, string $where_clause = '', array
     }
 }
 
-function get_author_id(int $article_id): int {
-    $columns = 'articleAuthorID';
-    $table = 'Articles';
-    $where_clause = 'articleID = :article_id';
-    $where_values = [
-        'article_id' => $_GET['viewArticle']
-    ];
-
-    $article_info = select($columns, $table, $where_clause, $where_values);
-
-    $author_ID = $article_info['articleAuthorID'];
-
-    return $author_ID;
-}
-
-function get_author_name_from_article_id(int $article_id): string {
-    $columns = 'userName';
+function get_author_name(int $article_author_id, string $name_scope = 'full'): string {
+    $columns = 'userName, userSurname';
     $table = 'Users';
     $where_clause = 'userID = :user_id';
-    $where_values = ['user_id' => get_author_id($article_id)];
+    $where_values = ['user_id' => $article_author_id];
 
     $user_info = select($columns, $table, $where_clause, $where_values);
-    $author_name = $user_info['userName'];
+
+    switch ($name_scope) {
+        case 'first':
+        case 'firstname':
+            $author_name = $user_info['userName'];
+            break;
+        case 'last':
+        case 'final':
+        case 'surname':
+        case 'lastname':
+            $author_name = $user_info['userSurname'];
+            break;
+        case 'full':
+            $author_name = $user_info['userName'] . ' ' . $user_info['userSurname'];
+            break;
+        default:
+            $author_name = $user_info['userName'] . ' ' . $user_info['userSurname'];
+            break;
+    }
 
     return $author_name;
-}
-
-function get_author_surname_from_article_id(int $article_id): string {
-    $columns = 'userSurname';
-    $table = 'Users';
-    $where_clause = 'userID = :user_id';
-    $where_values = ['user_id' => get_author_id($article_id)];
-
-    $user_info = select($columns, $table, $where_clause, $where_values);
-    $author_surname = $user_info['userSurname'];
-    
-    return $author_surname;
 }
 
 function get_comment_poster_info(int $comment_poster_id) {
@@ -152,25 +143,6 @@ function get_comment_poster_info(int $comment_poster_id) {
     $comment_poster_info = select($columns, $table, $where_clause, $where_values);
 
     return $comment_poster_info;
-}
-
-function get_profile_picture_filename(int | null $user_id) {
-    $columns = 'userProfilePictureFilename';
-    $table = 'Users';
-    $where_clause = 'userID = :user_id';
-    $where_values = ['user_id' => $user_id];
-
-    $user_info = select($columns, $table, $where_clause, $where_values);
-
-    !empty($user_info) ? $user_exists = true : $user_exists = false;
-
-    if ($user_exists && $user_info['userProfilePictureFilename'] != null) {
-        $picture_filename = $user_info['userProfilePictureFilename'];
-    } else {
-        $picture_filename = 'pfp-placeholder.png';
-    }
-    
-    return $picture_filename;
 }
 
 // EOF
