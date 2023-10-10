@@ -92,7 +92,7 @@
                             $values_clause = ':new_user_password, :new_user_name, :new_user_surname, :new_user_gender, :new_user_birthday, :new_user_email, :new_user_contact_num, :new_user_subscribed_to_newsletter, :newuser_RegistrationDate';
                             
                             $data = [
-                                'new_user_password' => generate_password(30),
+                                'new_user_password' => generate_password(mt_rand(15,30)),
                                 'new_user_name' => $_POST['new_user_name'],
                                 'new_user_surname' => $_POST['new_user_surname'],
                                 'new_user_gender' => $_POST['new_user_gender'],

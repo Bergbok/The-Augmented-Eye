@@ -12,7 +12,7 @@ USE the_augmented_eye;
 CREATE TABLE users
 (
 	user_id INT NOT NULL AUTO_INCREMENT,
-    user_password VARCHAR(30) NOT NULL,
+    user_password VARCHAR(50) NOT NULL,
 	user_name VARCHAR(30) NOT NULL,
 	user_surname VARCHAR(30) NOT NULL,
 	user_gender VARCHAR(30) NOT NULL,
