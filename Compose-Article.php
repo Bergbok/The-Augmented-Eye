@@ -30,9 +30,9 @@
                     } else {
                         echo '<div class=\'centered-text\'>';
                         echo '<label for=\'name\'>Title:</label>';
-                        echo '<input type=\'text\' id=\'titleInput\' name=\'article_title\'></input>';
+                        echo '<input required type=\'text\' id=\'titleInput\' name=\'article_title\'></input>';
                         echo '<h3> Content: </h1>';
-                        echo '<textarea name=\'article_text\' placeholder=\'Please ensure your article is at least 50 characters\'></textarea>';
+                        echo '<textarea required name=\'article_text\' placeholder=\'Please ensure your article is at least 50 characters\'></textarea>';
                         echo '<p> Tags: </p>';
                         echo '<div class=\'multiselect-help\'';
                         echo '<p> for windows: hold down the control (ctrl) button to select multiple option</p>';

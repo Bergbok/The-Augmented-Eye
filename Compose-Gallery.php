@@ -33,12 +33,12 @@
                             echo '</div>';
                         } else {
                             echo '<div class=\'centered-text\'>';
-                            echo '<label for=\'name\'>Title:</label>';
-                            echo '<input type=\'text\' id=\'titleInput\' name=\'gallery_title\'></input>';
+                            echo '<label for=\'titleInput\'>Title:</label>';
+                            echo '<input required type=\'text\' id=\'titleInput\' name=\'gallery_title\'></input>';
                             echo '<h3> Images: </h1>';
                             echo '</div>';
 
-                            echo '<input class=\'full-width\' type="file" name="gallery_photos[]" multiple/></input>';
+                            echo '<input required  class=\'full-width\' type="file" name="gallery_photos[]" multiple/></input>';
                             echo '<br><br>';
                             echo '<input class=\'submit-button\' type=\'submit\' value=\'Upload\' name=\'upload\'></input>';
                         }

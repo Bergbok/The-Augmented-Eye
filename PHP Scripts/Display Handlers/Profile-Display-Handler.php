@@ -56,7 +56,7 @@ function show_user_options(): void {
             echo '<fieldset>';
             echo '<legend class=\'center\'><strong>Change Password</strong></legend>';                        
             echo '<label for=new_password> New Password </label>';
-            echo '<input type=\'text\' name=\'new_password\'></input>';
+            echo '<input required type=\'text\' name=\'new_password\'></input>';
             echo '<br><br>';
             echo '<input class=\'submit-button\' type=\'submit\' value=\'Change Password\' name=\'change_password\'></input>';
             echo '</fieldset>';
@@ -81,7 +81,7 @@ function show_user_options(): void {
             echo '<form method=\'POST\' enctype="multipart/form-data">';
             echo '<fieldset>';
             echo '<legend class=\'center\'><strong>Change Profile Picture</strong></legend>';
-            echo '<input type=\'file\' name=\'new_profile_picture\' style=\'width:100%;\'></input>';
+            echo '<input required class=\'full-width\' type=\'file\' name=\'new_profile_picture\'></input>';
             echo '<br><br>';
             echo '<input class=\'submit-button\' type=\'submit\' value=\'Change Profile Picture\' name=\'change_profile_picture\'></input>';
             echo '</fieldset>';

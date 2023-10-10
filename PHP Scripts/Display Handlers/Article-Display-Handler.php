@@ -122,7 +122,7 @@ function show_article_comment_section(int $article_id): void {
         echo '<form method=\'POST\'>';
         echo '<fieldset>';
         echo '<legend class=\'center\'><strong> Comment as: ' . $_SESSION['user_name'] . '</strong></legend>';
-        echo '<textarea name=\'new_comment_text\'></textarea>';
+        echo '<textarea required name=\'new_comment_text\'></textarea>';
         echo '<input type=\'submit\' class=\'submit-button\' value=\'POST\' name=\'post_comment\'></input>';
         echo '</fieldset>';
         echo '</form>';
