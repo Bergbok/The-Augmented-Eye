@@ -15,7 +15,6 @@
                     echo '  <p>Welcome back, ' . $_SESSION['user_name'] . '</p>';
                     echo '  <ul class=\'dropdown-items\'>';
                     echo '      <li><a class=\'bright-text\' href=\'/The Augmented Eye/Profile?profileID=' . $_SESSION['user_id'] . '\'>View Profile</a></li>';
-                    echo '      <li><a class=\'bright-text\' href=\'/The Augmented Eye/Change-Password\'>Change Password</a></li>';
                     echo '      <li><a class=\'bright-text\' href=\'/The Augmented Eye/Logout\'>Logout</a></li>';
                     echo '  </ul>';
                     echo '</li>';

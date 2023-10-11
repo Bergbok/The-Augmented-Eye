@@ -29,7 +29,7 @@
                         echo '</div>';
                     } else {
                         echo '<div class=\'centered-text\'>';
-                        echo '<label for=\'name\'>Title:</label>';
+                        echo '<label class=\'required\' for=\'name\'>Title:</label>';
                         echo '<input required type=\'text\' id=\'titleInput\' name=\'article_title\'></input>';
                         echo '<h3> Content: </h1>';
                         echo '<textarea required name=\'article_text\' placeholder=\'Please ensure your article is at least 50 characters\'></textarea>';
@@ -94,6 +94,7 @@
                                         $order_by_direction = 'DESC';
 
                                         $article_id = select($column_names, $table, $where_clause, $where_values, $fetch_multiple_rows, $order_by_column, $order_by_direction);
+                                        
                                         $column_names = 'article_id, tag_id';
                                         $prepared_statement = ':article_id, :tag_id';
 

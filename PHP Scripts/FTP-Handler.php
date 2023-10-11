@@ -13,6 +13,7 @@
 function connect_to_ftp_server(): bool | FTP\Connection {
     $show_connection_errors = true;
 
+    // If you get connection errors, try changing the hostname to localhost
     $ftp_hostname = '127.0.0.1';
     $ftp_username = 'FILEZILLA_USER_NAME';
     $ftp_password = 'FILEZILLA_PASSWORD';

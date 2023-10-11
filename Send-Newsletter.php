@@ -29,7 +29,7 @@
                     } else {
                         echo '<fieldset>';
                         echo '  <legend class=\'center\'>Send Newsletter</legend>';
-                        echo '  <label for=\'subject\'>Title:</label>';
+                        echo '  <label class=\'required\' for=\'subject\'>Title:</label>';
                         echo '  <input required type=\'text\' id=\'subject\' name=\'newsletter_subject\'></input>';
                         echo '  <h3> Email Body: </h1>';
                         echo '  <textarea required name=\'newsletter_body\'></textarea>';

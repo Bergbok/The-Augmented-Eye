@@ -9,7 +9,7 @@ USE the_augmented_eye;
 INSERT INTO users(user_password, user_name, user_surname, user_gender, user_birthday, user_email, user_contact_num, user_subscribed_to_newsletter, user_registration_datetime, user_profile_picture_filename)
 VALUES('awe','Kimberly','La Vallette','Female','2040-01-12','kimberly.lavallette@theaugmentedeye.com','0728941354',false,NOW(), '1.webp'),
 	  ('awe','Lana','Smithee','Female','2040-01-12','lana.smithee@theaugmentedeye.com','0826845812',false,NOW(), null),
-      ('awe','Donovan','D. Dawson','Male','2020-01-12','donovan.d.dawson@theaugemnetedeye.com','0728884568',false,NOW(), '3.webp'),
+      ('Large Beer','Donovan','D. Dawson','Male','2020-01-12','donovan.d.dawson@theaugemnetedeye.com','0728884568',false,NOW(), '3.webp'),
 	  ('awe','Albertus','Cilliers','Male','2003-06-09','albertus.cilliers@gmail.com','0844023335',true,NOW(), null), 
       ('admin','Admin','Istrator','Other','1969-06-09','admin','0101010101',false,NOW(), null);
       
@@ -22,8 +22,8 @@ VALUES('Sports'),
       ('Entertainment'),
       ('Other');
       
-INSERT INTO galleries(gallery_author_id, gallery_title, gallery_publish_datetime)
-VALUES(1,'gallery1',NOW());
+-- INSERT INTO galleries(gallery_author_id, gallery_title, gallery_publish_datetime)
+-- VALUES(1,'gallery1',NOW());
 
 -- The following articles were obtained from the VA-11 HALL-A wiki at: https://va11halla.fandom.com/wiki/The_Augmented_Eye
 
@@ -39,7 +39,7 @@ This comes after revealing new economic measures for the city, which most analys
 <br><br>
 "They don''t know sh*t" concluded QUINCY. ';
 INSERT INTO articles(article_author_id, article_title, article_text, article_publish_datetime)
-VALUES('1','Mass emigration continues as QUINCY reveals new economic adjustments',@content,'1999-12-13 12:00:00');
+VALUES(1,'Mass emigration continues as QUINCY reveals new economic adjustments',@content,'1999-12-13 12:00:00');
 
 SET @content = 
 'If you thought Alice_Rabbit was good at cracking the most complicated security protocols in the world, then this new group will certainly blow your mind. They''ve yet to make an impact as big as Alice_Rabbit, but they seem to be aiming very high with the recent threats issued against Prime Minister QUINCY.
@@ -60,7 +60,7 @@ The people behind the Wonderlanders seemed to enjoy dressing in all kinds of rab
 <br><br>
 We''re not sure if this will go anywhere, but we''ll be there to tell you if it does.';
 INSERT INTO articles(article_author_id, article_title, article_text, article_publish_datetime)
-VALUES('1','"Wonderlanders" are the newest threat to your security',@content,'1999-12-13 12:15:00');
+VALUES(1,'"Wonderlanders" are the newest threat to your security',@content,'1999-12-13 12:15:00');
 
 SET @content = 
 'The popular show Cyborg in Heels returns to The Dome this march, with tickets going on sale in January.
@@ -71,7 +71,7 @@ Cyborg in Heels is a massive stage show about a cyborg fighting terrorism while 
 <br><br>
 Check out the full interview in the next few weeks, exclusively here at the Augmented Eye. ';
 INSERT INTO articles(article_author_id, article_title, article_text, article_publish_datetime)
-VALUES('2','Cyborg in Heels returns next year to the Super Silver Thunder Dome',@content,'1999-12-13 12:30:00');
+VALUES(2,'Cyborg in Heels returns next year to the Super Silver Thunder Dome',@content,'1999-12-13 12:30:00');
 
 -- Day 2 articles
 SET @content = 
@@ -81,7 +81,7 @@ SET @content =
 <br><br>
 Just when the would-be suicide victim jumped off, a local woman was able to catch them mid-air, and fled the scene before anyone could identify her. The mall is taking extra security measures now.';
 INSERT INTO articles(article_author_id, article_title, article_text, article_publish_datetime)
-VALUES('2','Local woman, Local hero',@content,'1999-12-14 12:00:00');
+VALUES(2,'Local woman, Local hero',@content,'1999-12-14 12:00:00');
 
 # If Donovan gets drunk
 
@@ -96,7 +96,7 @@ Ugh, I can''t even finish this article. I''m sorry, everyone but I have to puke.
 <br><br>
 Blergh. I hope it''s put out of sale. ';
 INSERT INTO articles(article_author_id, article_title, article_text, article_publish_datetime)
-VALUES('2','70% of our readers consider shrimp ramen to be "disgusting"',@content,'1999-12-14 12:15:00');
+VALUES(2,'70% of our readers consider shrimp ramen to be "disgusting"',@content,'1999-12-14 12:15:00');
 
 SET @content = 
 'A dog, you say? Why not? After receiving brain enhancements, they''re capable of learning at near-human speeds, so why is it so impossible to imagine a gifted dog who uses their brilliance for programming?
@@ -117,7 +117,7 @@ Well, maybe,
 <br><br>
 01001111';
 INSERT INTO articles(article_author_id, article_title, article_text, article_publish_datetime)
-VALUES('2','I think Alice_Rabbit might a a dog...',@content,'1999-12-14 12:30:00');
+VALUES(2,'I think Alice_Rabbit might a a dog...',@content,'1999-12-14 12:30:00');
 
 # If Donovan doesn't get drunk
 
@@ -130,7 +130,7 @@ Now, citizens from all districts seem to be looking for a definitive answer to t
 <br><br>
 “I want my holidays back. It’s not fair that we have to give up on our customs because you idiots suck at economy," said a protester during today’s manifestation.';
 INSERT INTO articles(article_author_id, article_title, article_text, article_publish_datetime)
-VALUES('1','Riots intensify as we approach Megachristmas',@content,'1999-12-14 12:45:00');
+VALUES(1,'Riots intensify as we approach Megachristmas',@content,'1999-12-14 12:45:00');
 
 SET @content = 
 'Even though recent medical advances concerning the Tokyo Flu have been successfully implemented across the globe, Glitch City is currently facing a financial crisis that makes this treatment near impossible to find locally.
@@ -139,7 +139,7 @@ In the few places that continue to receive a supply of subsidized medicine, line
 <br><br>
 “This is unacceptable,” A mother of two told AE while standing in line at a downtown pharmacy. “The only possible disease that can affect me can’t be treated due to morons in high places. I want my quality of life back!”';
 INSERT INTO articles(article_author_id, article_title, article_text, article_publish_datetime)
-VALUES('1','Tokyo Flu Treatment nowhere to be found',@content,'1999-12-14 13:00:00');
+VALUES(1,'Tokyo Flu Treatment nowhere to be found',@content,'1999-12-14 13:00:00');
 
 -- Day 3 articles
 
@@ -150,7 +150,7 @@ During a conference call, Glitch City’s Prime Minister QUINCY congratulated th
 <br><br>
 Glitch City is not currently known to be a seismic zone.';
 INSERT INTO articles(article_author_id, article_title, article_text, article_publish_datetime)
-VALUES('1','Neo-San Francisco rocked by a powerful earthquake, millions saved',@content,'1999-12-15 12:00:00');
+VALUES(1,'Neo-San Francisco rocked by a powerful earthquake, millions saved',@content,'1999-12-15 12:00:00');
 
 # If Donovan gets drunk
 
@@ -161,7 +161,7 @@ She’s the top tier EVERYTHING and I’m baffled as to how there are still peop
 <br><br>
 I, for one, welcome our new roboko overlord.';
 INSERT INTO articles(article_author_id, article_title, article_text, article_publish_datetime)
-VALUES('3','KIRA mIKI CONFIRMED AS THE BEST POP STAR IN HISTORY!!',@content,'1999-12-15 12:15:00');
+VALUES(3,'KIRA mIKI CONFIRMED AS THE BEST POP STAR IN HISTORY!!',@content,'1999-12-15 12:15:00');
 
 SET @content = 
 'The Augmented Eye: In today’s interview segment, we sit with Tino Award nominee GLO-RI-A Light! It’s an honor to be here with you.
@@ -172,7 +172,7 @@ AE: Tell us everything. What was your experience working with...
 <br><br>
 <b class="error-message">Content blocked in your region</b>';
 INSERT INTO articles(article_author_id, article_title, article_text, article_publish_datetime)
-VALUES('3','Interview: GLO-RI-A Light and her quest for a Tino Award.',@content,'1999-12-15 12:30:00');
+VALUES(3,'Interview: GLO-RI-A Light and her quest for a Tino Award.',@content,'1999-12-15 12:30:00');
 
 # If Donovan doesn't get drunk
 
@@ -183,7 +183,7 @@ SET @content =
 <br><br>
 QUINCY will be running for a second term next year.';
 INSERT INTO articles(article_author_id, article_title, article_text, article_publish_datetime)
-VALUES('1','Quincy: One more civil death and we''ll ban protests',@content,'1999-12-15 12:45:00');
+VALUES(1,'Quincy: One more civil death and we''ll ban protests',@content,'1999-12-15 12:45:00');
 
 SET @content = 
 'Who is Alice_Rabbit? Judging by the complexity of the methods they''ve used to breach all kinds of protected software, some are starting to think this is in fact a group and not a single individual.
@@ -198,7 +198,7 @@ More than half a century ago, a group of notorious hackers rose to prominence, a
 <script type="text/javascript" src="/The Augmented Eye/JavaScript/hackerText.js"></script>
 <script>Init("hacked-text", 1, 1)</script>';
 INSERT INTO articles(article_author_id, article_title, article_text, article_publish_datetime)
-VALUES('1','Is Alice Rabbit a group? The answer here',@content,'1999-12-15 13:00:00');
+VALUES(1,'Is Alice Rabbit a group? The answer here',@content,'1999-12-15 13:00:00');
 
 -- Day 4 articles
 
@@ -211,7 +211,7 @@ I really wanted to report on the riots, you know? Just like the old times but NO
 <br><br>
 Just fuck my shit up. I quit.';
 INSERT INTO articles(article_author_id, article_title, article_text, article_publish_datetime)
-VALUES('3','FUUUUUUCK THE WOOOORLD',@content,'1999-12-16 12:00:00');
+VALUES(3,'FUUUUUUCK THE WOOOORLD',@content,'1999-12-16 12:00:00');
 
 # If Donovan doesn't get drunk the two previous days
 
@@ -225,7 +225,7 @@ Poverty and the lack of opportunities are no longer the main causes of crime.
 <br><br>
 Criminals come from all walks of life. They will murder and distribute drugs for no other reason than the fact it gives them power. It’s no longer about feeding their families. It''s about domination. There are entire sectors controlled by these dangerous gangs and there’s no solution in sight. This Megachristmas will be a very dark one. ';
 INSERT INTO articles(article_author_id, article_title, article_text, article_publish_datetime)
-VALUES('3','Crime rate up 5% this month',@content,'1999-12-16 12:00:00');
+VALUES(3,'Crime rate up 5% this month',@content,'1999-12-16 12:00:00');
 
 -- Day 8 articles
 
@@ -240,7 +240,7 @@ Jill, 27, is confused. “Christmas what? Is that like the opposite of Beefcake?
 <br><br>
 Alma Armas, 29, is pleased. “About damn time. I’m tired of those highschool fuckers stealing the cute boys,” After a 30-minute rant, she concluded, “THEY TOOK OUR BOOYYYS!” ';
 INSERT INTO articles(article_author_id, article_title, article_text, article_publish_datetime)
-VALUES('2','Men prefer “Christmas Cakes”, study reveals',@content,'1999-12-20 12:00:00');
+VALUES(2,'Men prefer “Christmas Cakes”, study reveals',@content,'1999-12-20 12:00:00');
 
 -- Day 11 articles
 
@@ -251,8 +251,20 @@ Prime Minister QUINCY revealed this morning that the government plans to have a 
 <br><br>
 Some experts say that private companies are no longer working at full capacity, which is unsurprising news given that the QUINCY government has seized most of them, resulting in the shortage crisis in the first place. ';
 INSERT INTO articles(article_author_id, article_title, article_text, article_publish_datetime)
-VALUES('2','QUINCY studies the possibility of allowing imports',@content,'1999-12-23 12:00:00');
+VALUES(2,'QUINCY studies the possibility of allowing imports',@content,'1999-12-23 12:00:00');
 
 INSERT INTO comments(article_id, comment_poster_id, comment_text, comment_post_datetime)
 VALUES(17,3,'test',NOW()),
 	  (17,3,'test2',NOW());
+      
+SET @content = 
+'This project took longer than I thought it would.
+<br><br>
+<p class=\'centered-text\'>( ͡° ͜ʖ ͡°)</p>
+<br>';
+INSERT INTO articles(article_author_id, article_title, article_text, article_publish_datetime)
+VALUES(4,'hello, computer user',@content,'2023-10-12 03:53:30');
+
+INSERT INTO comments(article_id, comment_poster_id, comment_text, comment_post_datetime)
+VALUES(17,4,'so true',NOW()),
+	  (18,4,'lurking in the comment section, really, a man of your talents?',NOW());

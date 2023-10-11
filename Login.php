@@ -19,16 +19,14 @@
             <form method='POST'>
                 <fieldset>
 
-                    <legend class='center'>
-                        <strong>Login</strong>
-                    </legend>
+                    <legend class='center'><strong>Login</strong></legend>
 
-                    <label for='email'>Email:</label>
+                    <label class='required' for='email'>Email:</label>
                     <input required type='text' id='email' name='user_email'></input>
 
                     <br/><br/>
 
-                    <label for='password'>Password:</label>
+                    <label class='required' for='password'>Password:</label>
                     <input required type='password' id='password' name='user_password'></input>
 
                     <br/><br/>
@@ -60,9 +58,7 @@
                 <form>
                     <fieldset>
 
-                        <legend class='center'>
-                            <strong>Don't have an account?</strong>
-                        </legend>
+                        <legend class='center'><strong>Don't have an account?</strong></legend>
 
                         <button class='submit-button' onclick="location.href='/The Augmented Eye/Registration'" type='button'>Register</button>
 

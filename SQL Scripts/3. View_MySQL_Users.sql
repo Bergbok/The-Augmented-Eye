@@ -1,0 +1,1 @@
+SELECT * FROM mysql.user WHERE Host = 'localhost';

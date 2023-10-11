@@ -161,7 +161,12 @@ function show_article_comment_section(int $article_id): void {
             echo '<fieldset>';
             echo '<img class=\'pfp-preview comment\' src=\'/The Augmented Eye/PHP Scripts/Get-Profile-Picture?user_id=' . $poster_info['user_id'] . '\'>'; 
             echo '<h3 align=left> &nbsp;By: <a href=\'/The Augmented Eye/Profile?profileID=' . $poster_info['user_id'] . '\'>' . $poster_info['user_name'] . ' ' . $poster_info["user_surname"] . '</a></h3>';
-            echo '<h4> Posted @ ' . $comment['comment_post_datetime'] . '<br> (' .  time_ago(time() - strtotime($comment['comment_post_datetime'])) . ' ago)</h4>'; 
+            $time_ago = time_ago(time() - strtotime($comment['comment_post_datetime']));
+            if ($time_ago != '') {
+                echo '<h4> Posted @ ' . $comment['comment_post_datetime'] . '<br> (' . $time_ago . ' ago)</h4>'; 
+            } else {
+                echo '<h4> Posted @ ' . $comment['comment_post_datetime'] . '<br> (posted very recently)</h4>'; 
+            }
             echo '<br>';
             echo '<p>' . $comment['comment_text'] . '</p>';
             echo '<br>';

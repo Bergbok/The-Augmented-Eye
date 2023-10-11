@@ -29,13 +29,14 @@
                             echo '<a class=\'dark-text\' href=\'/The Augmented Eye/Login\'> LOGIN </a>';
                             echo '</div>';
                         } else {
+                            echo '  <legend class=\'center\'>Upload Gallery</legend>';
                             echo '<div class=\'centered-text\'>';
-                            echo '<label for=\'titleInput\'>Title:</label>';
+                            echo '<label class=\'required\' for=\'titleInput\'>Title:</label>';
                             echo '<input required type=\'text\' id=\'titleInput\' name=\'gallery_title\'></input>';
                             echo '<h3> Images: </h1>';
                             echo '</div>';
 
-                            echo '<input required  class=\'full-width\' type="file" name="gallery_photos[]" multiple/></input>';
+                            echo '<input required  class=\'required full-width\' type="file" name="gallery_photos[]" multiple/></input>';
                             echo '<br><br>';
                             echo '<input class=\'submit-button\' type=\'submit\' value=\'Upload\' name=\'upload\'></input>';
                         }

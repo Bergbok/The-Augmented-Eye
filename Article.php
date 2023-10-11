@@ -60,7 +60,6 @@
                     ];
                     
                     if (insert('comments', $column_names, $prepared_statement, $values)) {
-                        sleep(2);
                         include_once 'PHP Scripts/Current-Page-Info.php';
                         header('Location: ' . get_current_page_info('url'));
                     }                   
