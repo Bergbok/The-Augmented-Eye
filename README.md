@@ -279,6 +279,7 @@ I was kinda in a rush to get this finished tho, wanted to move on to the next pr
 
 - [ ] Media queries for resizing elements based on viewport size.
 - [ ] Responsive arrow when hovering over welcome message.
+- [ ] More form validation checks.
 - [ ] User bio.
 - [ ] View users post history on profile.
 - [ ] Let the user update the rest of their information aswell, at the moment they can only update their password and profile picture.
