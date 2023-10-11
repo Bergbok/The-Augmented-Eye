@@ -57,7 +57,7 @@ function show_gallery_images(array $gallery_info): void {
 
     foreach ($image_list as $image_name) {
         // echo 'GET REQUEST: ?gallery_id=' . $gallery_id . '&image_name=' . $image_name . '<br>';
-        echo '<img src=\'/The Augmented Eye/PHP Scripts/Get-Gallery-Picture?gallery_id=' . $gallery_id . '&image_name=' . $image_name . '\'></img>';
+        echo '<img style=\'width:100%;\' src=\'/The Augmented Eye/PHP Scripts/Get-Gallery-Picture?gallery_id=' . $gallery_id . '&image_name=' . $image_name . '\'></img>';
         echo '<br>';
     }
 
@@ -76,6 +76,7 @@ function show_gallery_links(string $order_by_column, string $order_by_direction,
     $include_article_author_in_link = false;
     $show_select_info = false;
 
+    // Selects galleries
     $columns = '*';
     $table = 'galleries';
     $fetch_multiple_rows = true;
