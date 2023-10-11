@@ -1,4 +1,10 @@
-// From: https://github.com/lukeiszed/Hacked-Text
+/*
+ * Filename: copyToClipboard.js
+ * Author: Luca (https://github.com/lukeiszed)
+ * From: https://github.com/lukeiszed/Hacked-Text
+ * Description: Shows a fancy lil hack-like effect on some text.
+*/
+
 let decodedText = '';
 let index = 0;
 let splitText = [];

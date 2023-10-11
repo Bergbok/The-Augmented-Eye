@@ -23,13 +23,10 @@ function login(): bool {
     ];
 
     $user_info = select($columns, $table, $where_clause, $where_values);
-    // $user_info = select_user($where_clause, $where_values);
 
     !empty($user_info) ? $user_exists = true : $user_exists = false;
 
     if ($user_exists) {
-        //print_r($user_info);
-
         $_SESSION['logged_in'] = true;
         $_SESSION['logged_in_since'] = date('d-m-y h:i:s');
         $_SESSION['user_id'] = $user_info['user_id'];
