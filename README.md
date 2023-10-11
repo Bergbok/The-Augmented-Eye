@@ -3,28 +3,26 @@
 </p>
 
 # Table of Contents:
-- [Description of Application](https://github.com/Bergbok/The-Augmented-Eye/main/README.md#description-of-application)
-- [Installation & Setup](https://github.com/Bergbok/The-Augmented-Eye/main/README.md#table-of-contents)
-  - [Install XAMPP & services](https://github.com/Bergbok/The-Augmented-Eye/main/README.md#installation--setup)
-  - [Setting up emails](https://github.com/Bergbok/The-Augmented-Eye/main/README.md#setting-up-emails)
-    - [Edit sendmail.ini](https://github.com/Bergbok/The-Augmented-Eye/main/README.md#edit-sendmailini)
-    - [Edit php.ini](https://github.com/Bergbok/The-Augmented-Eye/main/README.md#edit-phpini)
-    - [If you plan on using a Gmail email](https://github.com/Bergbok/The-Augmented-Eye/main/README.md#if-you-plan-on-using-a-gmail-email) 
-  - [Enabling mod_rewrite](https://github.com/Bergbok/The-Augmented-Eye/main/README.md#enabling-mod_rewrite)
-  - [Setting up FileZilla (FTP)](https://github.com/Bergbok/The-Augmented-Eye/main/README.md#setting-up-filezilla-ftp-)
-  - [Setting up database (MySQL)](https://github.com/Bergbok/The-Augmented-Eye/main/README.md#setting-up-database-mysql)
-  - [Moving files to appropriate locations](https://github.com/Bergbok/The-Augmented-Eye/main/README.md#moving-files-to-appropriate-locations)
-- [How To Use](https://github.com/Bergbok/The-Augmented-Eye/main/README.md#how-to-use)
-  - [Features](https://github.com/Bergbok/The-Augmented-Eye/main/README.md#features)   
-- [Error Handling](https://github.com/Bergbok/The-Augmented-Eye/main/README.md#error-handling)
-  - [Unable to connect](https://github.com/Bergbok/The-Augmented-Eye/main/README.md#unable-to-connect)
-  - [Pictures not showing](https://github.com/Bergbok/The-Augmented-Eye/main/README.md#pictures-not-showing)
-  - [Database errors](https://github.com/Bergbok/The-Augmented-Eye/main/README.md#database-errors)
-- [Style Guide Followed](https://github.com/Bergbok/The-Augmented-Eye/main/README.md#style-guide-followed)
-- [Features I would've liked to implement](https://github.com/Bergbok/The-Augmented-Eye/main/README.md#features-i-wouldve-liked-to-implement)
-- [Resources Used](https://github.com/Bergbok/The-Augmented-Eye/main/README.md#resources-used)
-
-[Database-Handler.php](/PHP%20Scripts/Database-Handler.php)
+- [Description of Application](https://github.com/Bergbok/The-Augmented-Eye/tree/main/README.md#description-of-application)
+- [Installation & Setup](https://github.com/Bergbok/The-Augmented-Eye/tree/main/README.md#table-of-contents)
+  - [Install XAMPP & services](https://github.com/Bergbok/The-Augmented-Eye/tree/main/README.md#installation--setup)
+  - [Setting up emails](https://github.com/Bergbok/The-Augmented-Eye/tree/main/README.md#setting-up-emails)
+    - [Edit sendmail.ini](https://github.com/Bergbok/The-Augmented-Eye/tree/main/README.md#edit-sendmailini)
+    - [Edit php.ini](https://github.com/Bergbok/The-Augmented-Eye/tree/main/README.md#edit-phpini)
+    - [If you plan on using a Gmail email](https://github.com/Bergbok/The-Augmented-Eye/tree/main/README.md#if-you-plan-on-using-a-gmail-email) 
+  - [Enabling mod_rewrite](https://github.com/Bergbok/The-Augmented-Eye/tree/main/README.md#enabling-mod_rewrite)
+  - [Setting up FileZilla (FTP)](https://github.com/Bergbok/The-Augmented-Eye/tree/main/README.md#setting-up-filezilla-ftp-)
+  - [Setting up database (MySQL)](https://github.com/Bergbok/The-Augmented-Eye/tree/main/README.md#setting-up-database-mysql)
+  - [Moving files to appropriate locations](https://github.com/Bergbok/The-Augmented-Eye/tree/main/README.md#moving-files-to-appropriate-locations)
+- [How To Use](https://github.com/Bergbok/The-Augmented-Eye/tree/main/README.md#how-to-use)
+  - [Features](https://github.com/Bergbok/The-Augmented-Eye/tree/main/README.md#features)   
+- [Error Handling](https://github.com/Bergbok/The-Augmented-Eye/tree/main/README.md#error-handling)
+  - [Unable to connect](https://github.com/Bergbok/The-Augmented-Eye/tree/main/README.md#unable-to-connect)
+  - [Pictures not showing](https://github.com/Bergbok/The-Augmented-Eye/tree/main/README.md#pictures-not-showing)
+  - [Database errors](https://github.com/Bergbok/The-Augmented-Eye/tree/main/README.md#database-errors)
+- [Style Guide Followed](https://github.com/Bergbok/The-Augmented-Eye/tree/main/README.md#style-guide-followed)
+- [Features I would've liked to implement](https://github.com/Bergbok/The-Augmented-Eye/tree/main/README.md#features-i-wouldve-liked-to-implement)
+- [Resources Used](https://github.com/Bergbok/The-Augmented-Eye/tree/main/README.md#resources-used)
 
 ## Description of Application:
 
@@ -167,7 +165,7 @@ Copy [Donovan.webp](/Images/Staff/Donovan.webp) to from [Images/Staff](/Images/S
 Open MySQL Workbench
 Select Local Instance under MySQL connections.
 
-[Download this repository](https://github.com/Bergbok/The-Augmented-Eye/archive/refs/heads/main.zip)
+[Download this repository](https://github.com/Bergbok/The-Augmented-Eye/archive/refs/heads/tree/main.zip)
 
 Open the zip file and navigate to the [SQL Scripts folder](/SQL%20Scripts) in it.
 
@@ -187,7 +185,7 @@ $db_password = 'password -> that users password, probably empty';
 
 1. Navigate to your XAMPP installation folder.
 2. Create a folder in the htdocs folder named: The Augmented Eye
-3. [Download this repository](https://github.com/Bergbok/The-Augmented-Eye/archive/refs/heads/main.zip)
+3. [Download this repository](https://github.com/Bergbok/The-Augmented-Eye/archive/refs/heads/tree/main.zip)
 4. Open the zip file.
 5. Extract the contents of The-Augmented-Eye-main in the zip into the folder from step 2.
 # How To Use:
