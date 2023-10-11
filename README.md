@@ -1,4 +1,6 @@
-![logo](https://github.com/Bergbok/The-Augmented-Eye/assets/66174189/2ee6c729-9147-4f55-b498-abf709e34054)
+<p align="center">
+  <img src="https://github.com/Bergbok/The-Augmented-Eye/assets/66174189/2ee6c729-9147-4f55-b498-abf709e34054"/></img>
+</p>
 
 ## Description of Application:
 
