@@ -1,4 +1,4 @@
-<p align="center">
+![404](https://github.com/Bergbok/The-Augmented-Eye/assets/66174189/78af2456-865a-4c1b-9872-94692f23fe70)<p align="center">
   <img src="https://github.com/Bergbok/The-Augmented-Eye/assets/66174189/2ee6c729-9147-4f55-b498-abf709e34054"/></img>
 </p>
 
@@ -293,3 +293,85 @@ I was kinda in a rush to get this finished tho, wanted to move on to the next pr
 - http://www.htaccesseditor.com/en.shtml
 - https://www.addtoany.com/buttons/for/website
 - https://docs.phpdoc.org/3.0/guide/references/phpdoc/
+
+# Screenshots of Application:
+
+404:
+
+![404](https://github.com/Bergbok/The-Augmented-Eye/assets/66174189/ba8d4985-3bc0-46ad-a001-aa585ff1b8d8)
+
+About:
+
+![About](https://github.com/Bergbok/The-Augmented-Eye/assets/66174189/792b7670-2652-4bc4-93ec-431708097514)
+
+Article (lorem ipsum):
+
+![Article (lorem ipsum)](https://github.com/Bergbok/The-Augmented-Eye/assets/66174189/d749340a-6f7b-434c-8938-69f2d7eb39a0)
+
+Article:
+
+![Article](https://github.com/Bergbok/The-Augmented-Eye/assets/66174189/1af2e422-5ba9-4e49-aecc-926e3304d558)
+
+Compose Article:
+
+![Compose-Article](https://github.com/Bergbok/The-Augmented-Eye/assets/66174189/ae4e4c18-729b-48b7-95db-67b531b9f6a5)
+
+Compose Gallery:
+
+![Compose-Gallery](https://github.com/Bergbok/The-Augmented-Eye/assets/66174189/3a5a54b5-105d-4676-9b0a-bec69bb9052f)
+
+Contact Us:
+
+![Contact-Us](https://github.com/Bergbok/The-Augmented-Eye/assets/66174189/1680d676-7d60-4198-baca-c832f21793a1)
+
+Galleries:
+
+![Galleries](https://github.com/Bergbok/The-Augmented-Eye/assets/66174189/c381832b-ee8a-47b2-9c98-561497cbbf6e)
+
+Gallery:
+
+![Gallery](https://github.com/Bergbok/The-Augmented-Eye/assets/66174189/b6d9ce6b-3868-40bc-8ce1-a9ab31bb5d57)
+
+Header (admin):
+
+![Header (admin)](https://github.com/Bergbok/The-Augmented-Eye/assets/66174189/badad561-e7e8-4415-9d55-dc539b783b91)
+
+Header (normal user):
+
+![Header (normal user)](https://github.com/Bergbok/The-Augmented-Eye/assets/66174189/882a7a98-5c54-4368-8327-135fa8dc2f07)
+
+Home:
+
+![Home](https://github.com/Bergbok/The-Augmented-Eye/assets/66174189/e362239f-0682-4ba0-82cc-27936ebf09e6)
+
+Login:
+
+![Login](https://github.com/Bergbok/The-Augmented-Eye/assets/66174189/fca42cc0-4684-4c8f-b5d4-ab6ab0f7590b)
+
+Logout:
+
+![Logout](https://github.com/Bergbok/The-Augmented-Eye/assets/66174189/c2fce774-7cfd-4b36-9a3c-16158a9e655e)
+
+News:
+
+![News](https://github.com/Bergbok/The-Augmented-Eye/assets/66174189/7c176454-f3c8-4c45-8021-2e4b9e264a59)
+
+Profile (current user):
+
+![Profile (current user)](https://github.com/Bergbok/The-Augmented-Eye/assets/66174189/b0afe513-a464-483f-9b69-3ade4d8c864b)
+
+Profile (other user):
+
+![Profile (other user)](https://github.com/Bergbok/The-Augmented-Eye/assets/66174189/c90940e3-f27f-4f3d-9293-8b18d41f14cd)
+
+Profile Preview Hover:
+
+![Profile-Preview-Hover](https://github.com/Bergbok/The-Augmented-Eye/assets/66174189/dd7be31c-00f5-4b8e-b055-4d9d92be1ac5)
+
+Registration:
+
+![Registration](https://github.com/Bergbok/The-Augmented-Eye/assets/66174189/9895393f-86c3-48c2-b4ed-0649f4c361f2)
+
+Send Newsletter:
+
+![Send-Newsletter](https://github.com/Bergbok/The-Augmented-Eye/assets/66174189/d45c910d-213e-43fc-afa3-db74489c2ea0)
