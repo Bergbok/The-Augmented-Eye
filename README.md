@@ -1,4 +1,4 @@
-![404](https://github.com/Bergbok/The-Augmented-Eye/assets/66174189/78af2456-865a-4c1b-9872-94692f23fe70)<p align="center">
+<p align="center">
   <img src="https://github.com/Bergbok/The-Augmented-Eye/assets/66174189/2ee6c729-9147-4f55-b498-abf709e34054"/></img>
 </p>
 
