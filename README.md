@@ -287,6 +287,7 @@ I was kinda in a rush to get this finished tho, wanted to move on to the next pr
 - [ ] Seperating article/gallery view counts into its own table.
 - [ ] Filtering articles by tag.
 - [ ] More admin pages.
+- [ ] Help display based on current OS.
 - [ ] Proper [Post/Redirect/Get](https://en.wikipedia.org/wiki/Post/Redirect/Get) on submit
 
 # Resources Used:
