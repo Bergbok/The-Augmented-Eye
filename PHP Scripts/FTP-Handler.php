@@ -19,14 +19,15 @@ function connect_to_ftp_server(): bool | FTP\Connection {
     $ftp_password = 'FILEZILLA_PASSWORD';
 
     $ftp_connection = ftp_connect($ftp_hostname);
-    $login = ftp_login($ftp_connection, $ftp_username, $ftp_password);
-
+    
     if (!$ftp_connection) {
         return false;
         if ($show_connection_errors) {
             echo '<p class=\'centered-text error-message\'> Could not connect to FTP server </p>';
         }
     }
+
+    $login = ftp_login($ftp_connection, $ftp_username, $ftp_password);
 
     if (!$login) {
         return false;
