@@ -5,7 +5,7 @@
 # Table of Contents:
 - [Description of Application](https://github.com/Bergbok/The-Augmented-Eye/tree/main/README.md#description-of-application)
 - [Installation & Setup](https://github.com/Bergbok/The-Augmented-Eye/tree/main/README.md#table-of-contents)
-  - [Install XAMPP & services](https://github.com/Bergbok/The-Augmented-Eye/tree/main/README.md#installation--setup)
+  - [Install XAMPP & services](#installation--setup)
   - [Setting up emails](https://github.com/Bergbok/The-Augmented-Eye/tree/main/README.md#setting-up-emails)
     - [Edit sendmail.ini](https://github.com/Bergbok/The-Augmented-Eye/tree/main/README.md#edit-sendmailini)
     - [Edit php.ini](https://github.com/Bergbok/The-Augmented-Eye/tree/main/README.md#edit-phpini)
