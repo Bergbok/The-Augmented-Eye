@@ -18,7 +18,9 @@ function connect_to_ftp_server(): bool | FTP\Connection {
     $ftp_username = 'FILEZILLA_USER_NAME';
     $ftp_password = 'FILEZILLA_PASSWORD';
 
+    // Create connection to FTP server.
     $ftp_connection = ftp_connect($ftp_hostname);
+    // Logs into FTP server.
     $login = ftp_login($ftp_connection, $ftp_username, $ftp_password);
 
     if (!$ftp_connection) {

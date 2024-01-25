@@ -21,6 +21,7 @@ function send_password(): bool {
     $show_email_errors = false;
     $show_successfull_emails = false;
 
+    // Select user password 
     $columns = '*';
     $table = 'users';
     $where_clause = 'user_name = :name AND user_surname = :surname AND user_gender = :gender AND user_birthday = :birthday AND user_email = :email AND user_contact_num = :contactNo and user_subscribed_to_newsletter = :subscribedToNewsletter';
@@ -42,6 +43,7 @@ function send_password(): bool {
         if ($show_email_errors) { echo '<p class=\'error-message\'> Error sending email, couldn\'t find user </p><br>'; }
         return false;
     } else {
+        // Sending email
         global $from; 
 
         $headers ='from:' . $from;

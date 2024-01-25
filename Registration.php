@@ -19,17 +19,15 @@
              <form method='POST' enctype='multipart/form-data'>
                 <fieldset>
 
-                    <legend class='center'>
-                        <strong>Registration</strong>
-                    </legend>
+                    <legend class='center'><strong>Registration</strong></legend>
 
                     <label class='required' for='name'>Name:</label>
-                    <input required  type='text' id='name' name='new_user_name'></input>
+                    <input required type='text' id='name' name='new_user_name'></input>
 
                     <br/><br/>
 
                     <label class='required' for='surname'>Surname:</label>
-                    <input required  type='text' id='surname' name='new_user_surname'></input>
+                    <input required type='text' id='surname' name='new_user_surname'></input>
 
                     <br/><br/>
 
@@ -43,12 +41,12 @@
                     <br/><br/>
 
                     <label class='required' for='birthday'>Birthday:</label>
-                    <input required  type='date' id='birthday' name='new_user_birthday'></input>
+                    <input required type='date' id='birthday' name='new_user_birthday'></input>
 
                     <br/><br/>
 
                     <label class='required' for='email'>Email:</label>
-                    <input required  type='text' id='email' name='new_user_email'></input>
+                    <input required type='text' id='email' name='new_user_email'></input>
 
                     <br/><br/>
 

@@ -209,10 +209,9 @@ function show_article_links(string $order_by_column, string $order_by_direction,
     $include_article_author_in_link = false;
     $show_select_info = false;
 
+    // Selects articles
     $columns = '*';
     $table = 'articles';
-    // $where_clause = '';
-    // $where_values = [];
     $fetch_multiple_rows = true;
 
     $articles = select($columns, $table, '', [], $fetch_multiple_rows, $order_by_column, $order_by_direction, $row_limit);
