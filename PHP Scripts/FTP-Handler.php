@@ -30,6 +30,8 @@ function connect_to_ftp_server(): bool | FTP\Connection {
         }
     }
 
+    $login = ftp_login($ftp_connection, $ftp_username, $ftp_password);
+
     if (!$login) {
         return false;
         if ($show_connection_errors) {
