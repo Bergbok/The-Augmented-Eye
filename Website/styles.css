@@ -3,7 +3,7 @@
     Author: Albertus Cilliers
     Description: Most of the time spent on this project was spent tinkering in this file, provides styling properties to elements 
                  accross the entire website. 
-                 First time using CSS, suprisingly difficuly, but it's fun.
+                 First time using CSS, surprisingly fun.
 */
 
 @font-face {
@@ -391,5 +391,3 @@ textarea {
     text-decoration: none;
     color: initial;
 } */
-
-
