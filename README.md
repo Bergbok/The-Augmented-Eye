@@ -132,7 +132,7 @@ Under Account settings enable the Password checkbox.
 
 Enter FILEZILLA_PASSWORD as the password of the user.
 
-If you'd like to use a different username/password: you'll need to edit lines 18 & 19 in [PHP Scripts/FTP-Handler.php](/PHP%20Scripts/FTP-Handler.php)
+If you'd like to use a different username/password: you'll need to edit lines 18 & 19 in [PHP Scripts/FTP-Handler.php](/Website/PHP%20Scripts/FTP-Handler.php)
 
 ```
 $ftp_username = 'FILEZILLA_USER_NAME';
@@ -152,11 +152,11 @@ Navigate to the directory you selected:
 
 Create a directory called Profile Pictures
 
-Copy [pfp-placeholder.png](/Images/pfp-placeholder.png) from [Images](/Images) to the folder.
+Copy [pfp-placeholder.png](/Website/Images/pfp-placeholder.png) from [Images](/Website/Images) to the folder.
 
-Copy [Kimberly.webp](/Images/Staff/Kimberly.webp) to from [Images/Staff](/Images/Staff) to the folder & rename it to 1.webp
+Copy [Kimberly.webp](/Website/Images/Staff/Kimberly.webp) to from [Images/Staff](/Website/Images/Staff) to the folder & rename it to 1.webp
 
-Copy [Donovan.webp](/Images/Staff/Donovan.webp) to from [Images/Staff](/Images/Staff) to the folder & rename it to 3.webp
+Copy [Donovan.webp](/Website/Images/Staff/Donovan.webp) to from [Images/Staff](/Website/Images/Staff) to the folder & rename it to 3.webp
 
 ## Setting up database (MySQL):
 
@@ -168,13 +168,13 @@ Select Local Instance under MySQL connections.
 
 [Download this repository](https://github.com/Bergbok/The-Augmented-Eye/archive/refs/heads/tree/main.zip)
 
-Open the zip file and navigate to the [SQL Scripts folder](/SQL%20Scripts) in it.
+Open the zip file and navigate to the [SQL Scripts folder](/Website/SQL%20Scripts) in it.
 
 Drag and drop the 3 scripts into MySQL Workbench and run them.
 
 After running the third:
 
-Edit line 18 & 19 in [PHP Scripts/Database-Handler.php](/PHP%20Scripts/Database-Handler.php) to values from the [3. View_MySQL_Users.sql](/SQL%20Scripts/3.%20View_MySQL_Users.sql) script results:
+Edit line 18 & 19 in [PHP Scripts/Database-Handler.php](/Website/PHP%20Scripts/Database-Handler.php) to values from the [3. View_MySQL_Users.sql](/Website/SQL%20Scripts/3.%20View_MySQL_Users.sql) script results:
 
 ```
 $db_username = '~~username~~ -> a value from the User column'; 
@@ -244,7 +244,7 @@ Ensure Apache, MySQL and FileZilla are all running and configured correctly.
 
 ## Pictures not showing:
 
-Change line 17 in [PHP Scripts/FTP-Handler.php](/PHP%20Scripts/FTP-Handler.php)
+Change line 17 in [PHP Scripts/FTP-Handler.php](/Website/PHP%20Scripts/FTP-Handler.php)
 
 ```
 $ftp_hostname = '~~127.0.0.1~~ -> localhost';
@@ -267,7 +267,7 @@ Run the following in the MySQL Command Line Interface:
 GRANT ALL PRIVILEGES ON the_augmented_eye.* TO 'username'@'localhost';
 ```
 
-Change lines 18 & 19 in [PHP Scripts/Database-Handler.php](/PHP%20Scripts/Database-Handler.php) if needed.
+Change lines 18 & 19 in [PHP Scripts/Database-Handler.php](/Website/PHP%20Scripts/Database-Handler.php) if needed.
 # Style Guide Followed:
 
 https://gist.github.com/ryansechrest/8138375
